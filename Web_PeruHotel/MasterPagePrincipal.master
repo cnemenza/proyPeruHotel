@@ -1,0 +1,137 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPagePrincipal.master.cs" Inherits="MasterPagePrincipal" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+     <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css"/>
+    <title>PeruHotel</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+  
+<body>
+    <header>
+        <!-- cabezera con datos--->
+        <div class="container-fuid" id="cabezera">
+             <div class="container">
+               <div class="row">
+                     <div class="col-md-11 mt-2 mb-2">
+                         <div class="row p-1">
+                             <i class="fas fa-phone mr-2"></i> <h6>(01)661 3459</h6>
+                              <i class="fas fa-envelope ml-3 mr-2"></i> <h6>reservas@peruhotel.com</h6>
+                         </div>
+                               
+                      </div>
+                      <div class="col-md-1 mt-2 mb-1">
+                            <button type="button" class="btn btn-secondary btn-sm">Ingresar</button>
+                      </div>           
+                </div>
+            </div>
+        </div>
+        <!-- fin cabezera con datos--->
+
+         <!--nav--->
+            <div class="container-fluid" id="nav">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg navbar-light text-center style="background-color: white;"">
+                            <a class="navbar-brand" href="#"
+                                style=" margin-left: -50px;">
+                                  <img class="img-fluid w-75" width="30" height="30" src="imagenes/logo.png" alt="">
+                            </a>
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="
+                                            margin-left: 320px;">
+                            <div class="navbar-nav">
+                              <a class="nav-item nav-link hoveractive" href="#">Inicio</a>
+                              <a class="nav-item nav-link hoveractive" href="#">Habitaciones</a>
+                              <a class="nav-item nav-link hoveractive" href="#">Galeria</a>
+                                <a class="nav-item nav-link hoveractive" href="#">Ubicacion</a>
+                                <a class="nav-item nav-link hoveractive" href="#">Contacto</a>
+                                <a class="nav-item nav-link hoveractive" href="#">Mi cuenta</a>
+                            </div>
+                          </div>
+                     </nav>
+                </div>
+            </div>
+
+         <!--fin nav--->
+
+        <!--separador--->
+        <div class="container-fluid separador">
+
+        </div>
+        <!--fin separador--->
+
+ 
+        <!--inicio separador--->
+         <div class="container-fluid separador">
+
+        </div>
+        <!--fin separador--->
+
+    </header>
+
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+
+
+    <!--iniciando footer-->
+    <footer>
+        <div class="container-fluid" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4 class="mb-4 mt-2"><span class="borde">Conta</span>cto</h4>
+                        <div class="row ml-3 mb-1">
+                            <i class="fas fa-phone mr-2"></i> <h6>(01)661 3459</h6>
+                        </div>
+                        <div class="row ml-3 mb-1">
+                            <i class="fas fa-file-alt mr-2 "></i> <h6>Anexo 51</h6>
+                        </div>
+                        <div class="row ml-3 mb-1">
+                            <i class="fas fa-envelope mr-2"></i> <h6>reservas@peruhotel.com</h6>
+                        </div>
+                        <div class="row ml-3 mb-1">
+                            <i class="fas fa-map-marker-alt mr-2"></i> <h6>Av Paseo de la República 170</h6>
+                            <h6>Cercado de Lima 15001 WXV7+35 Lima</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                         <h4 class="mb-4 mt-2"><span class="borde">Siguen</span>os en</h4>
+                        <img class="mr-1" src="imagenes/facebook.png" height="40px" />
+                        <img class="mr-1" src="imagenes/youtube.png" height="40px" />
+                        <img class="" src="imagenes/twiter.png"height="40px"  />
+                    </div>
+                    <div class="col-md-4">
+                         <h4 class="mb-4 mt-2"><span class="borde">Nuest</span>a Ubicacion</h4>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.799861280128!2d-77.03921108529265!3d-12.057287191460254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c6d103eef1%3A0x21e996eeb5d06b7d!2sSheraton+Lima+Hotel+%26+Convention+Center!5e0!3m2!1ses!2spe!4v1539898491831" width="auto" height="auto" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--terminanod footer-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $('.carousel').carousel({
+            interval: 2000
+        })
+    </script>
+</body>
+</html>
