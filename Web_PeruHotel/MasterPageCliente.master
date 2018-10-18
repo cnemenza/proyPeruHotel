@@ -69,24 +69,25 @@
         <!--fin separador--->
 
  
-        <!--inicio separador--->
-         <div class="container-fluid separador">
-
-        </div>
-        <!--fin separador--->
+       
 
     </header>
     <form id="form1" runat="server">
-    <div>
+    <div class="container">
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
     </form>
+     <!--inicio separador--->
+         <div class="container-fluid separador">
+
+        </div>
+        <!--fin separador--->
  <!--iniciando footer-->
     <footer>
         <div class="container-fluid" id="footer">
-            <div class="container">
+            <div class="container p-3">
                 <div class="row">
                     <div class="col-md-4">
                         <h4 class="mb-4 mt-2"><span class="borde">Conta</span>cto</h4>
@@ -115,8 +116,25 @@
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.799861280128!2d-77.03921108529265!3d-12.057287191460254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c6d103eef1%3A0x21e996eeb5d06b7d!2sSheraton+Lima+Hotel+%26+Convention+Center!5e0!3m2!1ses!2spe!4v1539898491831" width="auto" height="auto" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                 </div>
+
+               
             </div>
+
         </div>
+
+         <div class =" container-fluid separador-footer"> </div>
+        <div class="container-fluid" id="footer">
+            <div class="container">
+                    <div class="row">
+                         <small class="m-2 ml-4 blockquote-footer">Peru Hotel &copy; Copyright 2018</small>
+                    </div>
+                </div>
+        </div>
+                
+            
+                
+              
+
     </footer>
 
     <!--terminanod footer-->

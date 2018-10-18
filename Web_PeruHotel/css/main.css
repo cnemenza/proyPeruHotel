@@ -28,3 +28,8 @@
 .borde{
     border-bottom:5px solid #FC9D03;
 }
+
+.separador-footer{
+    height:3px;
+    background-color:dimgray;
+}
