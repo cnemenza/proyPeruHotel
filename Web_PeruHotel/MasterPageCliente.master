@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPagePrincipal.master.cs" Inherits="MasterPagePrincipal" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageCliente.master.cs" Inherits="MasterPageCliente" %>
 
 <!DOCTYPE html>
 
@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css"/>
+
     <title>PeruHotel</title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-  
 <body>
-    <header>
+     <header>
         <!-- cabezera con datos--->
         <div class="container-fuid" id="cabezera">
              <div class="container">
@@ -48,14 +48,12 @@
                             <span class="navbar-toggler-icon"></span>
                           </button>
                           <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="
-                                            margin-left: 320px;">
+                                            margin-left: 530px;">
                             <div class="navbar-nav">
-                              <a class="nav-item nav-link hoveractive" href="#">Inicio</a>
-                              <a class="nav-item nav-link hoveractive" href="#">Habitaciones</a>
-                              <a class="nav-item nav-link hoveractive" href="#">Galeria</a>
-                                <a class="nav-item nav-link hoveractive" href="#">Ubicacion</a>
-                                <a class="nav-item nav-link hoveractive" href="#">Contacto</a>
-                                <a class="nav-item nav-link hoveractive" href="#">Mi cuenta</a>
+                              <a class="nav-item nav-link hoveractive" href="#">Reservar</a>
+                              <a class="nav-item nav-link hoveractive" href="#">Mis Reservas</a>
+                              <a class="nav-item nav-link hoveractive" href="#">Mis Datos</a>
+  
                             </div>
                           </div>
                      </nav>
@@ -78,7 +76,6 @@
         <!--fin separador--->
 
     </header>
-
     <form id="form1" runat="server">
     <div>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
@@ -86,9 +83,7 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
-
-
-    <!--iniciando footer-->
+ <!--iniciando footer-->
     <footer>
         <div class="container-fluid" id="footer">
             <div class="container">
