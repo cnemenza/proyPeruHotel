@@ -1,0 +1,975 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PeruHotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADMINISTRADOR">
+          <Key>
+            <PropertyRef Name="id_admi" />
+          </Key>
+          <Property Name="id_admi" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="admi_nom" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="admi_apePater" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="admi_apeMater" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="admi_codigo" Type="varchar" MaxLength="20" />
+          <Property Name="admi_contra" Type="varchar" MaxLength="50" />
+          <Property Name="admi_dni" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="admi_direccion" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="admi_estado" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="clie_nom" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="clie_apePater" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="clie_apeMater" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="clie_correo" Type="varchar" MaxLength="120" />
+          <Property Name="clie_tipoDocumento" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="clie_documento" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="id_Pais" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="clie_codigo" Type="varchar" MaxLength="20" />
+          <Property Name="clie_contra" Type="varchar" MaxLength="50" />
+          <Property Name="clie_sexo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="clie_estado" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_HOTEL">
+          <Key>
+            <PropertyRef Name="id_admi" />
+            <PropertyRef Name="id_hotel" />
+          </Key>
+          <Property Name="id_admi" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="id_hotel" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_RESERVA">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+            <PropertyRef Name="id_habitacion" />
+          </Key>
+          <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="id_habitacion" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_SERVICIO">
+          <Key>
+            <PropertyRef Name="id_servicio" />
+            <PropertyRef Name="id_reserva" />
+          </Key>
+          <Property Name="id_servicio" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HABITACION">
+          <Key>
+            <PropertyRef Name="id_habitacion" />
+          </Key>
+          <Property Name="id_habitacion" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="habi_num" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="habi_piso" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="habi_estado" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="id_tipo_habi" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="id_hotel" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HOTEL">
+          <Key>
+            <PropertyRef Name="id_hotel" />
+          </Key>
+          <Property Name="id_hotel" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="hotel_direcc" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="hotel_descrip" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="PAIS">
+          <Key>
+            <PropertyRef Name="id_Pais" />
+          </Key>
+          <Property Name="id_Pais" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="pais_nom" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROMOCION">
+          <Key>
+            <PropertyRef Name="id_promocion" />
+          </Key>
+          <Property Name="id_promocion" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="prom_descuento" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="prom_descripcion" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="RESERVA">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+          </Key>
+          <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="id_promocion" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="reser_fechaReser" Type="date" Nullable="false" />
+          <Property Name="reser_fechaIngreso" Type="date" Nullable="false" />
+          <Property Name="reser_fechaSalida" Type="date" />
+          <Property Name="reser_estado" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERVICIO">
+          <Key>
+            <PropertyRef Name="id_servicio" />
+          </Key>
+          <Property Name="id_servicio" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="servi_nom" Type="varchar" MaxLength="50" />
+          <Property Name="servi_descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="servi_precio" Type="decimal" Precision="19" Scale="2" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TIPO_HABITACION">
+          <Key>
+            <PropertyRef Name="id_tipo_habi" />
+          </Key>
+          <Property Name="id_tipo_habi" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="tipo_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipo_descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="tipo_precio" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="tipo_num_camas" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CLIENTE__id_Pais__45F365D3">
+          <End Role="PAIS" Type="Self.PAIS" Multiplicity="1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAIS">
+              <PropertyRef Name="id_Pais" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="id_Pais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_H__id_ad__4222D4EF">
+          <End Role="ADMINISTRADOR" Type="Self.ADMINISTRADOR" Multiplicity="1" />
+          <End Role="DETALLE_HOTEL" Type="Self.DETALLE_HOTEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADMINISTRADOR">
+              <PropertyRef Name="id_admi" />
+            </Principal>
+            <Dependent Role="DETALLE_HOTEL">
+              <PropertyRef Name="id_admi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_H__id_ho__412EB0B6">
+          <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="1" />
+          <End Role="DETALLE_HOTEL" Type="Self.DETALLE_HOTEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOTEL">
+              <PropertyRef Name="id_hotel" />
+            </Principal>
+            <Dependent Role="DETALLE_HOTEL">
+              <PropertyRef Name="id_hotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_R__id_ha__403A8C7D">
+          <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="1" />
+          <End Role="DETALLE_RESERVA" Type="Self.DETALLE_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HABITACION">
+              <PropertyRef Name="id_habitacion" />
+            </Principal>
+            <Dependent Role="DETALLE_RESERVA">
+              <PropertyRef Name="id_habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_R__id_re__3F466844">
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+          <End Role="DETALLE_RESERVA" Type="Self.DETALLE_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESERVA">
+              <PropertyRef Name="id_reserva" />
+            </Principal>
+            <Dependent Role="DETALLE_RESERVA">
+              <PropertyRef Name="id_reserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_S__id_re__440B1D61">
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
+          <End Role="DETALLE_SERVICIO" Type="Self.DETALLE_SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RESERVA">
+              <PropertyRef Name="id_reserva" />
+            </Principal>
+            <Dependent Role="DETALLE_SERVICIO">
+              <PropertyRef Name="id_reserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_S__id_se__44FF419A">
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="1" />
+          <End Role="DETALLE_SERVICIO" Type="Self.DETALLE_SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIO">
+              <PropertyRef Name="id_servicio" />
+            </Principal>
+            <Dependent Role="DETALLE_SERVICIO">
+              <PropertyRef Name="id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HABITACIO__id_ho__3C69FB99">
+          <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="1" />
+          <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOTEL">
+              <PropertyRef Name="id_hotel" />
+            </Principal>
+            <Dependent Role="HABITACION">
+              <PropertyRef Name="id_hotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HABITACIO__id_ti__3D5E1FD2">
+          <End Role="TIPO_HABITACION" Type="Self.TIPO_HABITACION" Multiplicity="1" />
+          <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_HABITACION">
+              <PropertyRef Name="id_tipo_habi" />
+            </Principal>
+            <Dependent Role="HABITACION">
+              <PropertyRef Name="id_tipo_habi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RESERVA__id_clie__3E52440B">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="RESERVA">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RESERVA__id_prom__4316F928">
+          <End Role="PROMOCION" Type="Self.PROMOCION" Multiplicity="1" />
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROMOCION">
+              <PropertyRef Name="id_promocion" />
+            </Principal>
+            <Dependent Role="RESERVA">
+              <PropertyRef Name="id_promocion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="usp_ActualizarAdministrador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_admi" Type="char" Mode="In" />
+          <Parameter Name="admi_nom" Type="varchar" Mode="In" />
+          <Parameter Name="admi_apePater" Type="varchar" Mode="In" />
+          <Parameter Name="admi_apeMater" Type="varchar" Mode="In" />
+          <Parameter Name="admi_codigo" Type="varchar" Mode="In" />
+          <Parameter Name="admi_contra" Type="varchar" Mode="In" />
+          <Parameter Name="admi_dni" Type="char" Mode="In" />
+          <Parameter Name="admi_direccion" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ActualizarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_cliente" Type="char" Mode="In" />
+          <Parameter Name="clie_nom" Type="varchar" Mode="In" />
+          <Parameter Name="clie_apePater" Type="varchar" Mode="In" />
+          <Parameter Name="clie_apeMater" Type="varchar" Mode="In" />
+          <Parameter Name="clie_correo" Type="varchar" Mode="In" />
+          <Parameter Name="clie_tipoDocumento" Type="char" Mode="In" />
+          <Parameter Name="clie_documento" Type="varchar" Mode="In" />
+          <Parameter Name="id_Pais" Type="char" Mode="In" />
+          <Parameter Name="clie_codigo" Type="varchar" Mode="In" />
+          <Parameter Name="clie_contra" Type="varchar" Mode="In" />
+          <Parameter Name="clie_sexo" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_ConsultarAdministrador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_admi" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_ConsultarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_cliente" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_EliminarAdministrador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_admi" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_EliminarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_cliente" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertarAdministrador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="admi_nom" Type="varchar" Mode="In" />
+          <Parameter Name="admi_apePater" Type="varchar" Mode="In" />
+          <Parameter Name="admi_apeMater" Type="varchar" Mode="In" />
+          <Parameter Name="admi_codigo" Type="varchar" Mode="In" />
+          <Parameter Name="admi_contra" Type="varchar" Mode="In" />
+          <Parameter Name="admi_dni" Type="char" Mode="In" />
+          <Parameter Name="admi_direccion" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="clie_nom" Type="varchar" Mode="In" />
+          <Parameter Name="clie_apePater" Type="varchar" Mode="In" />
+          <Parameter Name="clie_apeMater" Type="varchar" Mode="In" />
+          <Parameter Name="clie_correo" Type="varchar" Mode="In" />
+          <Parameter Name="clie_tipoDocumento" Type="char" Mode="In" />
+          <Parameter Name="clie_documento" Type="varchar" Mode="In" />
+          <Parameter Name="id_Pais" Type="char" Mode="In" />
+          <Parameter Name="clie_codigo" Type="varchar" Mode="In" />
+          <Parameter Name="clie_contra" Type="varchar" Mode="In" />
+          <Parameter Name="clie_sexo" Type="char" Mode="In" />
+        </Function>
+        <EntityContainer Name="PeruHotelModelStoreContainer">
+          <EntitySet Name="ADMINISTRADOR" EntityType="Self.ADMINISTRADOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLE_HOTEL" EntityType="Self.DETALLE_HOTEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLE_RESERVA" EntityType="Self.DETALLE_RESERVA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLE_SERVICIO" EntityType="Self.DETALLE_SERVICIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HABITACION" EntityType="Self.HABITACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOTEL" EntityType="Self.HOTEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAIS" EntityType="Self.PAIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROMOCION" EntityType="Self.PROMOCION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RESERVA" EntityType="Self.RESERVA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_HABITACION" EntityType="Self.TIPO_HABITACION" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CLIENTE__id_Pais__45F365D3" Association="Self.FK__CLIENTE__id_Pais__45F365D3">
+            <End Role="PAIS" EntitySet="PAIS" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_H__id_ad__4222D4EF" Association="Self.FK__DETALLE_H__id_ad__4222D4EF">
+            <End Role="ADMINISTRADOR" EntitySet="ADMINISTRADOR" />
+            <End Role="DETALLE_HOTEL" EntitySet="DETALLE_HOTEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_H__id_ho__412EB0B6" Association="Self.FK__DETALLE_H__id_ho__412EB0B6">
+            <End Role="HOTEL" EntitySet="HOTEL" />
+            <End Role="DETALLE_HOTEL" EntitySet="DETALLE_HOTEL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_R__id_ha__403A8C7D" Association="Self.FK__DETALLE_R__id_ha__403A8C7D">
+            <End Role="HABITACION" EntitySet="HABITACION" />
+            <End Role="DETALLE_RESERVA" EntitySet="DETALLE_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_R__id_re__3F466844" Association="Self.FK__DETALLE_R__id_re__3F466844">
+            <End Role="RESERVA" EntitySet="RESERVA" />
+            <End Role="DETALLE_RESERVA" EntitySet="DETALLE_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_S__id_re__440B1D61" Association="Self.FK__DETALLE_S__id_re__440B1D61">
+            <End Role="RESERVA" EntitySet="RESERVA" />
+            <End Role="DETALLE_SERVICIO" EntitySet="DETALLE_SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_S__id_se__44FF419A" Association="Self.FK__DETALLE_S__id_se__44FF419A">
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+            <End Role="DETALLE_SERVICIO" EntitySet="DETALLE_SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HABITACIO__id_ho__3C69FB99" Association="Self.FK__HABITACIO__id_ho__3C69FB99">
+            <End Role="HOTEL" EntitySet="HOTEL" />
+            <End Role="HABITACION" EntitySet="HABITACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HABITACIO__id_ti__3D5E1FD2" Association="Self.FK__HABITACIO__id_ti__3D5E1FD2">
+            <End Role="TIPO_HABITACION" EntitySet="TIPO_HABITACION" />
+            <End Role="HABITACION" EntitySet="HABITACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RESERVA__id_clie__3E52440B" Association="Self.FK__RESERVA__id_clie__3E52440B">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="RESERVA" EntitySet="RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RESERVA__id_prom__4316F928" Association="Self.FK__RESERVA__id_prom__4316F928">
+            <End Role="PROMOCION" EntitySet="PROMOCION" />
+            <End Role="RESERVA" EntitySet="RESERVA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PeruHotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADMINISTRADOR">
+          <Key>
+            <PropertyRef Name="id_admi" />
+          </Key>
+          <Property Name="id_admi" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="admi_nom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="admi_apePater" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="admi_apeMater" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="admi_codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="admi_contra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="admi_dni" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="admi_direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="admi_estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="HOTEL" Relationship="Self.DETALLE_HOTEL" FromRole="ADMINISTRADOR" ToRole="HOTEL" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="clie_nom" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clie_apePater" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clie_apeMater" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clie_correo" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="clie_tipoDocumento" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="clie_documento" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_Pais" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="clie_codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="clie_contra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="clie_sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="clie_estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PAIS" Relationship="Self.FK__CLIENTE__id_Pais__45F365D3" FromRole="CLIENTE" ToRole="PAIS" />
+          <NavigationProperty Name="RESERVA" Relationship="Self.FK__RESERVA__id_clie__3E52440B" FromRole="CLIENTE" ToRole="RESERVA" />
+        </EntityType>
+        <EntityType Name="HABITACION">
+          <Key>
+            <PropertyRef Name="id_habitacion" />
+          </Key>
+          <Property Name="id_habitacion" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="habi_num" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="habi_piso" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="habi_estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="id_tipo_habi" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="id_hotel" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="HOTEL" Relationship="Self.FK__HABITACIO__id_ho__3C69FB99" FromRole="HABITACION" ToRole="HOTEL" />
+          <NavigationProperty Name="TIPO_HABITACION" Relationship="Self.FK__HABITACIO__id_ti__3D5E1FD2" FromRole="HABITACION" ToRole="TIPO_HABITACION" />
+          <NavigationProperty Name="RESERVA" Relationship="Self.DETALLE_RESERVA" FromRole="HABITACION" ToRole="RESERVA" />
+        </EntityType>
+        <EntityType Name="HOTEL">
+          <Key>
+            <PropertyRef Name="id_hotel" />
+          </Key>
+          <Property Name="id_hotel" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="hotel_direcc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hotel_descrip" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HABITACION" Relationship="Self.FK__HABITACIO__id_ho__3C69FB99" FromRole="HOTEL" ToRole="HABITACION" />
+          <NavigationProperty Name="ADMINISTRADOR" Relationship="Self.DETALLE_HOTEL" FromRole="HOTEL" ToRole="ADMINISTRADOR" />
+        </EntityType>
+        <EntityType Name="PAIS">
+          <Key>
+            <PropertyRef Name="id_Pais" />
+          </Key>
+          <Property Name="id_Pais" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="pais_nom" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__CLIENTE__id_Pais__45F365D3" FromRole="PAIS" ToRole="CLIENTE" />
+        </EntityType>
+        <EntityType Name="PROMOCION">
+          <Key>
+            <PropertyRef Name="id_promocion" />
+          </Key>
+          <Property Name="id_promocion" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="prom_descuento" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="prom_descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RESERVA" Relationship="Self.FK__RESERVA__id_prom__4316F928" FromRole="PROMOCION" ToRole="RESERVA" />
+        </EntityType>
+        <EntityType Name="RESERVA">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+          </Key>
+          <Property Name="id_reserva" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="id_cliente" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="id_promocion" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="reser_fechaReser" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="reser_fechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="reser_fechaSalida" Type="DateTime" Precision="0" />
+          <Property Name="reser_estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__RESERVA__id_clie__3E52440B" FromRole="RESERVA" ToRole="CLIENTE" />
+          <NavigationProperty Name="PROMOCION" Relationship="Self.FK__RESERVA__id_prom__4316F928" FromRole="RESERVA" ToRole="PROMOCION" />
+          <NavigationProperty Name="HABITACION" Relationship="Self.DETALLE_RESERVA" FromRole="RESERVA" ToRole="HABITACION" />
+          <NavigationProperty Name="SERVICIO" Relationship="Self.DETALLE_SERVICIO" FromRole="RESERVA" ToRole="SERVICIO" />
+        </EntityType>
+        <EntityType Name="SERVICIO">
+          <Key>
+            <PropertyRef Name="id_servicio" />
+          </Key>
+          <Property Name="id_servicio" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="servi_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="servi_descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="servi_precio" Type="Decimal" Precision="19" Scale="2" />
+          <NavigationProperty Name="RESERVA" Relationship="Self.DETALLE_SERVICIO" FromRole="SERVICIO" ToRole="RESERVA" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TIPO_HABITACION">
+          <Key>
+            <PropertyRef Name="id_tipo_habi" />
+          </Key>
+          <Property Name="id_tipo_habi" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="tipo_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo_descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_precio" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="tipo_num_camas" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="HABITACION" Relationship="Self.FK__HABITACIO__id_ti__3D5E1FD2" FromRole="TIPO_HABITACION" ToRole="HABITACION" />
+        </EntityType>
+        <Association Name="FK__CLIENTE__id_Pais__45F365D3">
+          <End Role="PAIS" Type="Self.PAIS" Multiplicity="1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAIS">
+              <PropertyRef Name="id_Pais" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="id_Pais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RESERVA__id_clie__3E52440B">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="RESERVA">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HABITACIO__id_ho__3C69FB99">
+          <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="1" />
+          <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOTEL">
+              <PropertyRef Name="id_hotel" />
+            </Principal>
+            <Dependent Role="HABITACION">
+              <PropertyRef Name="id_hotel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HABITACIO__id_ti__3D5E1FD2">
+          <End Role="TIPO_HABITACION" Type="Self.TIPO_HABITACION" Multiplicity="1" />
+          <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_HABITACION">
+              <PropertyRef Name="id_tipo_habi" />
+            </Principal>
+            <Dependent Role="HABITACION">
+              <PropertyRef Name="id_tipo_habi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RESERVA__id_prom__4316F928">
+          <End Role="PROMOCION" Type="Self.PROMOCION" Multiplicity="1" />
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROMOCION">
+              <PropertyRef Name="id_promocion" />
+            </Principal>
+            <Dependent Role="RESERVA">
+              <PropertyRef Name="id_promocion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_HOTEL">
+          <End Role="ADMINISTRADOR" Type="Self.ADMINISTRADOR" Multiplicity="*" />
+          <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="*" />
+        </Association>
+        <Association Name="DETALLE_RESERVA">
+          <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="*" />
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+        </Association>
+        <Association Name="DETALLE_SERVICIO">
+          <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="PeruHotelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADMINISTRADOR" EntityType="Self.ADMINISTRADOR" />
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+          <EntitySet Name="HABITACION" EntityType="Self.HABITACION" />
+          <EntitySet Name="HOTEL" EntityType="Self.HOTEL" />
+          <EntitySet Name="PAIS" EntityType="Self.PAIS" />
+          <EntitySet Name="PROMOCION" EntityType="Self.PROMOCION" />
+          <EntitySet Name="RESERVA" EntityType="Self.RESERVA" />
+          <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TIPO_HABITACION" EntityType="Self.TIPO_HABITACION" />
+          <AssociationSet Name="FK__CLIENTE__id_Pais__45F365D3" Association="Self.FK__CLIENTE__id_Pais__45F365D3">
+            <End Role="PAIS" EntitySet="PAIS" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RESERVA__id_clie__3E52440B" Association="Self.FK__RESERVA__id_clie__3E52440B">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="RESERVA" EntitySet="RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HABITACIO__id_ho__3C69FB99" Association="Self.FK__HABITACIO__id_ho__3C69FB99">
+            <End Role="HOTEL" EntitySet="HOTEL" />
+            <End Role="HABITACION" EntitySet="HABITACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HABITACIO__id_ti__3D5E1FD2" Association="Self.FK__HABITACIO__id_ti__3D5E1FD2">
+            <End Role="TIPO_HABITACION" EntitySet="TIPO_HABITACION" />
+            <End Role="HABITACION" EntitySet="HABITACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RESERVA__id_prom__4316F928" Association="Self.FK__RESERVA__id_prom__4316F928">
+            <End Role="PROMOCION" EntitySet="PROMOCION" />
+            <End Role="RESERVA" EntitySet="RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_HOTEL" Association="Self.DETALLE_HOTEL">
+            <End Role="ADMINISTRADOR" EntitySet="ADMINISTRADOR" />
+            <End Role="HOTEL" EntitySet="HOTEL" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_RESERVA" Association="Self.DETALLE_RESERVA">
+            <End Role="HABITACION" EntitySet="HABITACION" />
+            <End Role="RESERVA" EntitySet="RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_SERVICIO" Association="Self.DETALLE_SERVICIO">
+            <End Role="RESERVA" EntitySet="RESERVA" />
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+          </AssociationSet>
+          <FunctionImport Name="usp_ActualizarAdministrador">
+            <Parameter Name="id_admi" Mode="In" Type="String" />
+            <Parameter Name="admi_nom" Mode="In" Type="String" />
+            <Parameter Name="admi_apePater" Mode="In" Type="String" />
+            <Parameter Name="admi_apeMater" Mode="In" Type="String" />
+            <Parameter Name="admi_codigo" Mode="In" Type="String" />
+            <Parameter Name="admi_contra" Mode="In" Type="String" />
+            <Parameter Name="admi_dni" Mode="In" Type="String" />
+            <Parameter Name="admi_direccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ActualizarCliente">
+            <Parameter Name="id_cliente" Mode="In" Type="String" />
+            <Parameter Name="clie_nom" Mode="In" Type="String" />
+            <Parameter Name="clie_apePater" Mode="In" Type="String" />
+            <Parameter Name="clie_apeMater" Mode="In" Type="String" />
+            <Parameter Name="clie_correo" Mode="In" Type="String" />
+            <Parameter Name="clie_tipoDocumento" Mode="In" Type="String" />
+            <Parameter Name="clie_documento" Mode="In" Type="String" />
+            <Parameter Name="id_Pais" Mode="In" Type="String" />
+            <Parameter Name="clie_codigo" Mode="In" Type="String" />
+            <Parameter Name="clie_contra" Mode="In" Type="String" />
+            <Parameter Name="clie_sexo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ConsultarAdministrador" ReturnType="Collection(PeruHotelModel.usp_ConsultarAdministrador_Result)">
+            <Parameter Name="id_admi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ConsultarCliente" ReturnType="Collection(PeruHotelModel.usp_ConsultarCliente_Result)">
+            <Parameter Name="id_cliente" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarAdministrador">
+            <Parameter Name="id_admi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarCliente">
+            <Parameter Name="id_cliente" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertarAdministrador">
+            <Parameter Name="admi_nom" Mode="In" Type="String" />
+            <Parameter Name="admi_apePater" Mode="In" Type="String" />
+            <Parameter Name="admi_apeMater" Mode="In" Type="String" />
+            <Parameter Name="admi_codigo" Mode="In" Type="String" />
+            <Parameter Name="admi_contra" Mode="In" Type="String" />
+            <Parameter Name="admi_dni" Mode="In" Type="String" />
+            <Parameter Name="admi_direccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertarCliente">
+            <Parameter Name="clie_nom" Mode="In" Type="String" />
+            <Parameter Name="clie_apePater" Mode="In" Type="String" />
+            <Parameter Name="clie_apeMater" Mode="In" Type="String" />
+            <Parameter Name="clie_correo" Mode="In" Type="String" />
+            <Parameter Name="clie_tipoDocumento" Mode="In" Type="String" />
+            <Parameter Name="clie_documento" Mode="In" Type="String" />
+            <Parameter Name="id_Pais" Mode="In" Type="String" />
+            <Parameter Name="clie_codigo" Mode="In" Type="String" />
+            <Parameter Name="clie_contra" Mode="In" Type="String" />
+            <Parameter Name="clie_sexo" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="usp_ConsultarAdministrador_Result">
+          <Property Type="String" Name="id_admi" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="admi_nom" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="admi_apePater" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="admi_apeMater" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="admi_codigo" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="admi_contra" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="admi_dni" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="admi_direccion" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="admi_estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="usp_ConsultarCliente_Result">
+          <Property Type="String" Name="id_cliente" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="clie_nom" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="clie_apePater" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="clie_apeMater" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="clie_correo" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="clie_tipoDocumento" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="clie_documento" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="id_Pais" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="clie_codigo" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="clie_contra" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="clie_sexo" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="clie_estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PeruHotelModelStoreContainer" CdmEntityContainer="PeruHotelEntities">
+          <EntitySetMapping Name="ADMINISTRADOR">
+            <EntityTypeMapping TypeName="PeruHotelModel.ADMINISTRADOR">
+              <MappingFragment StoreEntitySet="ADMINISTRADOR">
+                <ScalarProperty Name="id_admi" ColumnName="id_admi" />
+                <ScalarProperty Name="admi_nom" ColumnName="admi_nom" />
+                <ScalarProperty Name="admi_apePater" ColumnName="admi_apePater" />
+                <ScalarProperty Name="admi_apeMater" ColumnName="admi_apeMater" />
+                <ScalarProperty Name="admi_codigo" ColumnName="admi_codigo" />
+                <ScalarProperty Name="admi_contra" ColumnName="admi_contra" />
+                <ScalarProperty Name="admi_dni" ColumnName="admi_dni" />
+                <ScalarProperty Name="admi_direccion" ColumnName="admi_direccion" />
+                <ScalarProperty Name="admi_estado" ColumnName="admi_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="PeruHotelModel.ADMINISTRADOR">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="PeruHotelModel.Store.usp_InsertarAdministrador">
+                  <ScalarProperty Name="admi_direccion" ParameterName="admi_direccion" />
+                  <ScalarProperty Name="admi_dni" ParameterName="admi_dni" />
+                  <ScalarProperty Name="admi_contra" ParameterName="admi_contra" />
+                  <ScalarProperty Name="admi_codigo" ParameterName="admi_codigo" />
+                  <ScalarProperty Name="admi_apeMater" ParameterName="admi_apeMater" />
+                  <ScalarProperty Name="admi_apePater" ParameterName="admi_apePater" />
+                  <ScalarProperty Name="admi_nom" ParameterName="admi_nom" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="PeruHotelModel.Store.usp_ActualizarAdministrador">
+                  <ScalarProperty Name="admi_direccion" ParameterName="admi_direccion" Version="Current" />
+                  <ScalarProperty Name="admi_dni" ParameterName="admi_dni" Version="Current" />
+                  <ScalarProperty Name="admi_contra" ParameterName="admi_contra" Version="Current" />
+                  <ScalarProperty Name="admi_codigo" ParameterName="admi_codigo" Version="Current" />
+                  <ScalarProperty Name="admi_apeMater" ParameterName="admi_apeMater" Version="Current" />
+                  <ScalarProperty Name="admi_apePater" ParameterName="admi_apePater" Version="Current" />
+                  <ScalarProperty Name="admi_nom" ParameterName="admi_nom" Version="Current" />
+                  <ScalarProperty Name="id_admi" ParameterName="id_admi" Version="Original" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="PeruHotelModel.Store.usp_EliminarAdministrador">
+                  <ScalarProperty Name="id_admi" ParameterName="id_admi" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTE">
+            <EntityTypeMapping TypeName="PeruHotelModel.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="clie_nom" ColumnName="clie_nom" />
+                <ScalarProperty Name="clie_apePater" ColumnName="clie_apePater" />
+                <ScalarProperty Name="clie_apeMater" ColumnName="clie_apeMater" />
+                <ScalarProperty Name="clie_correo" ColumnName="clie_correo" />
+                <ScalarProperty Name="clie_tipoDocumento" ColumnName="clie_tipoDocumento" />
+                <ScalarProperty Name="clie_documento" ColumnName="clie_documento" />
+                <ScalarProperty Name="id_Pais" ColumnName="id_Pais" />
+                <ScalarProperty Name="clie_codigo" ColumnName="clie_codigo" />
+                <ScalarProperty Name="clie_contra" ColumnName="clie_contra" />
+                <ScalarProperty Name="clie_sexo" ColumnName="clie_sexo" />
+                <ScalarProperty Name="clie_estado" ColumnName="clie_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="PeruHotelModel.CLIENTE">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="PeruHotelModel.Store.usp_InsertarCliente">
+                  <ScalarProperty Name="clie_sexo" ParameterName="clie_sexo" />
+                  <ScalarProperty Name="clie_contra" ParameterName="clie_contra" />
+                  <ScalarProperty Name="clie_codigo" ParameterName="clie_codigo" />
+                  <ScalarProperty Name="id_Pais" ParameterName="id_Pais" />
+                  <ScalarProperty Name="clie_documento" ParameterName="clie_documento" />
+                  <ScalarProperty Name="clie_tipoDocumento" ParameterName="clie_tipoDocumento" />
+                  <ScalarProperty Name="clie_correo" ParameterName="clie_correo" />
+                  <ScalarProperty Name="clie_apeMater" ParameterName="clie_apeMater" />
+                  <ScalarProperty Name="clie_apePater" ParameterName="clie_apePater" />
+                  <ScalarProperty Name="clie_nom" ParameterName="clie_nom" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="PeruHotelModel.Store.usp_ActualizarCliente">
+                  <ScalarProperty Name="clie_sexo" ParameterName="clie_sexo" Version="Current" />
+                  <ScalarProperty Name="clie_contra" ParameterName="clie_contra" Version="Current" />
+                  <ScalarProperty Name="clie_codigo" ParameterName="clie_codigo" Version="Current" />
+                  <ScalarProperty Name="id_Pais" ParameterName="id_Pais" Version="Current" />
+                  <ScalarProperty Name="clie_documento" ParameterName="clie_documento" Version="Current" />
+                  <ScalarProperty Name="clie_tipoDocumento" ParameterName="clie_tipoDocumento" Version="Current" />
+                  <ScalarProperty Name="clie_correo" ParameterName="clie_correo" Version="Current" />
+                  <ScalarProperty Name="clie_apeMater" ParameterName="clie_apeMater" Version="Current" />
+                  <ScalarProperty Name="clie_apePater" ParameterName="clie_apePater" Version="Current" />
+                  <ScalarProperty Name="clie_nom" ParameterName="clie_nom" Version="Current" />
+                  <ScalarProperty Name="id_cliente" ParameterName="id_cliente" Version="Original" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="PeruHotelModel.Store.usp_EliminarCliente">
+                  <ScalarProperty Name="id_cliente" ParameterName="id_cliente" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HABITACION">
+            <EntityTypeMapping TypeName="PeruHotelModel.HABITACION">
+              <MappingFragment StoreEntitySet="HABITACION">
+                <ScalarProperty Name="id_habitacion" ColumnName="id_habitacion" />
+                <ScalarProperty Name="habi_num" ColumnName="habi_num" />
+                <ScalarProperty Name="habi_piso" ColumnName="habi_piso" />
+                <ScalarProperty Name="habi_estado" ColumnName="habi_estado" />
+                <ScalarProperty Name="id_tipo_habi" ColumnName="id_tipo_habi" />
+                <ScalarProperty Name="id_hotel" ColumnName="id_hotel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOTEL">
+            <EntityTypeMapping TypeName="PeruHotelModel.HOTEL">
+              <MappingFragment StoreEntitySet="HOTEL">
+                <ScalarProperty Name="id_hotel" ColumnName="id_hotel" />
+                <ScalarProperty Name="hotel_direcc" ColumnName="hotel_direcc" />
+                <ScalarProperty Name="hotel_descrip" ColumnName="hotel_descrip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAIS">
+            <EntityTypeMapping TypeName="PeruHotelModel.PAIS">
+              <MappingFragment StoreEntitySet="PAIS">
+                <ScalarProperty Name="id_Pais" ColumnName="id_Pais" />
+                <ScalarProperty Name="pais_nom" ColumnName="pais_nom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROMOCION">
+            <EntityTypeMapping TypeName="PeruHotelModel.PROMOCION">
+              <MappingFragment StoreEntitySet="PROMOCION">
+                <ScalarProperty Name="id_promocion" ColumnName="id_promocion" />
+                <ScalarProperty Name="prom_descuento" ColumnName="prom_descuento" />
+                <ScalarProperty Name="prom_descripcion" ColumnName="prom_descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESERVA">
+            <EntityTypeMapping TypeName="PeruHotelModel.RESERVA">
+              <MappingFragment StoreEntitySet="RESERVA">
+                <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="id_promocion" ColumnName="id_promocion" />
+                <ScalarProperty Name="reser_fechaReser" ColumnName="reser_fechaReser" />
+                <ScalarProperty Name="reser_fechaIngreso" ColumnName="reser_fechaIngreso" />
+                <ScalarProperty Name="reser_fechaSalida" ColumnName="reser_fechaSalida" />
+                <ScalarProperty Name="reser_estado" ColumnName="reser_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICIO">
+            <EntityTypeMapping TypeName="PeruHotelModel.SERVICIO">
+              <MappingFragment StoreEntitySet="SERVICIO">
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+                <ScalarProperty Name="servi_nom" ColumnName="servi_nom" />
+                <ScalarProperty Name="servi_descripcion" ColumnName="servi_descripcion" />
+                <ScalarProperty Name="servi_precio" ColumnName="servi_precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PeruHotelModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_HABITACION">
+            <EntityTypeMapping TypeName="PeruHotelModel.TIPO_HABITACION">
+              <MappingFragment StoreEntitySet="TIPO_HABITACION">
+                <ScalarProperty Name="id_tipo_habi" ColumnName="id_tipo_habi" />
+                <ScalarProperty Name="tipo_nombre" ColumnName="tipo_nombre" />
+                <ScalarProperty Name="tipo_descripcion" ColumnName="tipo_descripcion" />
+                <ScalarProperty Name="tipo_precio" ColumnName="tipo_precio" />
+                <ScalarProperty Name="tipo_num_camas" ColumnName="tipo_num_camas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="DETALLE_HOTEL" TypeName="PeruHotelModel.DETALLE_HOTEL" StoreEntitySet="DETALLE_HOTEL">
+            <EndProperty Name="ADMINISTRADOR">
+              <ScalarProperty Name="id_admi" ColumnName="id_admi" />
+            </EndProperty>
+            <EndProperty Name="HOTEL">
+              <ScalarProperty Name="id_hotel" ColumnName="id_hotel" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="DETALLE_RESERVA" TypeName="PeruHotelModel.DETALLE_RESERVA" StoreEntitySet="DETALLE_RESERVA">
+            <EndProperty Name="HABITACION">
+              <ScalarProperty Name="id_habitacion" ColumnName="id_habitacion" />
+            </EndProperty>
+            <EndProperty Name="RESERVA">
+              <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="DETALLE_SERVICIO" TypeName="PeruHotelModel.DETALLE_SERVICIO" StoreEntitySet="DETALLE_SERVICIO">
+            <EndProperty Name="RESERVA">
+              <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+            </EndProperty>
+            <EndProperty Name="SERVICIO">
+              <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="usp_ActualizarAdministrador" FunctionName="PeruHotelModel.Store.usp_ActualizarAdministrador" />
+          <FunctionImportMapping FunctionImportName="usp_ActualizarCliente" FunctionName="PeruHotelModel.Store.usp_ActualizarCliente" />
+          <FunctionImportMapping FunctionImportName="usp_ConsultarAdministrador" FunctionName="PeruHotelModel.Store.usp_ConsultarAdministrador">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PeruHotelModel.usp_ConsultarAdministrador_Result">
+                <ScalarProperty Name="id_admi" ColumnName="id_admi" />
+                <ScalarProperty Name="admi_nom" ColumnName="admi_nom" />
+                <ScalarProperty Name="admi_apePater" ColumnName="admi_apePater" />
+                <ScalarProperty Name="admi_apeMater" ColumnName="admi_apeMater" />
+                <ScalarProperty Name="admi_codigo" ColumnName="admi_codigo" />
+                <ScalarProperty Name="admi_contra" ColumnName="admi_contra" />
+                <ScalarProperty Name="admi_dni" ColumnName="admi_dni" />
+                <ScalarProperty Name="admi_direccion" ColumnName="admi_direccion" />
+                <ScalarProperty Name="admi_estado" ColumnName="admi_estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ConsultarCliente" FunctionName="PeruHotelModel.Store.usp_ConsultarCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PeruHotelModel.usp_ConsultarCliente_Result">
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="clie_nom" ColumnName="clie_nom" />
+                <ScalarProperty Name="clie_apePater" ColumnName="clie_apePater" />
+                <ScalarProperty Name="clie_apeMater" ColumnName="clie_apeMater" />
+                <ScalarProperty Name="clie_correo" ColumnName="clie_correo" />
+                <ScalarProperty Name="clie_tipoDocumento" ColumnName="clie_tipoDocumento" />
+                <ScalarProperty Name="clie_documento" ColumnName="clie_documento" />
+                <ScalarProperty Name="id_Pais" ColumnName="id_Pais" />
+                <ScalarProperty Name="clie_codigo" ColumnName="clie_codigo" />
+                <ScalarProperty Name="clie_contra" ColumnName="clie_contra" />
+                <ScalarProperty Name="clie_sexo" ColumnName="clie_sexo" />
+                <ScalarProperty Name="clie_estado" ColumnName="clie_estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_EliminarAdministrador" FunctionName="PeruHotelModel.Store.usp_EliminarAdministrador" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarCliente" FunctionName="PeruHotelModel.Store.usp_EliminarCliente" />
+          <FunctionImportMapping FunctionImportName="usp_InsertarAdministrador" FunctionName="PeruHotelModel.Store.usp_InsertarAdministrador" />
+          <FunctionImportMapping FunctionImportName="usp_InsertarCliente" FunctionName="PeruHotelModel.Store.usp_InsertarCliente" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
