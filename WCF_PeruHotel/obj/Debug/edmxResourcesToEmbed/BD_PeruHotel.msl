@@ -283,5 +283,13 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListaNombresCliente" FunctionName="PeruHotelModel.Store.usp_ListaNombresCliente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PeruHotelModel.usp_ListaNombresCliente_Result">
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

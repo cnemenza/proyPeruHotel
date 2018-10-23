@@ -262,5 +262,10 @@ namespace WCF_PeruHotel
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_DetalleTipoHabitacion_Result>("usp_DetalleTipoHabitacion", id_tipoHabiParameter);
         }
+    
+        public virtual ObjectResult<usp_ListaNombresCliente_Result> usp_ListaNombresCliente()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListaNombresCliente_Result>("usp_ListaNombresCliente");
+        }
     }
 }

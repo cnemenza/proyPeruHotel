@@ -18,7 +18,7 @@ public partial class Web_InterfazAdministrador_WebConsultarHabitaciones : System
             {
 
                 //Cargamos el combo
-                
+
                 cboTipoHabi.DataSource = objServicioHabitacion.ListarTipoHabitacion();
 
                 cboTipoHabi.DataTextField = "TipoNombre";
@@ -36,7 +36,7 @@ public partial class Web_InterfazAdministrador_WebConsultarHabitaciones : System
 
             throw;
         }
-        
+
     }
 
     protected void cboTipoHabi_SelectedIndexChanged(object sender, EventArgs e)

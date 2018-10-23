@@ -155,6 +155,29 @@ namespace WCF_PeruHotel
             return objListCliente;
         }
 
+        public List<DataCliente> ListarNombresCliente()
+        {
+            PeruHotelEntities MiHotel = new PeruHotelEntities();
+            List<DataCliente> objListaCliente = new List<DataCliente>();
+            try
+            {
+                //Se implementa con LINQ
+                var query = MiHotel.usp_ListaNombresCliente();
+                foreach (var resultado in query)
+                {
+                    DataCliente objClienteBE = new DataCliente();
+                    objClienteBE.IdCliente = resultado.id_cliente;
+                    objClienteBE.ClieNom = resultado.nombres;
+
+                    objListaCliente.Add(objClienteBE);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return objListaCliente;
+        }
 
     }
 }

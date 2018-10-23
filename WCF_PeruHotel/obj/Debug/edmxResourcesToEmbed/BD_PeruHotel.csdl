@@ -302,6 +302,7 @@
     <FunctionImport Name="usp_DetalleTipoHabitacion" ReturnType="Collection(PeruHotelModel.usp_DetalleTipoHabitacion_Result)">
       <Parameter Name="id_tipoHabi" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="usp_ListaNombresCliente" ReturnType="Collection(PeruHotelModel.usp_ListaNombresCliente_Result)" />
   </EntityContainer>
   <ComplexType Name="usp_ConsultarAdministrador_Result">
     <Property Type="String" Name="id_admi" Nullable="false" MaxLength="5" />
@@ -376,5 +377,9 @@
     <Property Type="String" Name="tipo_descripcion" Nullable="true" MaxLength="300" />
     <Property Type="Decimal" Name="tipo_precio" Nullable="false" Precision="19" Scale="2" />
     <Property Type="String" Name="tipo_num_camas" Nullable="false" MaxLength="2" />
+  </ComplexType>
+  <ComplexType Name="usp_ListaNombresCliente_Result">
+    <Property Type="String" Name="id_cliente" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="nombres" Nullable="false" MaxLength="92" />
   </ComplexType>
 </Schema>

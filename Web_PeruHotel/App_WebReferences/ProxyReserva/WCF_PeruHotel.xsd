@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCF_PeruHotel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCF_PeruHotel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfdataReserva">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dataReserva" nillable="true" type="tns:dataReserva" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdataReserva" nillable="true" type="tns:ArrayOfdataReserva" />
+  <xs:complexType name="dataReserva">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CantHab" type="xs:float" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdReserva" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReserFechaIngreso" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReserFechaReser" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReserFechaSalida" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Total" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dataReserva" nillable="true" type="tns:dataReserva" />
+</xs:schema>

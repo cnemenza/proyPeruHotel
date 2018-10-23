@@ -360,6 +360,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene defi
           <Parameter Name="clie_contra" Type="varchar" Mode="In" />
           <Parameter Name="clie_sexo" Type="char" Mode="In" />
         </Function>
+        <Function Name="usp_ListaNombresCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ListarTipoHabitacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="PeruHotelModelStoreContainer">
           <EntitySet Name="ADMINISTRADOR" EntityType="Self.ADMINISTRADOR" Schema="dbo" store:Type="Tables" />
@@ -748,6 +749,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene defi
           <FunctionImport Name="usp_DetalleTipoHabitacion" ReturnType="Collection(PeruHotelModel.usp_DetalleTipoHabitacion_Result)">
             <Parameter Name="id_tipoHabi" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="usp_ListaNombresCliente" ReturnType="Collection(PeruHotelModel.usp_ListaNombresCliente_Result)" />
         </EntityContainer>
         <ComplexType Name="usp_ConsultarAdministrador_Result">
           <Property Type="String" Name="id_admi" Nullable="false" MaxLength="5" />
@@ -822,6 +824,10 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene defi
           <Property Type="String" Name="tipo_descripcion" Nullable="true" MaxLength="300" />
           <Property Type="Decimal" Name="tipo_precio" Nullable="false" Precision="19" Scale="2" />
           <Property Type="String" Name="tipo_num_camas" Nullable="false" MaxLength="2" />
+        </ComplexType>
+        <ComplexType Name="usp_ListaNombresCliente_Result">
+          <Property Type="String" Name="id_cliente" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="nombres" Nullable="false" MaxLength="92" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1108,6 +1114,14 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene defi
                 <ScalarProperty Name="tipo_descripcion" ColumnName="tipo_descripcion" />
                 <ScalarProperty Name="tipo_precio" ColumnName="tipo_precio" />
                 <ScalarProperty Name="tipo_num_camas" ColumnName="tipo_num_camas" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListaNombresCliente" FunctionName="PeruHotelModel.Store.usp_ListaNombresCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PeruHotelModel.usp_ListaNombresCliente_Result">
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

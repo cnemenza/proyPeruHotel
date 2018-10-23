@@ -24,6 +24,11 @@ namespace WCF_PeruHotel
 
         [OperationContract]
         List<DataCliente> GetAllCliente();
+
+        [OperationContract]
+        List<DataCliente> ListarNombresCliente();
+
+
     }
     [DataContract]
     [Serializable]

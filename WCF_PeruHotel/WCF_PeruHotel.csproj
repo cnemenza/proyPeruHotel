@@ -121,6 +121,9 @@
     <Compile Include="usp_HabitacionDisponiblePorTipo_Result.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_ListaNombresCliente_Result.cs">
+      <DependentUpon>BD_PeruHotel.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_ListarTipoHabitacion_Result.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>

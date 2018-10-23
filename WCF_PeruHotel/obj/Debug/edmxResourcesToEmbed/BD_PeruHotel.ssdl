@@ -355,6 +355,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene defi
     <Parameter Name="clie_contra" Type="varchar" Mode="In" />
     <Parameter Name="clie_sexo" Type="char" Mode="In" />
   </Function>
+  <Function Name="usp_ListaNombresCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="usp_ListarTipoHabitacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="PeruHotelModelStoreContainer">
     <EntitySet Name="ADMINISTRADOR" EntityType="Self.ADMINISTRADOR" Schema="dbo" store:Type="Tables" />
