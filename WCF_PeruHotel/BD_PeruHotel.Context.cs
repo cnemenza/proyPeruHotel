@@ -37,6 +37,8 @@ namespace WCF_PeruHotel
         public virtual DbSet<SERVICIO> SERVICIO { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TIPO_HABITACION> TIPO_HABITACION { get; set; }
+        public virtual DbSet<vw_VistaDetalleReserva> vw_VistaDetalleReserva { get; set; }
+        public virtual DbSet<vw_VistaReserva> vw_VistaReserva { get; set; }
     
         public virtual int usp_ActualizarAdministrador(string id_admi, string admi_nom, string admi_apePater, string admi_apeMater, string admi_codigo, string admi_contra, string admi_dni, string admi_direccion)
         {
@@ -236,6 +238,29 @@ namespace WCF_PeruHotel
                 new ObjectParameter("clie_sexo", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarCliente", clie_nomParameter, clie_apePaterParameter, clie_apeMaterParameter, clie_correoParameter, clie_tipoDocumentoParameter, clie_documentoParameter, id_PaisParameter, clie_codigoParameter, clie_contraParameter, clie_sexoParameter);
+        }
+    
+        public virtual ObjectResult<usp_HabitacionDisponiblePorTipo_Result> usp_HabitacionDisponiblePorTipo(string id_tipo_habi)
+        {
+            var id_tipo_habiParameter = id_tipo_habi != null ?
+                new ObjectParameter("id_tipo_habi", id_tipo_habi) :
+                new ObjectParameter("id_tipo_habi", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_HabitacionDisponiblePorTipo_Result>("usp_HabitacionDisponiblePorTipo", id_tipo_habiParameter);
+        }
+    
+        public virtual ObjectResult<usp_ListarTipoHabitacion_Result> usp_ListarTipoHabitacion()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarTipoHabitacion_Result>("usp_ListarTipoHabitacion");
+        }
+    
+        public virtual ObjectResult<usp_DetalleTipoHabitacion_Result> usp_DetalleTipoHabitacion(string id_tipoHabi)
+        {
+            var id_tipoHabiParameter = id_tipoHabi != null ?
+                new ObjectParameter("id_tipoHabi", id_tipoHabi) :
+                new ObjectParameter("id_tipoHabi", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_DetalleTipoHabitacion_Result>("usp_DetalleTipoHabitacion", id_tipoHabiParameter);
         }
     }
 }

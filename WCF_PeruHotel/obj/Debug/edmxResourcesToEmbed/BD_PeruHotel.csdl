@@ -293,6 +293,15 @@
       <Parameter Name="clie_contra" Mode="In" Type="String" />
       <Parameter Name="clie_sexo" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="vw_VistaDetalleReserva" EntityType="PeruHotelModel.vw_VistaDetalleReserva" />
+    <EntitySet Name="vw_VistaReserva" EntityType="PeruHotelModel.vw_VistaReserva" />
+    <FunctionImport Name="usp_HabitacionDisponiblePorTipo" ReturnType="Collection(PeruHotelModel.usp_HabitacionDisponiblePorTipo_Result)">
+      <Parameter Name="id_tipo_habi" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ListarTipoHabitacion" ReturnType="Collection(PeruHotelModel.usp_ListarTipoHabitacion_Result)" />
+    <FunctionImport Name="usp_DetalleTipoHabitacion" ReturnType="Collection(PeruHotelModel.usp_DetalleTipoHabitacion_Result)">
+      <Parameter Name="id_tipoHabi" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="usp_ConsultarAdministrador_Result">
     <Property Type="String" Name="id_admi" Nullable="false" MaxLength="5" />
@@ -318,5 +327,54 @@
     <Property Type="String" Name="clie_contra" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="clie_sexo" Nullable="false" MaxLength="1" />
     <Property Type="String" Name="clie_estado" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <EntityType Name="vw_VistaDetalleReserva">
+    <Key>
+      <PropertyRef Name="id_reserva" />
+      <PropertyRef Name="id_habitacion" />
+      <PropertyRef Name="tipo_nombre" />
+      <PropertyRef Name="tipo_precio" />
+    </Key>
+    <Property Name="id_reserva" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="id_habitacion" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="tipo_nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_precio" Type="Decimal" Nullable="false" Precision="19" Scale="2" />
+  </EntityType>
+  <EntityType Name="vw_VistaReserva">
+    <Key>
+      <PropertyRef Name="id_reserva" />
+      <PropertyRef Name="reser_fechaIngreso" />
+      <PropertyRef Name="reser_fechaReser" />
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="id_reserva" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="reser_fechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="reser_fechaReser" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="reser_fechaSalida" Type="DateTime" Precision="0" />
+    <Property Name="id_cliente" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
+    <Property Name="Cant_Hab" Type="Int32" />
+    <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="usp_HabitacionDisponiblePorTipo_Result">
+    <Property Type="String" Name="id_habitacion" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="habi_num" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="habi_piso" Nullable="false" MaxLength="2" />
+  </ComplexType>
+  <ComplexType Name="usp_ListarTipoHabitacion_Result">
+    <Property Type="String" Name="id_tipo_habi" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="tipo_nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="tipo_descripcion" Nullable="true" MaxLength="300" />
+    <Property Type="Decimal" Name="tipo_precio" Nullable="false" Precision="19" Scale="2" />
+    <Property Type="String" Name="tipo_num_camas" Nullable="false" MaxLength="2" />
+  </ComplexType>
+  <ComplexType Name="usp_DetalleTipoHabitacion_Result">
+    <Property Type="String" Name="id_tipo_habi" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="tipo_nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="tipo_descripcion" Nullable="true" MaxLength="300" />
+    <Property Type="Decimal" Name="tipo_precio" Nullable="false" Precision="19" Scale="2" />
+    <Property Type="String" Name="tipo_num_camas" Nullable="false" MaxLength="2" />
   </ComplexType>
 </Schema>

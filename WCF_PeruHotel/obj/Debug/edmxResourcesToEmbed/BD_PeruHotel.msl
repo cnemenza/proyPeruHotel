@@ -238,5 +238,50 @@
     <FunctionImportMapping FunctionImportName="usp_EliminarCliente" FunctionName="PeruHotelModel.Store.usp_EliminarCliente" />
     <FunctionImportMapping FunctionImportName="usp_InsertarAdministrador" FunctionName="PeruHotelModel.Store.usp_InsertarAdministrador" />
     <FunctionImportMapping FunctionImportName="usp_InsertarCliente" FunctionName="PeruHotelModel.Store.usp_InsertarCliente" />
+    <EntitySetMapping Name="vw_VistaDetalleReserva">
+      <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaDetalleReserva">
+        <MappingFragment StoreEntitySet="vw_VistaDetalleReserva">
+          <ScalarProperty Name="tipo_precio" ColumnName="tipo_precio" />
+          <ScalarProperty Name="tipo_nombre" ColumnName="tipo_nombre" />
+          <ScalarProperty Name="id_habitacion" ColumnName="id_habitacion" />
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_VistaReserva">
+      <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaReserva">
+        <MappingFragment StoreEntitySet="vw_VistaReserva">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Cant_Hab" ColumnName="Cant_Hab" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="reser_fechaSalida" ColumnName="reser_fechaSalida" />
+          <ScalarProperty Name="reser_fechaReser" ColumnName="reser_fechaReser" />
+          <ScalarProperty Name="reser_fechaIngreso" ColumnName="reser_fechaIngreso" />
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_HabitacionDisponiblePorTipo" FunctionName="PeruHotelModel.Store.usp_HabitacionDisponiblePorTipo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PeruHotelModel.usp_HabitacionDisponiblePorTipo_Result">
+          <ScalarProperty Name="id_habitacion" ColumnName="id_habitacion" />
+          <ScalarProperty Name="habi_num" ColumnName="habi_num" />
+          <ScalarProperty Name="habi_piso" ColumnName="habi_piso" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarTipoHabitacion" FunctionName="PeruHotelModel.Store.usp_ListarTipoHabitacion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PeruHotelModel.usp_ListarTipoHabitacion_Result">
+          <ScalarProperty Name="id_tipo_habi" ColumnName="id_tipo_habi" />
+          <ScalarProperty Name="tipo_nombre" ColumnName="tipo_nombre" />
+          <ScalarProperty Name="tipo_descripcion" ColumnName="tipo_descripcion" />
+          <ScalarProperty Name="tipo_precio" ColumnName="tipo_precio" />
+          <ScalarProperty Name="tipo_num_camas" ColumnName="tipo_num_camas" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -24,6 +24,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Web_PeruHotel", "Web_PeruHo
 		SlnRelativePath = "Web_PeruHotel\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{07C210F5-D558-4103-9237-6ECBAD8363A8} = {07C210F5-D558-4103-9237-6ECBAD8363A8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF_PeruHotel", "WCF_PeruHotel\WCF_PeruHotel.csproj", "{07C210F5-D558-4103-9237-6ECBAD8363A8}"
 EndProject

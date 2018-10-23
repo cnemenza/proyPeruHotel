@@ -36,7 +36,7 @@ namespace WCF_PeruHotel
                 MiHotel.SaveChanges();
                 blnexito = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return blnexito;
             }
@@ -51,7 +51,7 @@ namespace WCF_PeruHotel
                 blnexito = true;
 
             }
-            catch (EntityException ex)
+            catch (EntityException)
             {
                 return blnexito;
             }
@@ -71,7 +71,7 @@ namespace WCF_PeruHotel
                 blnexito = true;
 
             }
-            catch (EntityException ex)
+            catch (EntityException)
             {
                 return blnexito;
             }

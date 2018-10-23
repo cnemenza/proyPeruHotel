@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PeruHotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PeruHotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ADMINISTRADOR">
           <Key>
             <PropertyRef Name="id_admi" />
@@ -134,6 +134,40 @@
           <Property Name="tipo_descripcion" Type="varchar" MaxLength="300" />
           <Property Name="tipo_precio" Type="decimal" Precision="19" Scale="2" Nullable="false" />
           <Property Name="tipo_num_camas" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaDetalleReserva' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vw_VistaDetalleReserva">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+            <PropertyRef Name="id_habitacion" />
+            <PropertyRef Name="tipo_nombre" />
+            <PropertyRef Name="tipo_precio" />
+          </Key>
+          <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="id_habitacion" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="tipo_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipo_precio" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vw_VistaReserva">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+            <PropertyRef Name="reser_fechaIngreso" />
+            <PropertyRef Name="reser_fechaReser" />
+            <PropertyRef Name="id_cliente" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="reser_fechaIngreso" Type="date" Nullable="false" />
+          <Property Name="reser_fechaReser" Type="date" Nullable="false" />
+          <Property Name="reser_fechaSalida" Type="date" />
+          <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="61" Nullable="false" />
+          <Property Name="Cant_Hab" Type="int" />
+          <Property Name="Total" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Estado" Type="varchar" MaxLength="9" />
         </EntityType>
         <Association Name="FK__CLIENTE__id_Pais__45F365D3">
           <End Role="PAIS" Type="Self.PAIS" Multiplicity="1" />
@@ -302,6 +336,9 @@
         <Function Name="usp_EliminarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_cliente" Type="char" Mode="In" />
         </Function>
+        <Function Name="usp_HabitacionDisponiblePorTipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_tipo_habi" Type="char" Mode="In" />
+        </Function>
         <Function Name="usp_InsertarAdministrador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="admi_nom" Type="varchar" Mode="In" />
           <Parameter Name="admi_apePater" Type="varchar" Mode="In" />
@@ -323,6 +360,7 @@
           <Parameter Name="clie_contra" Type="varchar" Mode="In" />
           <Parameter Name="clie_sexo" Type="char" Mode="In" />
         </Function>
+        <Function Name="usp_ListarTipoHabitacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="PeruHotelModelStoreContainer">
           <EntitySet Name="ADMINISTRADOR" EntityType="Self.ADMINISTRADOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
@@ -337,6 +375,27 @@
           <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_HABITACION" EntityType="Self.TIPO_HABITACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_VistaDetalleReserva" EntityType="Self.vw_VistaDetalleReserva" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_VistaDetalleReserva].[id_reserva] AS [id_reserva], 
+    [vw_VistaDetalleReserva].[id_habitacion] AS [id_habitacion], 
+    [vw_VistaDetalleReserva].[tipo_nombre] AS [tipo_nombre], 
+    [vw_VistaDetalleReserva].[tipo_precio] AS [tipo_precio]
+    FROM [dbo].[vw_VistaDetalleReserva] AS [vw_VistaDetalleReserva]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_VistaReserva" EntityType="Self.vw_VistaReserva" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_VistaReserva].[id_reserva] AS [id_reserva], 
+    [vw_VistaReserva].[reser_fechaIngreso] AS [reser_fechaIngreso], 
+    [vw_VistaReserva].[reser_fechaReser] AS [reser_fechaReser], 
+    [vw_VistaReserva].[reser_fechaSalida] AS [reser_fechaSalida], 
+    [vw_VistaReserva].[id_cliente] AS [id_cliente], 
+    [vw_VistaReserva].[Nombre] AS [Nombre], 
+    [vw_VistaReserva].[Cant_Hab] AS [Cant_Hab], 
+    [vw_VistaReserva].[Total] AS [Total], 
+    [vw_VistaReserva].[Estado] AS [Estado]
+    FROM [dbo].[vw_VistaReserva] AS [vw_VistaReserva]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__CLIENTE__id_Pais__45F365D3" Association="Self.FK__CLIENTE__id_Pais__45F365D3">
             <End Role="PAIS" EntitySet="PAIS" />
             <End Role="CLIENTE" EntitySet="CLIENTE" />
@@ -382,8 +441,7 @@
             <End Role="RESERVA" EntitySet="RESERVA" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PeruHotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -648,16 +706,16 @@
             <Parameter Name="clie_sexo" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ConsultarAdministrador" ReturnType="Collection(PeruHotelModel.usp_ConsultarAdministrador_Result)">
-            <Parameter Name="id_admi" Mode="In" Type="String" />
+          <Parameter Name="id_admi" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ConsultarCliente" ReturnType="Collection(PeruHotelModel.usp_ConsultarCliente_Result)">
-            <Parameter Name="id_cliente" Mode="In" Type="String" />
+          <Parameter Name="id_cliente" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_EliminarAdministrador">
-            <Parameter Name="id_admi" Mode="In" Type="String" />
+          <Parameter Name="id_admi" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_EliminarCliente">
-            <Parameter Name="id_cliente" Mode="In" Type="String" />
+          <Parameter Name="id_cliente" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_InsertarAdministrador">
             <Parameter Name="admi_nom" Mode="In" Type="String" />
@@ -679,6 +737,16 @@
             <Parameter Name="clie_codigo" Mode="In" Type="String" />
             <Parameter Name="clie_contra" Mode="In" Type="String" />
             <Parameter Name="clie_sexo" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="vw_VistaDetalleReserva" EntityType="PeruHotelModel.vw_VistaDetalleReserva" />
+          <EntitySet Name="vw_VistaReserva" EntityType="PeruHotelModel.vw_VistaReserva" />
+          <FunctionImport Name="usp_HabitacionDisponiblePorTipo" ReturnType="Collection(PeruHotelModel.usp_HabitacionDisponiblePorTipo_Result)">
+          <Parameter Name="id_tipo_habi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarTipoHabitacion" ReturnType="Collection(PeruHotelModel.usp_ListarTipoHabitacion_Result)">
+          </FunctionImport>
+          <FunctionImport Name="usp_DetalleTipoHabitacion" ReturnType="Collection(PeruHotelModel.usp_DetalleTipoHabitacion_Result)">
+            <Parameter Name="id_tipoHabi" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_ConsultarAdministrador_Result">
@@ -705,6 +773,55 @@
           <Property Type="String" Name="clie_contra" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="clie_sexo" Nullable="false" MaxLength="1" />
           <Property Type="String" Name="clie_estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <EntityType Name="vw_VistaDetalleReserva">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+            <PropertyRef Name="id_habitacion" />
+            <PropertyRef Name="tipo_nombre" />
+            <PropertyRef Name="tipo_precio" />
+          </Key>
+          <Property Name="id_reserva" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="id_habitacion" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="tipo_nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_precio" Type="Decimal" Nullable="false" Precision="19" Scale="2" />
+        </EntityType>
+        <EntityType Name="vw_VistaReserva">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+            <PropertyRef Name="reser_fechaIngreso" />
+            <PropertyRef Name="reser_fechaReser" />
+            <PropertyRef Name="id_cliente" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="id_reserva" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="reser_fechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="reser_fechaReser" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="reser_fechaSalida" Type="DateTime" Precision="0" />
+          <Property Name="id_cliente" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
+          <Property Name="Cant_Hab" Type="Int32" />
+          <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="usp_HabitacionDisponiblePorTipo_Result">
+          <Property Type="String" Name="id_habitacion" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="habi_num" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="habi_piso" Nullable="false" MaxLength="2" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarTipoHabitacion_Result">
+          <Property Type="String" Name="id_tipo_habi" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="tipo_nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="tipo_descripcion" Nullable="true" MaxLength="300" />
+          <Property Type="Decimal" Name="tipo_precio" Nullable="false" Precision="19" Scale="2" />
+          <Property Type="String" Name="tipo_num_camas" Nullable="false" MaxLength="2" />
+        </ComplexType>
+        <ComplexType Name="usp_DetalleTipoHabitacion_Result">
+          <Property Type="String" Name="id_tipo_habi" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="tipo_nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="tipo_descripcion" Nullable="true" MaxLength="300" />
+          <Property Type="Decimal" Name="tipo_precio" Nullable="false" Precision="19" Scale="2" />
+          <Property Type="String" Name="tipo_num_camas" Nullable="false" MaxLength="2" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -949,6 +1066,51 @@
           <FunctionImportMapping FunctionImportName="usp_EliminarCliente" FunctionName="PeruHotelModel.Store.usp_EliminarCliente" />
           <FunctionImportMapping FunctionImportName="usp_InsertarAdministrador" FunctionName="PeruHotelModel.Store.usp_InsertarAdministrador" />
           <FunctionImportMapping FunctionImportName="usp_InsertarCliente" FunctionName="PeruHotelModel.Store.usp_InsertarCliente" />
+          <EntitySetMapping Name="vw_VistaDetalleReserva">
+            <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaDetalleReserva">
+              <MappingFragment StoreEntitySet="vw_VistaDetalleReserva">
+                <ScalarProperty Name="tipo_precio" ColumnName="tipo_precio" />
+                <ScalarProperty Name="tipo_nombre" ColumnName="tipo_nombre" />
+                <ScalarProperty Name="id_habitacion" ColumnName="id_habitacion" />
+                <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_VistaReserva">
+            <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaReserva">
+              <MappingFragment StoreEntitySet="vw_VistaReserva">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Cant_Hab" ColumnName="Cant_Hab" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="reser_fechaSalida" ColumnName="reser_fechaSalida" />
+                <ScalarProperty Name="reser_fechaReser" ColumnName="reser_fechaReser" />
+                <ScalarProperty Name="reser_fechaIngreso" ColumnName="reser_fechaIngreso" />
+                <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_HabitacionDisponiblePorTipo" FunctionName="PeruHotelModel.Store.usp_HabitacionDisponiblePorTipo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PeruHotelModel.usp_HabitacionDisponiblePorTipo_Result">
+                <ScalarProperty Name="id_habitacion" ColumnName="id_habitacion" />
+                <ScalarProperty Name="habi_num" ColumnName="habi_num" />
+                <ScalarProperty Name="habi_piso" ColumnName="habi_piso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarTipoHabitacion" FunctionName="PeruHotelModel.Store.usp_ListarTipoHabitacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PeruHotelModel.usp_ListarTipoHabitacion_Result">
+                <ScalarProperty Name="id_tipo_habi" ColumnName="id_tipo_habi" />
+                <ScalarProperty Name="tipo_nombre" ColumnName="tipo_nombre" />
+                <ScalarProperty Name="tipo_descripcion" ColumnName="tipo_descripcion" />
+                <ScalarProperty Name="tipo_precio" ColumnName="tipo_precio" />
+                <ScalarProperty Name="tipo_num_camas" ColumnName="tipo_num_camas" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

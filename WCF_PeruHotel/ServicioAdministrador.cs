@@ -66,7 +66,7 @@ namespace WCF_PeruHotel
                 blnexito = true;
 
             }
-            catch (EntityException ex)
+            catch (EntityException)
             {
                 return blnexito;
             }
