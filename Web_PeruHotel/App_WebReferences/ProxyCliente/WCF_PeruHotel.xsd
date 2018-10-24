@@ -13,7 +13,7 @@
       <xs:element minOccurs="0" name="ClieSexo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ClieTipoDocumento" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdCliente" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IdPais" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdUbigeo" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DataCliente" nillable="true" type="tns:DataCliente" />

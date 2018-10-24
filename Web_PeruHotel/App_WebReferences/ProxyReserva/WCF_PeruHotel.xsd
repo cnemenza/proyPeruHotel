@@ -8,10 +8,13 @@
   <xs:element name="ArrayOfdataReserva" nillable="true" type="tns:ArrayOfdataReserva" />
   <xs:complexType name="dataReserva">
     <xs:sequence>
+      <xs:element minOccurs="0" name="CantDias" type="xs:float" />
       <xs:element minOccurs="0" name="CantHab" type="xs:float" />
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdCliente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdReserva" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MonHab" type="xs:float" />
+      <xs:element minOccurs="0" name="MonServicio" type="xs:float" />
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ReserFechaIngreso" type="xs:dateTime" />
       <xs:element minOccurs="0" name="ReserFechaReser" type="xs:dateTime" />

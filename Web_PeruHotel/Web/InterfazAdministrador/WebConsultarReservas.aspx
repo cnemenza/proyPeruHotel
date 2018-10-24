@@ -43,6 +43,7 @@
                     <asp:BoundField DataField="ReserFechaIngreso" DataFormatString="{0:d}" HeaderText="Fecha de Ingreso" />
                     <asp:BoundField DataField="ReserFechaSalida" DataFormatString="{0:d}" HeaderText="Fecha Salida" />
                     <asp:BoundField DataField="CantHab" HeaderText="Cant. Hab. " />
+                    <asp:BoundField DataField="CantDias" HeaderText="Cant. Dias" />
                     <asp:BoundField DataField="Total" DataFormatString="{0:n}" HeaderText="Total (S./ )" />
                 </Columns>
                 <HeaderStyle CssClass="thead-dark" />

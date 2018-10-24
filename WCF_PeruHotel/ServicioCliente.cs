@@ -26,7 +26,7 @@ namespace WCF_PeruHotel
                 objCliente.clie_correo = objClienteBE.ClieCorreo;
                 objCliente.clie_tipoDocumento = objClienteBE.ClieTipoDocumento;
                 objCliente.clie_documento = objClienteBE.ClieDocumento;
-                objCliente.id_Pais = objClienteBE.IdPais;
+                objCliente.id_Ubigeo = objClienteBE.IdUbigeo;
                 objCliente.clie_codigo = objClienteBE.ClieCodigo;
                 objCliente.clie_contra = objClienteBE.ClieContra;
                 objCliente.clie_sexo = objClienteBE.ClieSexo;
@@ -65,7 +65,7 @@ namespace WCF_PeruHotel
                 PeruHotelEntities MiHotel = new PeruHotelEntities();
                 MiHotel.usp_ActualizarCliente(
                     objClienteBE.IdCliente,objClienteBE.ClieNom,objClienteBE.ClieApePater,objClienteBE.ClieApeMater,objClienteBE.ClieCorreo,
-                    objClienteBE.ClieTipoDocumento,objClienteBE.ClieDocumento,objClienteBE.IdPais,objClienteBE.ClieCodigo,objClienteBE.ClieContra,
+                    objClienteBE.ClieTipoDocumento,objClienteBE.ClieDocumento,objClienteBE.IdUbigeo,objClienteBE.ClieCodigo,objClienteBE.ClieContra,
                     objClienteBE.ClieSexo
                     );
                 blnexito = true;
@@ -98,7 +98,7 @@ namespace WCF_PeruHotel
                 objClienteBE.ClieCorreo = objCliente.clie_correo;
                 objClienteBE.ClieTipoDocumento = objCliente.clie_tipoDocumento;
                 objClienteBE.ClieDocumento = objCliente.clie_documento;
-                objClienteBE.IdPais = objCliente.id_Pais;
+                objClienteBE.IdUbigeo = objCliente.id_Ubigeo;
                 objClienteBE.ClieCodigo = objCliente.clie_codigo;
                 objClienteBE.ClieContra = objCliente.clie_contra;
                 objClienteBE.ClieSexo = objCliente.clie_sexo;
@@ -135,7 +135,7 @@ namespace WCF_PeruHotel
                     objClienteBE.ClieCorreo = resultado.clie_correo;
                     objClienteBE.ClieTipoDocumento = resultado.clie_tipoDocumento;
                     objClienteBE.ClieDocumento = resultado.clie_documento;
-                    objClienteBE.IdPais = resultado.id_Pais;
+                    objClienteBE.IdUbigeo = resultado.id_Ubigeo;
                     objClienteBE.ClieCodigo = resultado.clie_codigo;
                     objClienteBE.ClieContra = resultado.clie_contra;
                     objClienteBE.ClieSexo = resultado.clie_sexo;

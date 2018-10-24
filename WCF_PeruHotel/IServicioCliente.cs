@@ -42,7 +42,7 @@ namespace WCF_PeruHotel
         private String _clieCorreo;
         private String _clieTipoDocumento;
         private String _clieDocumento;
-        private String _idPais;
+        private String _idUbigeo;
         private String _clieCodigo;
         private String _clieContra;
         private String _clieSexo;
@@ -92,10 +92,10 @@ namespace WCF_PeruHotel
             set { this._clieDocumento = value; }
         }
         [DataMember]
-        public String IdPais
+        public String IdUbigeo
         {
-            get { return this._idPais; }
-            set { this._idPais = value; }
+            get { return this._idUbigeo; }
+            set { this._idUbigeo = value; }
         }
         [DataMember]
         public String ClieCodigo

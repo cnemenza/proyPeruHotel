@@ -25,7 +25,7 @@
     <Property Name="clie_correo" Type="varchar" MaxLength="120" />
     <Property Name="clie_tipoDocumento" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="clie_documento" Type="varchar" MaxLength="12" Nullable="false" />
-    <Property Name="id_Pais" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="id_Ubigeo" Type="char" MaxLength="5" Nullable="false" />
     <Property Name="clie_codigo" Type="varchar" MaxLength="20" />
     <Property Name="clie_contra" Type="varchar" MaxLength="50" />
     <Property Name="clie_sexo" Type="char" MaxLength="1" Nullable="false" />
@@ -54,6 +54,7 @@
     </Key>
     <Property Name="id_servicio" Type="char" MaxLength="5" Nullable="false" />
     <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="cantidad" Type="int" />
   </EntityType>
   <EntityType Name="HABITACION">
     <Key>
@@ -73,13 +74,6 @@
     <Property Name="id_hotel" Type="char" MaxLength="5" Nullable="false" />
     <Property Name="hotel_direcc" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="hotel_descrip" Type="varchar" MaxLength="300" />
-  </EntityType>
-  <EntityType Name="PAIS">
-    <Key>
-      <PropertyRef Name="id_Pais" />
-    </Key>
-    <Property Name="id_Pais" Type="char" MaxLength="5" Nullable="false" />
-    <Property Name="pais_nom" Type="varchar" MaxLength="200" Nullable="false" />
   </EntityType>
   <EntityType Name="PROMOCION">
     <Key>
@@ -130,6 +124,18 @@
     <Property Name="tipo_precio" Type="decimal" Precision="19" Scale="2" Nullable="false" />
     <Property Name="tipo_num_camas" Type="varchar" MaxLength="2" Nullable="false" />
   </EntityType>
+  <EntityType Name="UBIGEO">
+    <Key>
+      <PropertyRef Name="id_Ubigeo" />
+    </Key>
+    <Property Name="id_Ubigeo" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="id_Continente" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_Pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_Ciudad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="ubi_Continente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ubi_Pais" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ubi_Ciudad" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaDetalleReserva' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_VistaDetalleReserva">
@@ -145,34 +151,85 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaDetalleReserva' no tie
     <Property Name="tipo_precio" Type="decimal" Precision="19" Scale="2" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaDetalleServicio' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_VistaDetalleServicio">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="id_reserva" />
+      <PropertyRef Name="id_servicio" />
+    </Key>
+    <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="id_servicio" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="servi_descripcion" Type="varchar" MaxLength="250" />
+    <Property Name="servi_precio" Type="decimal" Precision="19" Scale="2" />
+    <Property Name="cantidad" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_VistaReserva">
     <Key>
       <PropertyRef Name="id_reserva" />
-      <PropertyRef Name="reser_fechaIngreso" />
       <PropertyRef Name="reser_fechaReser" />
+      <PropertyRef Name="reser_fechaIngreso" />
       <PropertyRef Name="id_cliente" />
       <PropertyRef Name="Nombre" />
     </Key>
     <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
-    <Property Name="reser_fechaIngreso" Type="date" Nullable="false" />
     <Property Name="reser_fechaReser" Type="date" Nullable="false" />
+    <Property Name="reser_fechaIngreso" Type="date" Nullable="false" />
     <Property Name="reser_fechaSalida" Type="date" />
     <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
     <Property Name="Nombre" Type="varchar" MaxLength="61" Nullable="false" />
     <Property Name="Cant_Hab" Type="int" />
+    <Property Name="Cant_Dias" Type="int" />
+    <Property Name="Monto_hab" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="Monto_servicio" Type="decimal" Precision="38" Scale="2" />
     <Property Name="Total" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="estado" Type="varchar" MaxLength="9" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaHabitaciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_VistaReservaHabitaciones">
+    <Key>
+      <PropertyRef Name="id_reserva" />
+      <PropertyRef Name="reser_fechaReser" />
+      <PropertyRef Name="reser_fechaIngreso" />
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="reser_fechaReser" Type="date" Nullable="false" />
+    <Property Name="reser_fechaIngreso" Type="date" Nullable="false" />
+    <Property Name="reser_fechaSalida" Type="date" />
+    <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="61" Nullable="false" />
+    <Property Name="Cant_Hab" Type="int" />
+    <Property Name="Cant_Dias" Type="int" />
+    <Property Name="Monto_hab" Type="decimal" Precision="38" Scale="2" />
     <Property Name="Estado" Type="varchar" MaxLength="9" />
   </EntityType>
-  <Association Name="FK__CLIENTE__id_Pais__45F365D3">
-    <End Role="PAIS" Type="Self.PAIS" Multiplicity="1" />
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_VistaReservaServicios">
+    <Key>
+      <PropertyRef Name="id_reserva" />
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="Cantidad_ser" Type="int" />
+    <Property Name="Monto_servicio" Type="decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <Association Name="FK__CLIENTE__id_Ubig__45F365D3">
+    <End Role="UBIGEO" Type="Self.UBIGEO" Multiplicity="1" />
     <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="PAIS">
-        <PropertyRef Name="id_Pais" />
+      <Principal Role="UBIGEO">
+        <PropertyRef Name="id_Ubigeo" />
       </Principal>
       <Dependent Role="CLIENTE">
-        <PropertyRef Name="id_Pais" />
+        <PropertyRef Name="id_Ubigeo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -224,7 +281,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene defi
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DETALLE_S__id_re__440B1D61">
+  <Association Name="FK__DETALLE_S__id_re__619B8048">
     <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
     <End Role="DETALLE_SERVICIO" Type="Self.DETALLE_SERVICIO" Multiplicity="*" />
     <ReferentialConstraint>
@@ -236,7 +293,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene defi
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DETALLE_S__id_se__44FF419A">
+  <Association Name="FK__DETALLE_S__id_se__628FA481">
     <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="1" />
     <End Role="DETALLE_SERVICIO" Type="Self.DETALLE_SERVICIO" Multiplicity="*" />
     <ReferentialConstraint>
@@ -314,7 +371,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene defi
     <Parameter Name="clie_correo" Type="varchar" Mode="In" />
     <Parameter Name="clie_tipoDocumento" Type="char" Mode="In" />
     <Parameter Name="clie_documento" Type="varchar" Mode="In" />
-    <Parameter Name="id_Pais" Type="char" Mode="In" />
+    <Parameter Name="id_Ubigeo" Type="char" Mode="In" />
     <Parameter Name="clie_codigo" Type="varchar" Mode="In" />
     <Parameter Name="clie_contra" Type="varchar" Mode="In" />
     <Parameter Name="clie_sexo" Type="char" Mode="In" />
@@ -350,7 +407,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene defi
     <Parameter Name="clie_correo" Type="varchar" Mode="In" />
     <Parameter Name="clie_tipoDocumento" Type="char" Mode="In" />
     <Parameter Name="clie_documento" Type="varchar" Mode="In" />
-    <Parameter Name="id_Pais" Type="char" Mode="In" />
+    <Parameter Name="id_Ubigeo" Type="char" Mode="In" />
     <Parameter Name="clie_codigo" Type="varchar" Mode="In" />
     <Parameter Name="clie_contra" Type="varchar" Mode="In" />
     <Parameter Name="clie_sexo" Type="char" Mode="In" />
@@ -365,12 +422,12 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene defi
     <EntitySet Name="DETALLE_SERVICIO" EntityType="Self.DETALLE_SERVICIO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HABITACION" EntityType="Self.HABITACION" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HOTEL" EntityType="Self.HOTEL" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PAIS" EntityType="Self.PAIS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PROMOCION" EntityType="Self.PROMOCION" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RESERVA" EntityType="Self.RESERVA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPO_HABITACION" EntityType="Self.TIPO_HABITACION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UBIGEO" EntityType="Self.UBIGEO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="vw_VistaDetalleReserva" EntityType="Self.vw_VistaDetalleReserva" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [vw_VistaDetalleReserva].[id_reserva] AS [id_reserva], 
@@ -379,21 +436,56 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene defi
     [vw_VistaDetalleReserva].[tipo_precio] AS [tipo_precio]
     FROM [dbo].[vw_VistaDetalleReserva] AS [vw_VistaDetalleReserva]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="vw_VistaDetalleServicio" EntityType="Self.vw_VistaDetalleServicio" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_VistaDetalleServicio].[id_cliente] AS [id_cliente], 
+    [vw_VistaDetalleServicio].[id_reserva] AS [id_reserva], 
+    [vw_VistaDetalleServicio].[id_servicio] AS [id_servicio], 
+    [vw_VistaDetalleServicio].[servi_descripcion] AS [servi_descripcion], 
+    [vw_VistaDetalleServicio].[servi_precio] AS [servi_precio], 
+    [vw_VistaDetalleServicio].[cantidad] AS [cantidad]
+    FROM [dbo].[vw_VistaDetalleServicio] AS [vw_VistaDetalleServicio]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="vw_VistaReserva" EntityType="Self.vw_VistaReserva" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [vw_VistaReserva].[id_reserva] AS [id_reserva], 
-    [vw_VistaReserva].[reser_fechaIngreso] AS [reser_fechaIngreso], 
     [vw_VistaReserva].[reser_fechaReser] AS [reser_fechaReser], 
+    [vw_VistaReserva].[reser_fechaIngreso] AS [reser_fechaIngreso], 
     [vw_VistaReserva].[reser_fechaSalida] AS [reser_fechaSalida], 
     [vw_VistaReserva].[id_cliente] AS [id_cliente], 
     [vw_VistaReserva].[Nombre] AS [Nombre], 
     [vw_VistaReserva].[Cant_Hab] AS [Cant_Hab], 
+    [vw_VistaReserva].[Cant_Dias] AS [Cant_Dias], 
+    [vw_VistaReserva].[Monto_hab] AS [Monto_hab], 
+    [vw_VistaReserva].[Monto_servicio] AS [Monto_servicio], 
     [vw_VistaReserva].[Total] AS [Total], 
-    [vw_VistaReserva].[Estado] AS [Estado]
+    [vw_VistaReserva].[estado] AS [estado]
     FROM [dbo].[vw_VistaReserva] AS [vw_VistaReserva]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK__CLIENTE__id_Pais__45F365D3" Association="Self.FK__CLIENTE__id_Pais__45F365D3">
-      <End Role="PAIS" EntitySet="PAIS" />
+    <EntitySet Name="vw_VistaReservaHabitaciones" EntityType="Self.vw_VistaReservaHabitaciones" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_VistaReservaHabitaciones].[id_reserva] AS [id_reserva], 
+    [vw_VistaReservaHabitaciones].[reser_fechaReser] AS [reser_fechaReser], 
+    [vw_VistaReservaHabitaciones].[reser_fechaIngreso] AS [reser_fechaIngreso], 
+    [vw_VistaReservaHabitaciones].[reser_fechaSalida] AS [reser_fechaSalida], 
+    [vw_VistaReservaHabitaciones].[id_cliente] AS [id_cliente], 
+    [vw_VistaReservaHabitaciones].[Nombre] AS [Nombre], 
+    [vw_VistaReservaHabitaciones].[Cant_Hab] AS [Cant_Hab], 
+    [vw_VistaReservaHabitaciones].[Cant_Dias] AS [Cant_Dias], 
+    [vw_VistaReservaHabitaciones].[Monto_hab] AS [Monto_hab], 
+    [vw_VistaReservaHabitaciones].[Estado] AS [Estado]
+    FROM [dbo].[vw_VistaReservaHabitaciones] AS [vw_VistaReservaHabitaciones]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_VistaReservaServicios" EntityType="Self.vw_VistaReservaServicios" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_VistaReservaServicios].[id_reserva] AS [id_reserva], 
+    [vw_VistaReservaServicios].[id_cliente] AS [id_cliente], 
+    [vw_VistaReservaServicios].[Cantidad_ser] AS [Cantidad_ser], 
+    [vw_VistaReservaServicios].[Monto_servicio] AS [Monto_servicio]
+    FROM [dbo].[vw_VistaReservaServicios] AS [vw_VistaReservaServicios]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__CLIENTE__id_Ubig__45F365D3" Association="Self.FK__CLIENTE__id_Ubig__45F365D3">
+      <End Role="UBIGEO" EntitySet="UBIGEO" />
       <End Role="CLIENTE" EntitySet="CLIENTE" />
     </AssociationSet>
     <AssociationSet Name="FK__DETALLE_H__id_ad__4222D4EF" Association="Self.FK__DETALLE_H__id_ad__4222D4EF">
@@ -412,11 +504,11 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene defi
       <End Role="RESERVA" EntitySet="RESERVA" />
       <End Role="DETALLE_RESERVA" EntitySet="DETALLE_RESERVA" />
     </AssociationSet>
-    <AssociationSet Name="FK__DETALLE_S__id_re__440B1D61" Association="Self.FK__DETALLE_S__id_re__440B1D61">
+    <AssociationSet Name="FK__DETALLE_S__id_re__619B8048" Association="Self.FK__DETALLE_S__id_re__619B8048">
       <End Role="RESERVA" EntitySet="RESERVA" />
       <End Role="DETALLE_SERVICIO" EntitySet="DETALLE_SERVICIO" />
     </AssociationSet>
-    <AssociationSet Name="FK__DETALLE_S__id_se__44FF419A" Association="Self.FK__DETALLE_S__id_se__44FF419A">
+    <AssociationSet Name="FK__DETALLE_S__id_se__628FA481" Association="Self.FK__DETALLE_S__id_se__628FA481">
       <End Role="SERVICIO" EntitySet="SERVICIO" />
       <End Role="DETALLE_SERVICIO" EntitySet="DETALLE_SERVICIO" />
     </AssociationSet>

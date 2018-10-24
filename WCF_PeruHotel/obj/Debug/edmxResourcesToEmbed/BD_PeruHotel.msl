@@ -45,6 +45,7 @@
     <EntitySetMapping Name="CLIENTE">
       <EntityTypeMapping TypeName="PeruHotelModel.CLIENTE">
         <MappingFragment StoreEntitySet="CLIENTE">
+          <ScalarProperty Name="id_Ubigeo" ColumnName="id_Ubigeo" />
           <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
           <ScalarProperty Name="clie_nom" ColumnName="clie_nom" />
           <ScalarProperty Name="clie_apePater" ColumnName="clie_apePater" />
@@ -52,7 +53,6 @@
           <ScalarProperty Name="clie_correo" ColumnName="clie_correo" />
           <ScalarProperty Name="clie_tipoDocumento" ColumnName="clie_tipoDocumento" />
           <ScalarProperty Name="clie_documento" ColumnName="clie_documento" />
-          <ScalarProperty Name="id_Pais" ColumnName="id_Pais" />
           <ScalarProperty Name="clie_codigo" ColumnName="clie_codigo" />
           <ScalarProperty Name="clie_contra" ColumnName="clie_contra" />
           <ScalarProperty Name="clie_sexo" ColumnName="clie_sexo" />
@@ -61,23 +61,11 @@
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="PeruHotelModel.CLIENTE">
         <ModificationFunctionMapping>
-          <InsertFunction FunctionName="PeruHotelModel.Store.usp_InsertarCliente">
-            <ScalarProperty Name="clie_sexo" ParameterName="clie_sexo" />
-            <ScalarProperty Name="clie_contra" ParameterName="clie_contra" />
-            <ScalarProperty Name="clie_codigo" ParameterName="clie_codigo" />
-            <ScalarProperty Name="id_Pais" ParameterName="id_Pais" />
-            <ScalarProperty Name="clie_documento" ParameterName="clie_documento" />
-            <ScalarProperty Name="clie_tipoDocumento" ParameterName="clie_tipoDocumento" />
-            <ScalarProperty Name="clie_correo" ParameterName="clie_correo" />
-            <ScalarProperty Name="clie_apeMater" ParameterName="clie_apeMater" />
-            <ScalarProperty Name="clie_apePater" ParameterName="clie_apePater" />
-            <ScalarProperty Name="clie_nom" ParameterName="clie_nom" />
-          </InsertFunction>
           <UpdateFunction FunctionName="PeruHotelModel.Store.usp_ActualizarCliente">
+            <ScalarProperty Name="id_Ubigeo" ParameterName="id_Ubigeo" Version="Current" />
             <ScalarProperty Name="clie_sexo" ParameterName="clie_sexo" Version="Current" />
             <ScalarProperty Name="clie_contra" ParameterName="clie_contra" Version="Current" />
             <ScalarProperty Name="clie_codigo" ParameterName="clie_codigo" Version="Current" />
-            <ScalarProperty Name="id_Pais" ParameterName="id_Pais" Version="Current" />
             <ScalarProperty Name="clie_documento" ParameterName="clie_documento" Version="Current" />
             <ScalarProperty Name="clie_tipoDocumento" ParameterName="clie_tipoDocumento" Version="Current" />
             <ScalarProperty Name="clie_correo" ParameterName="clie_correo" Version="Current" />
@@ -89,6 +77,18 @@
           <DeleteFunction FunctionName="PeruHotelModel.Store.usp_EliminarCliente">
             <ScalarProperty Name="id_cliente" ParameterName="id_cliente" />
           </DeleteFunction>
+          <InsertFunction FunctionName="PeruHotelModel.Store.usp_InsertarCliente">
+            <ScalarProperty Name="clie_sexo" ParameterName="clie_sexo" />
+            <ScalarProperty Name="clie_contra" ParameterName="clie_contra" />
+            <ScalarProperty Name="clie_codigo" ParameterName="clie_codigo" />
+            <ScalarProperty Name="id_Ubigeo" ParameterName="id_Ubigeo" />
+            <ScalarProperty Name="clie_documento" ParameterName="clie_documento" />
+            <ScalarProperty Name="clie_tipoDocumento" ParameterName="clie_tipoDocumento" />
+            <ScalarProperty Name="clie_correo" ParameterName="clie_correo" />
+            <ScalarProperty Name="clie_apeMater" ParameterName="clie_apeMater" />
+            <ScalarProperty Name="clie_apePater" ParameterName="clie_apePater" />
+            <ScalarProperty Name="clie_nom" ParameterName="clie_nom" />
+          </InsertFunction>
         </ModificationFunctionMapping>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -110,14 +110,6 @@
           <ScalarProperty Name="id_hotel" ColumnName="id_hotel" />
           <ScalarProperty Name="hotel_direcc" ColumnName="hotel_direcc" />
           <ScalarProperty Name="hotel_descrip" ColumnName="hotel_descrip" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PAIS">
-      <EntityTypeMapping TypeName="PeruHotelModel.PAIS">
-        <MappingFragment StoreEntitySet="PAIS">
-          <ScalarProperty Name="id_Pais" ColumnName="id_Pais" />
-          <ScalarProperty Name="pais_nom" ColumnName="pais_nom" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -251,7 +243,10 @@
     <EntitySetMapping Name="vw_VistaReserva">
       <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaReserva">
         <MappingFragment StoreEntitySet="vw_VistaReserva">
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="Monto_servicio" ColumnName="Monto_servicio" />
+          <ScalarProperty Name="Monto_hab" ColumnName="Monto_hab" />
+          <ScalarProperty Name="Cant_Dias" ColumnName="Cant_Dias" />
           <ScalarProperty Name="Total" ColumnName="Total" />
           <ScalarProperty Name="Cant_Hab" ColumnName="Cant_Hab" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -291,5 +286,56 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="UBIGEO">
+      <EntityTypeMapping TypeName="PeruHotelModel.UBIGEO">
+        <MappingFragment StoreEntitySet="UBIGEO">
+          <ScalarProperty Name="ubi_Ciudad" ColumnName="ubi_Ciudad" />
+          <ScalarProperty Name="ubi_Pais" ColumnName="ubi_Pais" />
+          <ScalarProperty Name="ubi_Continente" ColumnName="ubi_Continente" />
+          <ScalarProperty Name="id_Ciudad" ColumnName="id_Ciudad" />
+          <ScalarProperty Name="id_Pais" ColumnName="id_Pais" />
+          <ScalarProperty Name="id_Continente" ColumnName="id_Continente" />
+          <ScalarProperty Name="id_Ubigeo" ColumnName="id_Ubigeo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_VistaDetalleServicio">
+      <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaDetalleServicio">
+        <MappingFragment StoreEntitySet="vw_VistaDetalleServicio">
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="servi_precio" ColumnName="servi_precio" />
+          <ScalarProperty Name="servi_descripcion" ColumnName="servi_descripcion" />
+          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_VistaReservaHabitaciones">
+      <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaReservaHabitaciones">
+        <MappingFragment StoreEntitySet="vw_VistaReservaHabitaciones">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Monto_hab" ColumnName="Monto_hab" />
+          <ScalarProperty Name="Cant_Dias" ColumnName="Cant_Dias" />
+          <ScalarProperty Name="Cant_Hab" ColumnName="Cant_Hab" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="reser_fechaSalida" ColumnName="reser_fechaSalida" />
+          <ScalarProperty Name="reser_fechaIngreso" ColumnName="reser_fechaIngreso" />
+          <ScalarProperty Name="reser_fechaReser" ColumnName="reser_fechaReser" />
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_VistaReservaServicios">
+      <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaReservaServicios">
+        <MappingFragment StoreEntitySet="vw_VistaReservaServicios">
+          <ScalarProperty Name="Monto_servicio" ColumnName="Monto_servicio" />
+          <ScalarProperty Name="Cantidad_ser" ColumnName="Cantidad_ser" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

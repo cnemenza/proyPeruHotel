@@ -12,16 +12,21 @@ namespace WCF_PeruHotel
     using System;
     using System.Collections.Generic;
     
-    public partial class PAIS
+    public partial class UBIGEO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PAIS()
+        public UBIGEO()
         {
             this.CLIENTE = new HashSet<CLIENTE>();
         }
     
+        public string id_Ubigeo { get; set; }
+        public string id_Continente { get; set; }
         public string id_Pais { get; set; }
-        public string pais_nom { get; set; }
+        public string id_Ciudad { get; set; }
+        public string ubi_Continente { get; set; }
+        public string ubi_Pais { get; set; }
+        public string ubi_Ciudad { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CLIENTE> CLIENTE { get; set; }

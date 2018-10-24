@@ -22,12 +22,15 @@ namespace WCF_PeruHotel
     public class dataReserva
     {
         private String _idReserva;
-        private System.DateTime _reserFechaIngreso;
         private System.DateTime _reserFechaReser;
+        private System.DateTime _reserFechaIngreso;
         private System.DateTime _reserFechaSalida;
         private String _idCliente;
         private String _nombre;
         private Single _cantHab;
+        private Single _cantDias;
+        private Single _monHab;
+        private Single _monServicio;
         private Single _total;
         private String _estado;
 
@@ -46,20 +49,6 @@ namespace WCF_PeruHotel
         }
 
         [DataMember]
-        public DateTime ReserFechaIngreso
-        {
-            get
-            {
-                return _reserFechaIngreso;
-            }
-
-            set
-            {
-                _reserFechaIngreso = value;
-            }
-        }
-
-        [DataMember]
         public DateTime ReserFechaReser
         {
             get
@@ -70,6 +59,20 @@ namespace WCF_PeruHotel
             set
             {
                 _reserFechaReser = value;
+            }
+        }
+
+        [DataMember]
+        public DateTime ReserFechaIngreso
+        {
+            get
+            {
+                return _reserFechaIngreso;
+            }
+
+            set
+            {
+                _reserFechaIngreso = value;
             }
         }
 
@@ -116,7 +119,7 @@ namespace WCF_PeruHotel
         }
 
         [DataMember]
-        public float CantHab
+        public Single CantHab
         {
             get
             {
@@ -130,7 +133,49 @@ namespace WCF_PeruHotel
         }
 
         [DataMember]
-        public float Total
+        public Single CantDias
+        {
+            get
+            {
+                return _cantDias;
+            }
+
+            set
+            {
+                _cantDias = value;
+            }
+        }
+
+        [DataMember]
+        public Single MonHab
+        {
+            get
+            {
+                return _monHab;
+            }
+
+            set
+            {
+                _monHab = value;
+            }
+        }
+
+        [DataMember]
+        public Single MonServicio
+        {
+            get
+            {
+                return _monServicio;
+            }
+
+            set
+            {
+                _monServicio = value;
+            }
+        }
+
+        [DataMember]
+        public Single Total
         {
             get
             {

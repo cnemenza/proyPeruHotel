@@ -123,4 +123,9 @@ public partial class Web_InterfazAdministrador_WebConsultarReservas : System.Web
     {
         grvDatos.CssClass = "d-none";
     }
+
+    protected void cboEstado_SelectedIndexChanged(object sender, EventArgs e)
+    {
+    
+    }
 }

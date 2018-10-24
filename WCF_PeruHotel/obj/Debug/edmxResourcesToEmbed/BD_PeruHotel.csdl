@@ -26,13 +26,13 @@
     <Property Name="clie_correo" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
     <Property Name="clie_tipoDocumento" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="clie_documento" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="id_Pais" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="clie_codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="clie_contra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="clie_sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="clie_estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="PAIS" Relationship="Self.FK__CLIENTE__id_Pais__45F365D3" FromRole="CLIENTE" ToRole="PAIS" />
     <NavigationProperty Name="RESERVA" Relationship="Self.FK__RESERVA__id_clie__3E52440B" FromRole="CLIENTE" ToRole="RESERVA" />
+    <Property Name="id_Ubigeo" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="UBIGEO" Relationship="PeruHotelModel.FK__CLIENTE__id_Ubig__45F365D3" FromRole="CLIENTE" ToRole="UBIGEO" />
   </EntityType>
   <EntityType Name="HABITACION">
     <Key>
@@ -57,14 +57,6 @@
     <Property Name="hotel_descrip" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="HABITACION" Relationship="Self.FK__HABITACIO__id_ho__3C69FB99" FromRole="HOTEL" ToRole="HABITACION" />
     <NavigationProperty Name="ADMINISTRADOR" Relationship="Self.DETALLE_HOTEL" FromRole="HOTEL" ToRole="ADMINISTRADOR" />
-  </EntityType>
-  <EntityType Name="PAIS">
-    <Key>
-      <PropertyRef Name="id_Pais" />
-    </Key>
-    <Property Name="id_Pais" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="pais_nom" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="CLIENTE" Relationship="Self.FK__CLIENTE__id_Pais__45F365D3" FromRole="PAIS" ToRole="CLIENTE" />
   </EntityType>
   <EntityType Name="PROMOCION">
     <Key>
@@ -122,18 +114,6 @@
     <Property Name="tipo_num_camas" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="HABITACION" Relationship="Self.FK__HABITACIO__id_ti__3D5E1FD2" FromRole="TIPO_HABITACION" ToRole="HABITACION" />
   </EntityType>
-  <Association Name="FK__CLIENTE__id_Pais__45F365D3">
-    <End Role="PAIS" Type="Self.PAIS" Multiplicity="1" />
-    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PAIS">
-        <PropertyRef Name="id_Pais" />
-      </Principal>
-      <Dependent Role="CLIENTE">
-        <PropertyRef Name="id_Pais" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__RESERVA__id_clie__3E52440B">
     <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
     <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
@@ -199,16 +179,11 @@
     <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
     <EntitySet Name="HABITACION" EntityType="Self.HABITACION" />
     <EntitySet Name="HOTEL" EntityType="Self.HOTEL" />
-    <EntitySet Name="PAIS" EntityType="Self.PAIS" />
     <EntitySet Name="PROMOCION" EntityType="Self.PROMOCION" />
     <EntitySet Name="RESERVA" EntityType="Self.RESERVA" />
     <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="TIPO_HABITACION" EntityType="Self.TIPO_HABITACION" />
-    <AssociationSet Name="FK__CLIENTE__id_Pais__45F365D3" Association="Self.FK__CLIENTE__id_Pais__45F365D3">
-      <End Role="PAIS" EntitySet="PAIS" />
-      <End Role="CLIENTE" EntitySet="CLIENTE" />
-    </AssociationSet>
     <AssociationSet Name="FK__RESERVA__id_clie__3E52440B" Association="Self.FK__RESERVA__id_clie__3E52440B">
       <End Role="CLIENTE" EntitySet="CLIENTE" />
       <End Role="RESERVA" EntitySet="RESERVA" />
@@ -255,7 +230,7 @@
       <Parameter Name="clie_correo" Mode="In" Type="String" />
       <Parameter Name="clie_tipoDocumento" Mode="In" Type="String" />
       <Parameter Name="clie_documento" Mode="In" Type="String" />
-      <Parameter Name="id_Pais" Mode="In" Type="String" />
+      <Parameter Name="id_Ubigeo" Mode="In" Type="String" />
       <Parameter Name="clie_codigo" Mode="In" Type="String" />
       <Parameter Name="clie_contra" Mode="In" Type="String" />
       <Parameter Name="clie_sexo" Mode="In" Type="String" />
@@ -288,7 +263,7 @@
       <Parameter Name="clie_correo" Mode="In" Type="String" />
       <Parameter Name="clie_tipoDocumento" Mode="In" Type="String" />
       <Parameter Name="clie_documento" Mode="In" Type="String" />
-      <Parameter Name="id_Pais" Mode="In" Type="String" />
+      <Parameter Name="id_Ubigeo" Mode="In" Type="String" />
       <Parameter Name="clie_codigo" Mode="In" Type="String" />
       <Parameter Name="clie_contra" Mode="In" Type="String" />
       <Parameter Name="clie_sexo" Mode="In" Type="String" />
@@ -303,6 +278,14 @@
       <Parameter Name="id_tipoHabi" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="usp_ListaNombresCliente" ReturnType="Collection(PeruHotelModel.usp_ListaNombresCliente_Result)" />
+    <EntitySet Name="UBIGEO" EntityType="PeruHotelModel.UBIGEO" />
+    <AssociationSet Name="FK__CLIENTE__id_Ubig__45F365D3" Association="PeruHotelModel.FK__CLIENTE__id_Ubig__45F365D3">
+      <End Role="UBIGEO" EntitySet="UBIGEO" />
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <EntitySet Name="vw_VistaDetalleServicio" EntityType="PeruHotelModel.vw_VistaDetalleServicio" />
+    <EntitySet Name="vw_VistaReservaHabitaciones" EntityType="PeruHotelModel.vw_VistaReservaHabitaciones" />
+    <EntitySet Name="vw_VistaReservaServicios" EntityType="PeruHotelModel.vw_VistaReservaServicios" />
   </EntityContainer>
   <ComplexType Name="usp_ConsultarAdministrador_Result">
     <Property Type="String" Name="id_admi" Nullable="false" MaxLength="5" />
@@ -357,7 +340,10 @@
     <Property Name="Nombre" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
     <Property Name="Cant_Hab" Type="Int32" />
     <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
-    <Property Name="Estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="Cant_Dias" Type="Int32" />
+    <Property Name="Monto_hab" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Monto_servicio" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
   </EntityType>
   <ComplexType Name="usp_HabitacionDisponiblePorTipo_Result">
     <Property Type="String" Name="id_habitacion" Nullable="false" MaxLength="5" />
@@ -382,4 +368,71 @@
     <Property Type="String" Name="id_cliente" Nullable="false" MaxLength="5" />
     <Property Type="String" Name="nombres" Nullable="false" MaxLength="92" />
   </ComplexType>
+  <EntityType Name="UBIGEO">
+    <Key>
+      <PropertyRef Name="id_Ubigeo" />
+    </Key>
+    <Property Name="id_Ubigeo" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="id_Continente" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="id_Pais" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="id_Ciudad" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="ubi_Continente" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ubi_Pais" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ubi_Ciudad" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CLIENTE" Relationship="PeruHotelModel.FK__CLIENTE__id_Ubig__45F365D3" FromRole="UBIGEO" ToRole="CLIENTE" />
+  </EntityType>
+  <Association Name="FK__CLIENTE__id_Ubig__45F365D3">
+    <End Type="PeruHotelModel.UBIGEO" Role="UBIGEO" Multiplicity="1" />
+    <End Type="PeruHotelModel.CLIENTE" Role="CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UBIGEO">
+        <PropertyRef Name="id_Ubigeo" />
+      </Principal>
+      <Dependent Role="CLIENTE">
+        <PropertyRef Name="id_Ubigeo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="vw_VistaDetalleServicio">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="id_reserva" />
+      <PropertyRef Name="id_servicio" />
+    </Key>
+    <Property Name="id_cliente" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="id_reserva" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="id_servicio" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="servi_descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="servi_precio" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="cantidad" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vw_VistaReservaHabitaciones">
+    <Key>
+      <PropertyRef Name="id_reserva" />
+      <PropertyRef Name="reser_fechaReser" />
+      <PropertyRef Name="reser_fechaIngreso" />
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="id_reserva" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="reser_fechaReser" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="reser_fechaIngreso" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="reser_fechaSalida" Type="DateTime" Precision="0" />
+    <Property Name="id_cliente" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
+    <Property Name="Cant_Hab" Type="Int32" />
+    <Property Name="Cant_Dias" Type="Int32" />
+    <Property Name="Monto_hab" Type="Decimal" Precision="38" Scale="2" />
+    <Property Name="Estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vw_VistaReservaServicios">
+    <Key>
+      <PropertyRef Name="id_reserva" />
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_reserva" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="id_cliente" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Cantidad_ser" Type="Int32" />
+    <Property Name="Monto_servicio" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
 </Schema>

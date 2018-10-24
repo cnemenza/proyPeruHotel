@@ -33,7 +33,7 @@ namespace WCF_PeruHotel
                 MiHotel.SaveChanges();
                 blnexito = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return blnexito;
             }
@@ -47,7 +47,7 @@ namespace WCF_PeruHotel
                 MiHotel.usp_EliminarAdministrador(strCod);
                 blnexito = true;
 
-            } catch(EntityException ex)
+            } catch(EntityException)
             {
                 return blnexito;
             }

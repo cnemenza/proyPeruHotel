@@ -86,9 +86,6 @@
     <Compile Include="IServicioCliente.cs" />
     <Compile Include="IServicioHabitacion.cs" />
     <Compile Include="IServicioReserva.cs" />
-    <Compile Include="PAIS.cs">
-      <DependentUpon>BD_PeruHotel.tt</DependentUpon>
-    </Compile>
     <Compile Include="PROMOCION.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
@@ -107,6 +104,9 @@
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPO_HABITACION.cs">
+      <DependentUpon>BD_PeruHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UBIGEO.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_ConsultarAdministrador_Result.cs">
@@ -130,7 +130,16 @@
     <Compile Include="vw_VistaDetalleReserva.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
+    <Compile Include="vw_VistaDetalleServicio.cs">
+      <DependentUpon>BD_PeruHotel.tt</DependentUpon>
+    </Compile>
     <Compile Include="vw_VistaReserva.cs">
+      <DependentUpon>BD_PeruHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_VistaReservaHabitaciones.cs">
+      <DependentUpon>BD_PeruHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_VistaReservaServicios.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
