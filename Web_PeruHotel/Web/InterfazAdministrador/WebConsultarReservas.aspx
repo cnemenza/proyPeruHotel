@@ -5,7 +5,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-      <h2 class="mt-4 mb-2">Reservas</h2>
+      <h2 class="mt-4 mb-2">Reservas por Cliente
+      </h2>
    <p>
    <div class="form-group row" id="Div1" runat="server">
         <label for="IdTipo" class="col-sm-3 col-form-label ml-3">Seleccione Nombre del Cliente</label>

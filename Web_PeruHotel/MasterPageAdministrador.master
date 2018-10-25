@@ -49,10 +49,9 @@
                           <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="
                                             margin-left: 200px;">
                             <div class="navbar-nav">
-                              <a class="nav-item nav-link hoveractive" href="#">Administrador</a>
                               <a class="nav-item nav-link hoveractive" href="WebConsultarHabitaciones.aspx">Habitaciones Disponibles</a>
-                              <a class="nav-item nav-link hoveractive" href="#">Consultar Reservas</a>
-                               <a class="nav-item nav-link hoveractive" href="#">Consultar Ciente</a>
+                              <a class="nav-item nav-link hoveractive" href="WebConsultarReservas.aspx">Reservas por cliente</a>
+                               <a class="nav-item nav-link hoveractive" href="WebReservasTotales.aspx">Consultar Reservas</a>
     
                             </div>
                           </div>
