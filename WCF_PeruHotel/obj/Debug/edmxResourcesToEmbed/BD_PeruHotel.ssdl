@@ -142,11 +142,13 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaDetalleReserva' no tie
     <Key>
       <PropertyRef Name="id_reserva" />
       <PropertyRef Name="id_habitacion" />
+      <PropertyRef Name="habi_num" />
       <PropertyRef Name="tipo_nombre" />
       <PropertyRef Name="tipo_precio" />
     </Key>
     <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
     <Property Name="id_habitacion" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="habi_num" Type="varchar" MaxLength="3" Nullable="false" />
     <Property Name="tipo_nombre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="tipo_precio" Type="decimal" Precision="19" Scale="2" Nullable="false" />
   </EntityType>
@@ -154,16 +156,16 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaDetalleReserva' no tie
 advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaDetalleServicio' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_VistaDetalleServicio">
     <Key>
-      <PropertyRef Name="id_cliente" />
       <PropertyRef Name="id_reserva" />
+      <PropertyRef Name="id_cliente" />
       <PropertyRef Name="id_servicio" />
     </Key>
-    <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
     <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
     <Property Name="id_servicio" Type="char" MaxLength="5" Nullable="false" />
-    <Property Name="servi_descripcion" Type="varchar" MaxLength="250" />
+    <Property Name="servi_nom" Type="varchar" MaxLength="50" />
     <Property Name="servi_precio" Type="decimal" Precision="19" Scale="2" />
-    <Property Name="cantidad" Type="varchar" MaxLength="2" />
+    <Property Name="cantidad" Type="int" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -432,16 +434,17 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
       <DefiningQuery>SELECT 
     [vw_VistaDetalleReserva].[id_reserva] AS [id_reserva], 
     [vw_VistaDetalleReserva].[id_habitacion] AS [id_habitacion], 
+    [vw_VistaDetalleReserva].[habi_num] AS [habi_num], 
     [vw_VistaDetalleReserva].[tipo_nombre] AS [tipo_nombre], 
     [vw_VistaDetalleReserva].[tipo_precio] AS [tipo_precio]
     FROM [dbo].[vw_VistaDetalleReserva] AS [vw_VistaDetalleReserva]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vw_VistaDetalleServicio" EntityType="Self.vw_VistaDetalleServicio" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [vw_VistaDetalleServicio].[id_cliente] AS [id_cliente], 
     [vw_VistaDetalleServicio].[id_reserva] AS [id_reserva], 
+    [vw_VistaDetalleServicio].[id_cliente] AS [id_cliente], 
     [vw_VistaDetalleServicio].[id_servicio] AS [id_servicio], 
-    [vw_VistaDetalleServicio].[servi_descripcion] AS [servi_descripcion], 
+    [vw_VistaDetalleServicio].[servi_nom] AS [servi_nom], 
     [vw_VistaDetalleServicio].[servi_precio] AS [servi_precio], 
     [vw_VistaDetalleServicio].[cantidad] AS [cantidad]
     FROM [dbo].[vw_VistaDetalleServicio] AS [vw_VistaDetalleServicio]</DefiningQuery>

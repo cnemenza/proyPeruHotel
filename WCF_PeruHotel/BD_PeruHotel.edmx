@@ -147,11 +147,13 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaDetalleReserva' no tie
           <Key>
             <PropertyRef Name="id_reserva" />
             <PropertyRef Name="id_habitacion" />
+            <PropertyRef Name="habi_num" />
             <PropertyRef Name="tipo_nombre" />
             <PropertyRef Name="tipo_precio" />
           </Key>
           <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
           <Property Name="id_habitacion" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="habi_num" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="tipo_nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="tipo_precio" Type="decimal" Precision="19" Scale="2" Nullable="false" />
         </EntityType>
@@ -159,16 +161,16 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaDetalleReserva' no tie
 advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaDetalleServicio' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vw_VistaDetalleServicio">
           <Key>
-            <PropertyRef Name="id_cliente" />
             <PropertyRef Name="id_reserva" />
+            <PropertyRef Name="id_cliente" />
             <PropertyRef Name="id_servicio" />
           </Key>
-          <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
           <Property Name="id_reserva" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
           <Property Name="id_servicio" Type="char" MaxLength="5" Nullable="false" />
-          <Property Name="servi_descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="servi_nom" Type="varchar" MaxLength="50" />
           <Property Name="servi_precio" Type="decimal" Precision="19" Scale="2" />
-          <Property Name="cantidad" Type="varchar" MaxLength="2" />
+          <Property Name="cantidad" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -437,16 +439,17 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
             <DefiningQuery>SELECT 
     [vw_VistaDetalleReserva].[id_reserva] AS [id_reserva], 
     [vw_VistaDetalleReserva].[id_habitacion] AS [id_habitacion], 
+    [vw_VistaDetalleReserva].[habi_num] AS [habi_num], 
     [vw_VistaDetalleReserva].[tipo_nombre] AS [tipo_nombre], 
     [vw_VistaDetalleReserva].[tipo_precio] AS [tipo_precio]
     FROM [dbo].[vw_VistaDetalleReserva] AS [vw_VistaDetalleReserva]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_VistaDetalleServicio" EntityType="Self.vw_VistaDetalleServicio" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vw_VistaDetalleServicio].[id_cliente] AS [id_cliente], 
     [vw_VistaDetalleServicio].[id_reserva] AS [id_reserva], 
+    [vw_VistaDetalleServicio].[id_cliente] AS [id_cliente], 
     [vw_VistaDetalleServicio].[id_servicio] AS [id_servicio], 
-    [vw_VistaDetalleServicio].[servi_descripcion] AS [servi_descripcion], 
+    [vw_VistaDetalleServicio].[servi_nom] AS [servi_nom], 
     [vw_VistaDetalleServicio].[servi_precio] AS [servi_precio], 
     [vw_VistaDetalleServicio].[cantidad] AS [cantidad]
     FROM [dbo].[vw_VistaDetalleServicio] AS [vw_VistaDetalleServicio]</DefiningQuery>
@@ -822,9 +825,9 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
             <End Role="UBIGEO" EntitySet="UBIGEO" />
             <End Role="CLIENTE" EntitySet="CLIENTE" />
           </AssociationSet>
-          <EntitySet Name="vw_VistaDetalleServicio" EntityType="PeruHotelModel.vw_VistaDetalleServicio" />
           <EntitySet Name="vw_VistaReservaHabitaciones" EntityType="PeruHotelModel.vw_VistaReservaHabitaciones" />
           <EntitySet Name="vw_VistaReservaServicios" EntityType="PeruHotelModel.vw_VistaReservaServicios" />
+          <EntitySet Name="vw_VistaDetalleServicio" EntityType="PeruHotelModel.vw_VistaDetalleServicio" />
         </EntityContainer>
         <ComplexType Name="usp_ConsultarAdministrador_Result">
           <Property Type="String" Name="id_admi" Nullable="false" MaxLength="5" />
@@ -857,11 +860,13 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
             <PropertyRef Name="id_habitacion" />
             <PropertyRef Name="tipo_nombre" />
             <PropertyRef Name="tipo_precio" />
+            <PropertyRef Name="habi_num" />
           </Key>
           <Property Name="id_reserva" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
           <Property Name="id_habitacion" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
           <Property Name="tipo_nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="tipo_precio" Type="Decimal" Nullable="false" Precision="19" Scale="2" />
+          <Property Name="habi_num" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vw_VistaReserva">
           <Key>
@@ -932,19 +937,6 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="vw_VistaDetalleServicio">
-          <Key>
-            <PropertyRef Name="id_cliente" />
-            <PropertyRef Name="id_reserva" />
-            <PropertyRef Name="id_servicio" />
-          </Key>
-          <Property Name="id_cliente" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="id_reserva" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="id_servicio" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="servi_descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="servi_precio" Type="Decimal" Precision="19" Scale="2" />
-          <Property Name="cantidad" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="vw_VistaReservaHabitaciones">
           <Key>
             <PropertyRef Name="id_reserva" />
@@ -973,6 +965,19 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <Property Name="id_cliente" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
           <Property Name="Cantidad_ser" Type="Int32" />
           <Property Name="Monto_servicio" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <EntityType Name="vw_VistaDetalleServicio">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+            <PropertyRef Name="id_cliente" />
+            <PropertyRef Name="id_servicio" />
+          </Key>
+          <Property Name="id_reserva" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="id_cliente" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="id_servicio" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="servi_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="servi_precio" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="cantidad" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1212,6 +1217,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <EntitySetMapping Name="vw_VistaDetalleReserva">
             <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaDetalleReserva">
               <MappingFragment StoreEntitySet="vw_VistaDetalleReserva">
+                <ScalarProperty Name="habi_num" ColumnName="habi_num" />
                 <ScalarProperty Name="tipo_precio" ColumnName="tipo_precio" />
                 <ScalarProperty Name="tipo_nombre" ColumnName="tipo_nombre" />
                 <ScalarProperty Name="id_habitacion" ColumnName="id_habitacion" />
@@ -1278,18 +1284,6 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vw_VistaDetalleServicio">
-            <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaDetalleServicio">
-              <MappingFragment StoreEntitySet="vw_VistaDetalleServicio">
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="servi_precio" ColumnName="servi_precio" />
-                <ScalarProperty Name="servi_descripcion" ColumnName="servi_descripcion" />
-                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
-                <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vw_VistaReservaHabitaciones">
             <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaReservaHabitaciones">
               <MappingFragment StoreEntitySet="vw_VistaReservaHabitaciones">
@@ -1311,6 +1305,18 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
               <MappingFragment StoreEntitySet="vw_VistaReservaServicios">
                 <ScalarProperty Name="Monto_servicio" ColumnName="Monto_servicio" />
                 <ScalarProperty Name="Cantidad_ser" ColumnName="Cantidad_ser" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_VistaDetalleServicio">
+            <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaDetalleServicio">
+              <MappingFragment StoreEntitySet="vw_VistaDetalleServicio">
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="servi_precio" ColumnName="servi_precio" />
+                <ScalarProperty Name="servi_nom" ColumnName="servi_nom" />
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
                 <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
                 <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
               </MappingFragment>

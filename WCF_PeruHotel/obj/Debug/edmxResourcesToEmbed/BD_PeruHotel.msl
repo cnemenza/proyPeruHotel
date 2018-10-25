@@ -233,6 +233,7 @@
     <EntitySetMapping Name="vw_VistaDetalleReserva">
       <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaDetalleReserva">
         <MappingFragment StoreEntitySet="vw_VistaDetalleReserva">
+          <ScalarProperty Name="habi_num" ColumnName="habi_num" />
           <ScalarProperty Name="tipo_precio" ColumnName="tipo_precio" />
           <ScalarProperty Name="tipo_nombre" ColumnName="tipo_nombre" />
           <ScalarProperty Name="id_habitacion" ColumnName="id_habitacion" />
@@ -299,18 +300,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vw_VistaDetalleServicio">
-      <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaDetalleServicio">
-        <MappingFragment StoreEntitySet="vw_VistaDetalleServicio">
-          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-          <ScalarProperty Name="servi_precio" ColumnName="servi_precio" />
-          <ScalarProperty Name="servi_descripcion" ColumnName="servi_descripcion" />
-          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
-          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
-          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="vw_VistaReservaHabitaciones">
       <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaReservaHabitaciones">
         <MappingFragment StoreEntitySet="vw_VistaReservaHabitaciones">
@@ -332,6 +321,18 @@
         <MappingFragment StoreEntitySet="vw_VistaReservaServicios">
           <ScalarProperty Name="Monto_servicio" ColumnName="Monto_servicio" />
           <ScalarProperty Name="Cantidad_ser" ColumnName="Cantidad_ser" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_VistaDetalleServicio">
+      <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaDetalleServicio">
+        <MappingFragment StoreEntitySet="vw_VistaDetalleServicio">
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="servi_precio" ColumnName="servi_precio" />
+          <ScalarProperty Name="servi_nom" ColumnName="servi_nom" />
+          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
           <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
           <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
         </MappingFragment>

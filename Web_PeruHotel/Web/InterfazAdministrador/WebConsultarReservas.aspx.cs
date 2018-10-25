@@ -39,7 +39,8 @@ public partial class Web_InterfazAdministrador_WebConsultarReservas : System.Web
 
     protected void btnConsultar_Click(object sender, EventArgs e)
     {
-        
+        Panel1.CssClass = "Modal d-none";
+
         try
         {
             //Se obtiene los valores de strCod y el strEstado
@@ -127,5 +128,44 @@ public partial class Web_InterfazAdministrador_WebConsultarReservas : System.Web
     protected void cboEstado_SelectedIndexChanged(object sender, EventArgs e)
     {
     
+    }
+
+    protected void grvDatos_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        try
+        {
+            int fila = Convert.ToInt16(e.CommandArgument);
+
+            if (e.CommandName == "Detalles")
+            {
+                hdfAccion.Value = "M";
+                String vcod = grvDatos.Rows[fila].Cells[0].Text;
+       
+                grvHabitaciones.DataSource = objServicioReserva.GetDetalleReservaHabitaciones(vcod);
+                grvHabitaciones.DataBind();
+
+                grvServicios.DataSource = objServicioReserva.GetDetalleReservaServicio(vcod);
+                grvServicios.DataBind();
+
+                if (grvServicios.Rows.Count == 0)
+                {
+                    txtResultadoServi.Text = "No se encuentran servicios consumidos";
+                }
+                else
+                {
+                    txtResultadoServi.Text = "";
+                }
+
+                Panel1.CssClass = "Modal";
+                mdDetalle.Show();
+                
+
+            }
+
+        }
+        catch (Exception)
+        {
+
+        }
     }
 }

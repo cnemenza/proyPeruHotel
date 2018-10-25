@@ -19,6 +19,18 @@
   <wsdl:message name="IServicioReserva_GetReservasActivasClientes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetReservasActivasClientesResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioReserva_GetDetalleReservaHabitaciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetalleReservaHabitaciones" />
+  </wsdl:message>
+  <wsdl:message name="IServicioReserva_GetDetalleReservaHabitaciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetalleReservaHabitacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioReserva_GetDetalleReservaServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetalleReservaServicio" />
+  </wsdl:message>
+  <wsdl:message name="IServicioReserva_GetDetalleReservaServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDetalleReservaServicioResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioReserva">
     <wsdl:operation name="GetReservasConcluidasClientes">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioReserva/GetReservasConcluidasClientes" message="tns:IServicioReserva_GetReservasConcluidasClientes_InputMessage" />
@@ -27,6 +39,14 @@
     <wsdl:operation name="GetReservasActivasClientes">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioReserva/GetReservasActivasClientes" message="tns:IServicioReserva_GetReservasActivasClientes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioReserva/GetReservasActivasClientesResponse" message="tns:IServicioReserva_GetReservasActivasClientes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetalleReservaHabitaciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioReserva/GetDetalleReservaHabitaciones" message="tns:IServicioReserva_GetDetalleReservaHabitaciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioReserva/GetDetalleReservaHabitacionesResponse" message="tns:IServicioReserva_GetDetalleReservaHabitaciones_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDetalleReservaServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioReserva/GetDetalleReservaServicio" message="tns:IServicioReserva_GetDetalleReservaServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioReserva/GetDetalleReservaServicioResponse" message="tns:IServicioReserva_GetDetalleReservaServicio_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioReserva" type="tns:IServicioReserva">
@@ -42,6 +62,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetReservasActivasClientes">
       <soap:operation soapAction="http://tempuri.org/IServicioReserva/GetReservasActivasClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetalleReservaHabitaciones">
+      <soap:operation soapAction="http://tempuri.org/IServicioReserva/GetDetalleReservaHabitaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDetalleReservaServicio">
+      <soap:operation soapAction="http://tempuri.org/IServicioReserva/GetDetalleReservaServicio" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

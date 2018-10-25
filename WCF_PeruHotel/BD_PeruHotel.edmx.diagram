@@ -25,9 +25,9 @@
         <EntityTypeShape EntityType="PeruHotelModel.vw_VistaReserva" Width="1.5" PointX="9.5" PointY="11.25" />
         <EntityTypeShape EntityType="PeruHotelModel.UBIGEO" Width="1.5" PointX="3" PointY="12.75" />
         <AssociationConnector Association="PeruHotelModel.FK__CLIENTE__id_Ubig__45F365D3" />
-        <EntityTypeShape EntityType="PeruHotelModel.vw_VistaDetalleServicio" Width="1.5" PointX="9.375" PointY="8.75" />
         <EntityTypeShape EntityType="PeruHotelModel.vw_VistaReservaHabitaciones" Width="1.5" PointX="11.375" PointY="4.75" />
         <EntityTypeShape EntityType="PeruHotelModel.vw_VistaReservaServicios" Width="1.5" PointX="11.375" PointY="8.75" />
+        <EntityTypeShape EntityType="PeruHotelModel.vw_VistaDetalleServicio" Width="1.5" PointX="14.5" PointY="6.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

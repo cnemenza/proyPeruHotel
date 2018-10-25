@@ -18,5 +18,6 @@ namespace WCF_PeruHotel
         public string id_habitacion { get; set; }
         public string tipo_nombre { get; set; }
         public decimal tipo_precio { get; set; }
+        public string habi_num { get; set; }
     }
 }

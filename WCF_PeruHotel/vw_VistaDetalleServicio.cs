@@ -14,11 +14,11 @@ namespace WCF_PeruHotel
     
     public partial class vw_VistaDetalleServicio
     {
-        public string id_cliente { get; set; }
         public string id_reserva { get; set; }
+        public string id_cliente { get; set; }
         public string id_servicio { get; set; }
-        public string servi_descripcion { get; set; }
+        public string servi_nom { get; set; }
         public Nullable<decimal> servi_precio { get; set; }
-        public string cantidad { get; set; }
+        public Nullable<int> cantidad { get; set; }
     }
 }

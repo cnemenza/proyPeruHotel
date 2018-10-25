@@ -15,6 +15,10 @@ namespace WCF_PeruHotel
         List<dataReserva> GetReservasConcluidasClientes(String strCod);
         [OperationContract]
         List<dataReserva> GetReservasActivasClientes(String strCod);
+        [OperationContract]
+        List<dataReserva> GetDetalleReservaHabitaciones(String strCod);
+        [OperationContract]
+       List<dataReserva> GetDetalleReservaServicio(String strCod);
     }
 
     [DataContract]
@@ -34,6 +38,18 @@ namespace WCF_PeruHotel
         private Single _total;
         private String _estado;
 
+        //detalle servicio
+        private String _idServicio;
+        private String _serviNom;
+        private Single _serviPrecio;
+        private Single _cantidadServicio;
+
+        //detalle habitacion
+        private String _idHabitacion;
+        private String _tipoNombre;
+        private Single _tipoPrecio;
+        private String _habiNum;
+
         [DataMember]
         public string IdReserva
         {
@@ -45,6 +61,20 @@ namespace WCF_PeruHotel
             set
             {
                 _idReserva = value;
+            }
+        }
+
+        [DataMember]
+        public string HabiNum
+        {
+            get
+            {
+                return _habiNum;
+            }
+
+            set
+            {
+                _habiNum = value;
             }
         }
 
@@ -199,6 +229,104 @@ namespace WCF_PeruHotel
             set
             {
                 _estado = value;
+            }
+        }
+
+        [DataMember]
+        public string IdServicio
+        {
+            get
+            {
+                return _idServicio;
+            }
+
+            set
+            {
+                _idServicio = value;
+            }
+        }
+
+        [DataMember]
+        public string ServiNom
+        {
+            get
+            {
+                return _serviNom;
+            }
+
+            set
+            {
+                _serviNom = value;
+            }
+        }
+
+        [DataMember]
+        public Single ServiPrecio
+        {
+            get
+            {
+                return _serviPrecio;
+            }
+
+            set
+            {
+                _serviPrecio = value;
+            }
+        }
+
+        [DataMember]
+        public Single CantidadServicio
+        {
+            get
+            {
+                return _cantidadServicio;
+            }
+
+            set
+            {
+                _cantidadServicio = value;
+            }
+        }
+
+        [DataMember]
+        public string IdHabitacion
+        {
+            get
+            {
+                return _idHabitacion;
+            }
+
+            set
+            {
+                _idHabitacion = value;
+            }
+        }
+
+        [DataMember]
+        public string TipoNombre
+        {
+            get
+            {
+                return _tipoNombre;
+            }
+
+            set
+            {
+                _tipoNombre = value;
+            }
+        }
+
+        [DataMember]
+        public Single TipoPrecio
+        {
+            get
+            {
+                return _tipoPrecio;
+            }
+
+            set
+            {
+                _tipoPrecio = value;
             }
         }
     }

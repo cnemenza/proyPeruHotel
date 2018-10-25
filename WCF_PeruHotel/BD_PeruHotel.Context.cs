@@ -39,9 +39,9 @@ namespace WCF_PeruHotel
         public virtual DbSet<vw_VistaDetalleReserva> vw_VistaDetalleReserva { get; set; }
         public virtual DbSet<vw_VistaReserva> vw_VistaReserva { get; set; }
         public virtual DbSet<UBIGEO> UBIGEO { get; set; }
-        public virtual DbSet<vw_VistaDetalleServicio> vw_VistaDetalleServicio { get; set; }
         public virtual DbSet<vw_VistaReservaHabitaciones> vw_VistaReservaHabitaciones { get; set; }
         public virtual DbSet<vw_VistaReservaServicios> vw_VistaReservaServicios { get; set; }
+        public virtual DbSet<vw_VistaDetalleServicio> vw_VistaDetalleServicio { get; set; }
     
         public virtual int usp_ActualizarAdministrador(string id_admi, string admi_nom, string admi_apePater, string admi_apeMater, string admi_codigo, string admi_contra, string admi_dni, string admi_direccion)
         {
