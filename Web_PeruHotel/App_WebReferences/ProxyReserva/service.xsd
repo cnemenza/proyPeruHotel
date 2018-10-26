@@ -57,4 +57,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllReservasConcluidsaByFechas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fecIni" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fecFin" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllReservasConcluidsaByFechasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCF_PeruHotel" minOccurs="0" name="GetAllReservasConcluidsaByFechasResult" nillable="true" type="q5:ArrayOfdataReserva" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

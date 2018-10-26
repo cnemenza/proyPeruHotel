@@ -51,7 +51,7 @@
                             <div class="navbar-nav">
                               <a class="nav-item nav-link hoveractive" href="WebConsultarHabitaciones.aspx">Habitaciones Disponibles</a>
                               <a class="nav-item nav-link hoveractive" href="WebConsultarReservas.aspx">Reservas por cliente</a>
-                               <a class="nav-item nav-link hoveractive" href="WebReservasTotales.aspx">Consultar Reservas</a>
+                               <a class="nav-item nav-link hoveractive" href="WebConsultarCliente.aspx">Consultar Cliente</a>
     
                             </div>
                           </div>

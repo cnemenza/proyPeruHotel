@@ -18,7 +18,7 @@ namespace WCF_PeruHotel
         [OperationContract]
         List<dataReserva> GetDetalleReservaHabitaciones(String strCod);
         [OperationContract]
-       List<dataReserva> GetDetalleReservaServicio(String strCod);
+        List<dataReserva> GetDetalleReservaServicio(String strCod);
     }
 
     [DataContract]

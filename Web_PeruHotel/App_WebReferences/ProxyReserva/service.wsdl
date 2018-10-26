@@ -31,6 +31,12 @@
   <wsdl:message name="IServicioReserva_GetDetalleReservaServicio_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDetalleReservaServicioResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioReserva_GetAllReservasConcluidsaByFechas_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReservasConcluidsaByFechas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioReserva_GetAllReservasConcluidsaByFechas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReservasConcluidsaByFechasResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioReserva">
     <wsdl:operation name="GetReservasConcluidasClientes">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioReserva/GetReservasConcluidasClientes" message="tns:IServicioReserva_GetReservasConcluidasClientes_InputMessage" />
@@ -47,6 +53,10 @@
     <wsdl:operation name="GetDetalleReservaServicio">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioReserva/GetDetalleReservaServicio" message="tns:IServicioReserva_GetDetalleReservaServicio_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioReserva/GetDetalleReservaServicioResponse" message="tns:IServicioReserva_GetDetalleReservaServicio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReservasConcluidsaByFechas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioReserva/GetAllReservasConcluidsaByFechas" message="tns:IServicioReserva_GetAllReservasConcluidsaByFechas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioReserva/GetAllReservasConcluidsaByFechasResponse" message="tns:IServicioReserva_GetAllReservasConcluidsaByFechas_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioReserva" type="tns:IServicioReserva">
@@ -80,6 +90,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetDetalleReservaServicio">
       <soap:operation soapAction="http://tempuri.org/IServicioReserva/GetDetalleReservaServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReservasConcluidsaByFechas">
+      <soap:operation soapAction="http://tempuri.org/IServicioReserva/GetAllReservasConcluidsaByFechas" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
