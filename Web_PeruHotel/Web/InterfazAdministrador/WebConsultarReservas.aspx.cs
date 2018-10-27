@@ -168,4 +168,9 @@ public partial class Web_InterfazAdministrador_WebConsultarReservas : System.Web
 
         }
     }
+
+    protected void cboCliente_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }

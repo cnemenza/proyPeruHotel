@@ -11,7 +11,7 @@
    <div class="form-group row" id="Div1" runat="server">
         <label for="IdTipo" class="col-sm-3 col-form-label ml-3">Seleccione Nombre del Cliente</label>
     <div class="col-sm-5">
-         <asp:DropDownList ID="cboCliente" runat="server" CssClass="form-control" AppendDataBoundItems="true" >
+         <asp:DropDownList ID="cboCliente" runat="server" CssClass="form-control" AppendDataBoundItems="true" OnSelectedIndexChanged="cboCliente_SelectedIndexChanged" >
              <asp:ListItem Value="0">&lt;Seleccione un cliente&gt;</asp:ListItem>
          </asp:DropDownList>
     </div>

@@ -47,6 +47,12 @@ namespace WCF_PeruHotel
         private String _clieContra;
         private String _clieSexo;
         private String _clieEstado;
+        private String _idContinente;
+        private String _idPais;
+        private String _idCiudad;
+        private String _nomContinente;
+        private String _nomPais;
+        private String _nomCiudad;
 
     
         [DataMember]
@@ -121,6 +127,83 @@ namespace WCF_PeruHotel
             get { return this._clieEstado; }
             set { this._clieEstado = value; }
         }
-     
+        [DataMember]
+        public string IdContinente
+        {
+            get
+            {
+                return _idContinente;
+            }
+
+            set
+            {
+                _idContinente = value;
+            }
+        }
+        [DataMember]
+        public string IdPais
+        {
+            get
+            {
+                return _idPais;
+            }
+
+            set
+            {
+                _idPais = value;
+            }
+        }
+        [DataMember]
+        public string IdCiudad
+        {
+            get
+            {
+                return _idCiudad;
+            }
+
+            set
+            {
+                _idCiudad = value;
+            }
+        }
+        [DataMember]
+        public string NomContinente
+        {
+            get
+            {
+                return _nomContinente;
+            }
+
+            set
+            {
+                _nomContinente = value;
+            }
+        }
+        [DataMember]
+        public string NomPais
+        {
+            get
+            {
+                return _nomPais;
+            }
+
+            set
+            {
+                _nomPais = value;
+            }
+        }
+        [DataMember]
+        public string NomCiudad
+        {
+            get
+            {
+                return _nomCiudad;
+            }
+
+            set
+            {
+                _nomCiudad = value;
+            }
+        }
     }
 }

@@ -46,85 +46,101 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+        
     <div class"container">
         <h1 class="mt-2 mb-2">
             Consulta de Clientes
         </h1>
 
     </div>
-    <div class ="container">
-        <table class="auto-style1">
-            <tr>
-        <td class="auto-style2"><strong>Codigo Cliente:</strong></td>
-        <td class="auto-style3">
-            <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
-        </td>
-        <td class="auto-style4">
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Consultar" CssClass="btn-warning" />
-        </td>
-    </tr>
-        </table>
-    </div>
 
-    <div class="container d-none m-2" id="divContenedor" runat="server">
-    <table class="auto-style1">
-        <br />
-    
-    <tr>
-        <td class="auto-style8"><strong>Nombres:</strong></td>
-        <td class="auto-style9">
-            <asp:Label ID="lblNombre" runat="server"></asp:Label>
-        </td>
-        <td class="auto-style10"></td>
-    </tr>
-    <tr>
-        <td class="auto-style2"><strong>Apellido Paterno:</strong></td>
-        <td class="auto-style3">
-            <asp:Label ID="lblApePaterno" runat="server"></asp:Label>
-        </td>
-        <td class="auto-style4">&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style8"><strong>Apellido Materno:</strong></td>
-        <td class="auto-style9">
-            <asp:Label ID="lblApeMater" runat="server"></asp:Label>
-        </td>
-        <td class="auto-style10"></td>
-    </tr>
-    <tr>
-        <td class="auto-style2"><strong>Correo:</strong></td>
-        <td class="auto-style3">
-            <asp:Label ID="lblCorreo" runat="server"></asp:Label>
-        </td>
-        <td class="auto-style4">&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="auto-style5"><strong>Sexo:</strong></td>
-        <td class="auto-style6">
-            <asp:Label ID="lblSexo" runat="server"></asp:Label>
-        </td>
-        <td class="auto-style7"></td>
-    </tr>    
-     <tr>
-        <td class="auto-style5"><strong>DNI:</strong></td>
-        <td class="auto-style6">
-            <asp:Label ID="lblDocumento" runat="server"></asp:Label>
-        </td>
-        <td class="auto-style7"></td>
-    </tr>
-        <tr>
-        <td class="auto-style5"><strong>Foto:</strong></td>
-        <td class="auto-style6">
-            <asp:Image ID="Image1" runat="server"></asp:Image>
-        </td>
-        <td class="auto-style7"></td>
-    </tr>
-        <tr>
-        <td class="auto-style2">
-            <asp:Label ID="lblMensaje" runat="server" style="color: #FF0000"></asp:Label>
-        </td>
-       
-    </tr>    
-</table>
+    <div class ="container mb-3">
+        <div class="row">
+            <div class="col-sm-5">
+             <asp:DropDownList ID="cboCliente" runat="server" CssClass="form-control" AppendDataBoundItems="true" >
+                 <asp:ListItem Value="0">&lt;Seleccione un cliente&gt;</asp:ListItem>
+             </asp:DropDownList>
+            </div>
+            <div class="col-sm-2">
+                 <asp:Button ID="Button2" runat="server" OnClick="Button1_Click" Text="Consultar" CssClass=" btn btn-warning" />
+            </div>
         </div>
+        
+    </div>
+    
+    <div class="container mt-5">
+            <div class="col">
+                 <div class="alert alert-warning" role="alert" id="divRespuesta" runat="server">
+                    <asp:Label ID="txtMensaje" runat="server"></asp:Label>
+            </div>
+            </div>
+        </div>
+
+       <div class="col-md-12 ">
+            <div class="card" id="divCard" runat="server" style="visibility: hidden;">
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-md-6">
+                           <h5 class="card-title">Detalles del Cliente</h5>
+                            <h6 class="card-subtitle mb-2 text-muted ml-2">
+                                <asp:Label ID="Label1" runat="server" Text="Nombre"></asp:Label></h6>
+                            <p class="card-text ml-2">
+                                <asp:Label ID="lblNombre" runat="server" Text="Seleccione un tipo de habitacion"></asp:Label></p>
+                          <h6 class="card-subtitle mb-2 text-muted ml-2">
+                                <asp:Label ID="Label2" runat="server" Text="Apellido Paterno"></asp:Label></h6>
+                            <p class="card-text ml-2">
+                                <asp:Label ID="lblApePaterno" runat="server" Text="Seleccione un tipo de habitacion"></asp:Label></p>
+                          <h6 class="card-subtitle mb-2 text-muted ml-2">
+                                <asp:Label ID="Label5" runat="server" Text="Apellido Materno"></asp:Label></h6>
+                            <p class="card-text ml-2">
+                                <asp:Label ID="lblApeMater" runat="server" Text="Seleccione un tipo de habitacion"></asp:Label></p>
+                          <h6 class="card-subtitle mb-2 text-muted ml-2">
+                                <asp:Label ID="Label7" runat="server" Text="Correo"></asp:Label></h6>
+                            <p class="card-text ml-2">
+                                <asp:Label ID="lblCorreo" runat="server" Text="Seleccione un tipo de habitacion"></asp:Label></p>
+                          <h6 class="card-subtitle mb-2 text-muted ml-2">
+                                <asp:Label ID="Label9" runat="server" Text="Sexo"></asp:Label></h6>
+                            <p class="card-text ml-2">
+                                <asp:Label ID="lblSexo" runat="server" Text="Seleccione un tipo de habitacion"></asp:Label></p>
+                          <h6 class="card-subtitle mb-2 text-muted ml-2">
+                                <asp:Label ID="Label11" runat="server" Text="DNI"></asp:Label></h6>
+                            <p class="card-text ml-2">
+                                <asp:Label ID="lblDNI" runat="server" Text="Seleccione un tipo de habitacion"></asp:Label></p>
+                         
+                                
+                   
+
+                            
+                              
+                      </div>
+                      <div class="col-md-6">
+                           <h6 class="card-subtitle mb-2 text-muted ml-2">
+                          <asp:Label ID="Label13" runat="server" Text="Ubigeo"></asp:Label></h6>
+                            <p class="card-text ml-2">
+                                <asp:Label ID="lblUbigeo" runat="server" Text="Seleccione un tipo de habitacion"></asp:Label></p>
+                                 <h6 class="card-subtitle mb-2 text-muted ml-2">
+                                <asp:Label ID="Label15" runat="server" Text="Continente"></asp:Label></h6>
+                            <p class="card-text ml-2">
+                                <asp:Label ID="lblContinente" runat="server" Text="Seleccione un tipo de habitacion"></asp:Label></p>
+                          <h6 class="card-subtitle mb-2 text-muted ml-2">
+                                <asp:Label ID="Label17" runat="server" Text="Pais"></asp:Label></h6>
+                            <p class="card-text ml-2">
+                                <asp:Label ID="lblPais" runat="server" Text="Seleccione un tipo de habitacion"></asp:Label></p>
+                          <h6 class="card-subtitle mb-2 text-muted ml-2">
+                                <asp:Label ID="Label19" runat="server" Text="Ciudad"></asp:Label></h6>
+                            <p class="card-text ml-2">
+                                <asp:Label ID="lblCiudad" runat="server" Text="Seleccione un tipo de habitacion"></asp:Label></p>
+                              <h6 class="card-subtitle mb-2 text-muted ml-2">
+                                <asp:Label ID="Label3" runat="server" Text="Foto"></asp:Label></h6>
+                              <p class="card-text ml-2">
+                                  <div class="alert alert-success w-50" role="alert">
+                                      <asp:Image ID="Image1" runat="server" CssClass="ml-5"></asp:Image>
+                                  </div>
+                              </p>
+                      </div>
+                  </div>
+               
+              </div>
+            </div>
+        </div>      
 </asp:Content>

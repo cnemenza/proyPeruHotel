@@ -28,6 +28,7 @@
         <EntityTypeShape EntityType="PeruHotelModel.vw_VistaReservaHabitaciones" Width="1.5" PointX="11.375" PointY="4.75" />
         <EntityTypeShape EntityType="PeruHotelModel.vw_VistaReservaServicios" Width="1.5" PointX="11.375" PointY="8.75" />
         <EntityTypeShape EntityType="PeruHotelModel.vw_VistaDetalleServicio" Width="1.5" PointX="14.5" PointY="6.5" />
+        <EntityTypeShape EntityType="PeruHotelModel.vw_VistaCliente" Width="1.5" PointX="12.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

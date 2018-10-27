@@ -29,7 +29,7 @@
                 <HeaderStyle CssClass="thead-dark" />
             </asp:GridView>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5  mb-5">
             <div class="card" id="divCard" runat="server">
               <div class="card-body">
                 <h5 class="card-title">Detalles</h5>

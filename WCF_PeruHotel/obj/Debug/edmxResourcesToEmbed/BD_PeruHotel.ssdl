@@ -137,6 +137,45 @@
     <Property Name="ubi_Ciudad" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vw_VistaCliente">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="clie_nom" />
+      <PropertyRef Name="clie_apePater" />
+      <PropertyRef Name="clie_apeMater" />
+      <PropertyRef Name="clie_tipoDocumento" />
+      <PropertyRef Name="clie_documento" />
+      <PropertyRef Name="clie_sexo" />
+      <PropertyRef Name="clie_estado" />
+      <PropertyRef Name="id_Ubigeo" />
+      <PropertyRef Name="id_Continente" />
+      <PropertyRef Name="id_Pais" />
+      <PropertyRef Name="id_Ciudad" />
+      <PropertyRef Name="ubi_Continente" />
+      <PropertyRef Name="ubi_Pais" />
+      <PropertyRef Name="ubi_Ciudad" />
+    </Key>
+    <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="clie_nom" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="clie_apePater" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="clie_apeMater" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="clie_correo" Type="varchar" MaxLength="120" />
+    <Property Name="clie_tipoDocumento" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="clie_documento" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="clie_codigo" Type="varchar" MaxLength="20" />
+    <Property Name="clie_contra" Type="varchar" MaxLength="50" />
+    <Property Name="clie_sexo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="clie_estado" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="id_Ubigeo" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="id_Continente" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_Pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_Ciudad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="ubi_Continente" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ubi_Pais" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ubi_Ciudad" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaDetalleReserva' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_VistaDetalleReserva">
     <Key>
@@ -430,6 +469,28 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPO_HABITACION" EntityType="Self.TIPO_HABITACION" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UBIGEO" EntityType="Self.UBIGEO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_VistaCliente" EntityType="Self.vw_VistaCliente" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_VistaCliente].[id_cliente] AS [id_cliente], 
+    [vw_VistaCliente].[clie_nom] AS [clie_nom], 
+    [vw_VistaCliente].[clie_apePater] AS [clie_apePater], 
+    [vw_VistaCliente].[clie_apeMater] AS [clie_apeMater], 
+    [vw_VistaCliente].[clie_correo] AS [clie_correo], 
+    [vw_VistaCliente].[clie_tipoDocumento] AS [clie_tipoDocumento], 
+    [vw_VistaCliente].[clie_documento] AS [clie_documento], 
+    [vw_VistaCliente].[clie_codigo] AS [clie_codigo], 
+    [vw_VistaCliente].[clie_contra] AS [clie_contra], 
+    [vw_VistaCliente].[clie_sexo] AS [clie_sexo], 
+    [vw_VistaCliente].[clie_estado] AS [clie_estado], 
+    [vw_VistaCliente].[id_Ubigeo] AS [id_Ubigeo], 
+    [vw_VistaCliente].[id_Continente] AS [id_Continente], 
+    [vw_VistaCliente].[id_Pais] AS [id_Pais], 
+    [vw_VistaCliente].[id_Ciudad] AS [id_Ciudad], 
+    [vw_VistaCliente].[ubi_Continente] AS [ubi_Continente], 
+    [vw_VistaCliente].[ubi_Pais] AS [ubi_Pais], 
+    [vw_VistaCliente].[ubi_Ciudad] AS [ubi_Ciudad]
+    FROM [dbo].[vw_VistaCliente] AS [vw_VistaCliente]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="vw_VistaDetalleReserva" EntityType="Self.vw_VistaDetalleReserva" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [vw_VistaDetalleReserva].[id_reserva] AS [id_reserva], 

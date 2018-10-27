@@ -86,7 +86,7 @@ namespace WCF_PeruHotel
             try
             {
                 //Obtenemos con LINQ el registro a consultar
-                 CLIENTE objCliente = (from obj in MiHotel.CLIENTE
+                 vw_VistaCliente objCliente = (from obj in MiHotel.vw_VistaCliente
                                          where obj.id_cliente == strCod
                                          select obj).FirstOrDefault();
 
@@ -103,6 +103,12 @@ namespace WCF_PeruHotel
                 objClienteBE.ClieContra = objCliente.clie_contra;
                 objClienteBE.ClieSexo = objCliente.clie_sexo;
                 objClienteBE.ClieEstado = objCliente.clie_estado;
+                objClienteBE.IdContinente = objCliente.id_Continente;
+                objClienteBE.IdPais = objCliente.id_Pais;
+                objClienteBE.IdCiudad = objCliente.id_Ciudad;
+                objClienteBE.NomContinente = objCliente.ubi_Continente;
+                objClienteBE.NomPais = objCliente.ubi_Pais;
+                objClienteBE.NomCiudad = objCliente.ubi_Ciudad;
 
             }
             catch (Exception ex)

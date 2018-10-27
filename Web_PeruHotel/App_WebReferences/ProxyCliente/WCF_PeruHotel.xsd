@@ -12,8 +12,14 @@
       <xs:element minOccurs="0" name="ClieNom" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ClieSexo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ClieTipoDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCiudad" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdCliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdContinente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdPais" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdUbigeo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomCiudad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomContinente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomPais" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DataCliente" nillable="true" type="tns:DataCliente" />
