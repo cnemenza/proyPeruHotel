@@ -287,6 +287,14 @@
     <EntitySet Name="vw_VistaReservaServicios" EntityType="PeruHotelModel.vw_VistaReservaServicios" />
     <EntitySet Name="vw_VistaDetalleServicio" EntityType="PeruHotelModel.vw_VistaDetalleServicio" />
     <EntitySet Name="vw_VistaCliente" EntityType="PeruHotelModel.vw_VistaCliente" />
+    <FunctionImport Name="usp_ListarCiudad" ReturnType="Collection(PeruHotelModel.usp_ListarCiudad_Result)">
+      <Parameter Name="id_Continente" Mode="In" Type="String" />
+      <Parameter Name="id_Pais" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ListarContinente" ReturnType="Collection(PeruHotelModel.usp_ListarContinente_Result)" />
+    <FunctionImport Name="usp_ListarPais" ReturnType="Collection(PeruHotelModel.usp_ListarPais_Result)">
+      <Parameter Name="id_Continente" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="usp_ConsultarAdministrador_Result">
     <Property Type="String" Name="id_admi" Nullable="false" MaxLength="5" />
@@ -475,4 +483,16 @@
     <Property Name="ubi_Pais" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="ubi_Ciudad" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
+  <ComplexType Name="usp_ListarCiudad_Result">
+    <Property Type="String" Name="id_ciudad" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="ubi_ciudad" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="usp_ListarContinente_Result">
+    <Property Type="String" Name="id_Continente" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="ubi_Continente" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="usp_ListarPais_Result">
+    <Property Type="String" Name="id_pais" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="ubi_pais" Nullable="false" MaxLength="100" />
+  </ComplexType>
 </Schema>

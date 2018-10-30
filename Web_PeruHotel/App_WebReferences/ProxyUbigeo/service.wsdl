@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicioUbigeo" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WCF_PeruHotel" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioUbigeo_GetAllContinentes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllContinentes" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUbigeo_GetAllContinentes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllContinentesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUbigeo_GetAllPaises_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPaises" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUbigeo_GetAllPaises_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPaisesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUbigeo_GetAllCiudades_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCiudades" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUbigeo_GetAllCiudades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCiudadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUbigeo_GetIdUbigeo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIdUbigeo" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUbigeo_GetIdUbigeo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIdUbigeoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioUbigeo">
+    <wsdl:operation name="GetAllContinentes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUbigeo/GetAllContinentes" message="tns:IServicioUbigeo_GetAllContinentes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUbigeo/GetAllContinentesResponse" message="tns:IServicioUbigeo_GetAllContinentes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPaises">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUbigeo/GetAllPaises" message="tns:IServicioUbigeo_GetAllPaises_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUbigeo/GetAllPaisesResponse" message="tns:IServicioUbigeo_GetAllPaises_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCiudades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUbigeo/GetAllCiudades" message="tns:IServicioUbigeo_GetAllCiudades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUbigeo/GetAllCiudadesResponse" message="tns:IServicioUbigeo_GetAllCiudades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIdUbigeo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUbigeo/GetIdUbigeo" message="tns:IServicioUbigeo_GetIdUbigeo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUbigeo/GetIdUbigeoResponse" message="tns:IServicioUbigeo_GetIdUbigeo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioUbigeo" type="tns:IServicioUbigeo">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllContinentes">
+      <soap:operation soapAction="http://tempuri.org/IServicioUbigeo/GetAllContinentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPaises">
+      <soap:operation soapAction="http://tempuri.org/IServicioUbigeo/GetAllPaises" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCiudades">
+      <soap:operation soapAction="http://tempuri.org/IServicioUbigeo/GetAllCiudades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdUbigeo">
+      <soap:operation soapAction="http://tempuri.org/IServicioUbigeo/GetIdUbigeo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioUbigeo">
+    <wsdl:port name="BasicHttpBinding_IServicioUbigeo" binding="tns:BasicHttpBinding_IServicioUbigeo">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WCF_PeruHotel/ServicioUbigeo/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -85,6 +85,7 @@
     <Compile Include="IServicioCliente.cs" />
     <Compile Include="IServicioHabitacion.cs" />
     <Compile Include="IServicioReserva.cs" />
+    <Compile Include="IServicioUbigeo.cs" />
     <Compile Include="PROMOCION.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
@@ -98,6 +99,7 @@
     <Compile Include="ServicioCliente.cs" />
     <Compile Include="ServicioHabitacion.cs" />
     <Compile Include="ServicioReserva.cs" />
+    <Compile Include="ServicioUbigeo.cs" />
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
@@ -120,6 +122,15 @@
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_ListaNombresCliente_Result.cs">
+      <DependentUpon>BD_PeruHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarCiudad_Result.cs">
+      <DependentUpon>BD_PeruHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarContinente_Result.cs">
+      <DependentUpon>BD_PeruHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarPais_Result.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_ListarTipoHabitacion_Result.cs">

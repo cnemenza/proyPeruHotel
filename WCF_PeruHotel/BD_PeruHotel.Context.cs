@@ -271,5 +271,32 @@ namespace WCF_PeruHotel
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListaNombresCliente_Result>("usp_ListaNombresCliente");
         }
+    
+        public virtual ObjectResult<usp_ListarCiudad_Result> usp_ListarCiudad(string id_Continente, string id_Pais)
+        {
+            var id_ContinenteParameter = id_Continente != null ?
+                new ObjectParameter("id_Continente", id_Continente) :
+                new ObjectParameter("id_Continente", typeof(string));
+    
+            var id_PaisParameter = id_Pais != null ?
+                new ObjectParameter("id_Pais", id_Pais) :
+                new ObjectParameter("id_Pais", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarCiudad_Result>("usp_ListarCiudad", id_ContinenteParameter, id_PaisParameter);
+        }
+    
+        public virtual ObjectResult<usp_ListarContinente_Result> usp_ListarContinente()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarContinente_Result>("usp_ListarContinente");
+        }
+    
+        public virtual ObjectResult<usp_ListarPais_Result> usp_ListarPais(string id_Continente)
+        {
+            var id_ContinenteParameter = id_Continente != null ?
+                new ObjectParameter("id_Continente", id_Continente) :
+                new ObjectParameter("id_Continente", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarPais_Result>("usp_ListarPais", id_ContinenteParameter);
+        }
     }
 }

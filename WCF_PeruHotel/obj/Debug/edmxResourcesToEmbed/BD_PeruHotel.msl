@@ -362,5 +362,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarCiudad" FunctionName="PeruHotelModel.Store.usp_ListarCiudad">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PeruHotelModel.usp_ListarCiudad_Result">
+          <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
+          <ScalarProperty Name="ubi_ciudad" ColumnName="ubi_ciudad" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarContinente" FunctionName="PeruHotelModel.Store.usp_ListarContinente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PeruHotelModel.usp_ListarContinente_Result">
+          <ScalarProperty Name="id_Continente" ColumnName="id_Continente" />
+          <ScalarProperty Name="ubi_Continente" ColumnName="ubi_Continente" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarPais" FunctionName="PeruHotelModel.Store.usp_ListarPais">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PeruHotelModel.usp_ListarPais_Result">
+          <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+          <ScalarProperty Name="ubi_pais" ColumnName="ubi_pais" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

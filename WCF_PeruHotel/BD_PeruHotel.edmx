@@ -459,6 +459,14 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <Parameter Name="clie_sexo" Type="char" Mode="In" />
         </Function>
         <Function Name="usp_ListaNombresCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarCiudad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_Continente" Type="char" Mode="In" />
+          <Parameter Name="id_Pais" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarContinente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarPais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_Continente" Type="char" Mode="In" />
+        </Function>
         <Function Name="usp_ListarTipoHabitacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="PeruHotelModelStoreContainer">
           <EntitySet Name="ADMINISTRADOR" EntityType="Self.ADMINISTRADOR" Schema="dbo" store:Type="Tables" />
@@ -890,6 +898,14 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <EntitySet Name="vw_VistaReservaServicios" EntityType="PeruHotelModel.vw_VistaReservaServicios" />
           <EntitySet Name="vw_VistaDetalleServicio" EntityType="PeruHotelModel.vw_VistaDetalleServicio" />
           <EntitySet Name="vw_VistaCliente" EntityType="PeruHotelModel.vw_VistaCliente" />
+          <FunctionImport Name="usp_ListarCiudad" ReturnType="Collection(PeruHotelModel.usp_ListarCiudad_Result)">
+            <Parameter Name="id_Continente" Mode="In" Type="String" />
+            <Parameter Name="id_Pais" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarContinente" ReturnType="Collection(PeruHotelModel.usp_ListarContinente_Result)" />
+          <FunctionImport Name="usp_ListarPais" ReturnType="Collection(PeruHotelModel.usp_ListarPais_Result)">
+            <Parameter Name="id_Continente" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_ConsultarAdministrador_Result">
           <Property Type="String" Name="id_admi" Nullable="false" MaxLength="5" />
@@ -1078,6 +1094,18 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <Property Name="ubi_Pais" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ubi_Ciudad" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="usp_ListarCiudad_Result">
+          <Property Type="String" Name="id_ciudad" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="ubi_ciudad" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarContinente_Result">
+          <Property Type="String" Name="id_Continente" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="ubi_Continente" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarPais_Result">
+          <Property Type="String" Name="id_pais" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="ubi_pais" Nullable="false" MaxLength="100" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1445,6 +1473,30 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarCiudad" FunctionName="PeruHotelModel.Store.usp_ListarCiudad">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PeruHotelModel.usp_ListarCiudad_Result">
+                <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
+                <ScalarProperty Name="ubi_ciudad" ColumnName="ubi_ciudad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarContinente" FunctionName="PeruHotelModel.Store.usp_ListarContinente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PeruHotelModel.usp_ListarContinente_Result">
+                <ScalarProperty Name="id_Continente" ColumnName="id_Continente" />
+                <ScalarProperty Name="ubi_Continente" ColumnName="ubi_Continente" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarPais" FunctionName="PeruHotelModel.Store.usp_ListarPais">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PeruHotelModel.usp_ListarPais_Result">
+                <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+                <ScalarProperty Name="ubi_pais" ColumnName="ubi_pais" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
