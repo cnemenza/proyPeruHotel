@@ -1,18 +1,195 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPagePrincipal.master" AutoEventWireup="true" CodeFile="WebRegistroCliente.aspx.cs" Inherits="Web_InterfazPrincipal_WebRegistroCliente"  EnableEventValidation="false" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Src="~/Controles_web/WebControl_Ubigeo.ascx" TagPrefix="uc1" TagName="WebControl_Ubigeo" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <h2 class="mt-4 mb-4">Registro de Clientes</h2>
+      
+
+         <div class="alert alert-danger" role="alert" runat="server" id="DivRespuesta">
+         <asp:Label ID="txtRespuesta" runat="server" Text=""></asp:Label>
+        </div>   
     <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-        <uc1:WebControl_Ubigeo runat="server" ID="WebControl_Ubigeo" />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                <label for="exampleInputEmail1">Nombre de ingreso</label>
+                    <table class="w-25">
+                        <tr>
+                            <td>
+                     <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control" Width="400px"></asp:TextBox>               
+                            </td>
+                            <td>               
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCodigo" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Nombres</label>
+                      <table class="w-25">
+                        <tr>
+                            <td>
+                     <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" Width="400px"></asp:TextBox>              
+                            </td>
+                            <td>               
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Apellido Paterno</label>
+                     <table class="w-25">
+                        <tr>
+                            <td>
+                     <asp:TextBox ID="txtApePater" runat="server" CssClass="form-control" Width="400px"></asp:TextBox>          
+                            </td>
+                            <td>               
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtApePater" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Apellido Materno</label>
+                     <table class="w-25">
+                        <tr>
+                            <td>
+                     <asp:TextBox ID="txtApeMater" runat="server" CssClass="form-control" Width="400px"></asp:TextBox>        
+                            </td>
+                            <td>               
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtApeMater" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Correo Electronico</label>
+                    <table class="w-25">
+                        <tr>
+                            <td>
+                     <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" Width="400px" TextMode="Email"></asp:TextBox>    
+                            </td>
+                            <td>               
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtCorreo" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                </div>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Documento de Identidad</label>            
+                    <table class="w-25">
+                        <tr>
+                            <td>
+                     <asp:TextBox ID="txtDni" runat="server" CssClass="form-control" Width="400px" TextMode="Number"></asp:TextBox>
+                            </td>
+                            <td>               
+                       <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtDni" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                    </table>                 
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                <label for="exampleInputEmail1">Contraseña</label>
+                    <table class="w-25">
+                        <tr>
+                            <td>
+                     <asp:TextBox ID="txtClave" runat="server" CssClass="form-control" Width="400px" TextMode="Password"></asp:TextBox>
+                            </td>
+                            <td>               
+                       <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtClave" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                    </table>      
+                </div>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Valida contraseña</label>
+                <asp:TextBox ID="txtValidarClave" runat="server" CssClass="form-control" Width="400px" TextMode="Password"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Sexo</label>
+                <asp:DropDownList ID="cboSexo" runat="server" CssClass="form-control" Width="400px">
+                    <asp:ListItem Value="1">Masculino</asp:ListItem>
+                    <asp:ListItem Value="2">Femenino</asp:ListItem>
+                </asp:DropDownList>
+                </div>
+                <uc1:WebControl_Ubigeo runat="server" ID="ControlWeb1" />
+            </div>
+        </div>    
+         <div class="row mb-5">
+        <div class="col">
+            
+        <asp:Button ID="btnRegistrar" CssClass="btn btn-warning" runat="server" CausesValidation="true" ValidationGroup="G1" Text="Registrar" Width="130px" Height="40px" OnClick="btnRegistrar_Click"/>
+            </div>
+        </div>  
+    
     </form>
+<asp:LinkButton ID="btnPopup" runat="server">asasd</asp:LinkButton>
+    <cc1:ModalPopupExtender ID="mdDetalle" runat="server" TargetControlID="btnPopup" PopupControlID="Panel1"></cc1:ModalPopupExtender>
+    <asp:Panel ID="Panel1" runat="server" CssClass="Modal">
+        <!-- Modal -->
+
+            <div class ="CajaModal">
+                <div class="row">
+                    <div class="col m-auto">
+                            <asp:HiddenField ID="hdfAccion" runat="server" />
+                            <h1 class="ml-4 mt-4">PeruHotel</h1>   
+                        <hr />                            
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="alert alert-warning" role="alert">
+                      Cliente Registrado con exito !
+                    </div>
+                </div>
+ 
+                  <hr />
+                   
+                <div class="row mb-5">
+                    
+                    <div class="col-10">
+                        
+                    </div>
+               
+                    <div class="col-2">
+                       
+                        <asp:Button ID="btnCerrarModal" runat="server" Text="Cerrar" CssClass="btn btn-dark"/>
+                    </div>
+
+                </div>
+            </div>
+                   
+    </asp:Panel>
+
+    <style type="text/css">
+    .Modal{
+        background-color : #171616ab;
+        color : black;
+        height : 100%;
+        width : 100%;
+    }
+    .CajaModal{
+           position: fixed;
+            right: 0;
+            left: 0;
+            margin: 150px;
+            width:800px;
+            margin-left : 400px;
+            border-radius: 18px;
+            background-color : white;
+    }
+    </style>
+
 </asp:Content>
+
+
+
+
 

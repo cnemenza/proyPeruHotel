@@ -9,6 +9,13 @@ public partial class Controles_web_WebControl_Ubigeo : System.Web.UI.UserControl
 {
     ProxyUbigeo.ServicioUbigeoClient objServicioUbigeo = new ProxyUbigeo.ServicioUbigeoClient();
     ProxyUbigeo.dataUbigeo objUbi = new ProxyUbigeo.dataUbigeo();
+
+    private String mvarIdUbigeo;
+    public String TotalUbigeo
+    {
+        get { return Session["Ubigeo"].ToString(); }
+        set { mvarIdUbigeo = value; }
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -64,6 +71,9 @@ public partial class Controles_web_WebControl_Ubigeo : System.Web.UI.UserControl
     public void MostrarUbigeo()
     {
         txtUbigeo.Text = cboContinente.SelectedValue + cboPais.SelectedValue + cboCiudad.SelectedValue;
+        Session["Ubigeo"] = cboContinente.SelectedValue + cboPais.SelectedValue + cboCiudad.SelectedValue; 
+
+
     }
     public void Enlazar(String strIdContinente, String strIdPais, String strIdCiudad)
     {

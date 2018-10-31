@@ -7,8 +7,67 @@ using System.Web.UI.WebControls;
 
 public partial class Web_InterfazPrincipal_WebRegistroCliente : System.Web.UI.Page
 {
+    ProxyCliente.ServicioClienteClient objServicioCliente = new ProxyCliente.ServicioClienteClient();
+    ProxyCliente.DataCliente objClienteBE = new ProxyCliente.DataCliente();
+
+    ProxyUbigeo.ServicioUbigeoClient objServicioUbigeo = new ProxyUbigeo.ServicioUbigeoClient();
+    ProxyUbigeo.dataUbigeo objUbigeoBE = new ProxyUbigeo.dataUbigeo();
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        ocultarDiv();
     }
+
+    protected void btnRegistrar_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (txtClave.Text.Equals(txtValidarClave.Text))
+            {
+                String ubigeo = ControlWeb1.TotalUbigeo.ToString();
+
+                objClienteBE.ClieCodigo = txtCodigo.Text;
+                objClienteBE.ClieNom = txtNombre.Text;
+                objClienteBE.ClieApePater = txtApePater.Text;
+                objClienteBE.ClieApeMater = txtApeMater.Text;
+                objClienteBE.ClieCorreo = txtCorreo.Text;
+                objClienteBE.ClieTipoDocumento = "1";
+                objClienteBE.ClieDocumento = txtDni.Text;
+                objClienteBE.ClieContra = txtClave.Text;
+                objClienteBE.ClieSexo = cboSexo.SelectedValue.ToString();
+                objClienteBE.IdUbigeo = objServicioUbigeo.GetIdUbigeo(ubigeo.Substring(0, 2), ubigeo.Substring(2, 2), ubigeo.Substring(4, 2));
+
+                if (objServicioCliente.InsertCliente(objClienteBE))
+                {
+                    txtRespuesta.Text = "Cliente Registrado con exito";
+                    ocultarDiv();
+                }
+            }
+            else
+            {
+                mostrarDiv();
+                txtRespuesta.Text = "Por favor, verfique las contraseñas";
+            }
+           
+
+        }
+        catch (Exception ex)
+        {
+            mostrarDiv();
+            txtRespuesta.Text = ex.Message;
+        }
+    }
+
+
+    private void mostrarDiv()
+    {
+        DivRespuesta.Attributes["class"] = "alert alert-danger";
+    }
+
+    private void ocultarDiv()
+    {
+        DivRespuesta.Attributes["class"] = "d-none";
+    }
+
+
 }
