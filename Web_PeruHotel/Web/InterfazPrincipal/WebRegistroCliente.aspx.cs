@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.Common;
 
 public partial class Web_InterfazPrincipal_WebRegistroCliente : System.Web.UI.Page
 {
@@ -39,8 +40,13 @@ public partial class Web_InterfazPrincipal_WebRegistroCliente : System.Web.UI.Pa
 
                 if (objServicioCliente.InsertCliente(objClienteBE))
                 {
-                    txtRespuesta.Text = "Cliente Registrado con exito";
-                    ocultarDiv();
+                    hdfAccion.Value = "M";
+                    mdDetalle.Show();
+                }
+                else
+                {
+                    mostrarDiv();
+                    throw new Exception("El usuario ya se encuentra registrado");
                 }
             }
             else

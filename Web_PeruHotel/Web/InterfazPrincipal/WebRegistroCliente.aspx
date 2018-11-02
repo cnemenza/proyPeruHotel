@@ -95,8 +95,16 @@
                     </table>                 
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6">   
+                <uc1:WebControl_Ubigeo runat="server" ID="ControlWeb1" />
                 <div class="form-group">
+                    <div class="form-group">
+                <label for="exampleInputEmail1">Sexo</label>
+                <asp:DropDownList ID="cboSexo" runat="server" CssClass="form-control" Width="400px">
+                    <asp:ListItem Value="1">Masculino</asp:ListItem>
+                    <asp:ListItem Value="2">Femenino</asp:ListItem>
+                </asp:DropDownList>
+                </div>
                 <label for="exampleInputEmail1">Contraseña</label>
                     <table class="w-25">
                         <tr>
@@ -113,14 +121,7 @@
                 <label for="exampleInputEmail1">Valida contraseña</label>
                 <asp:TextBox ID="txtValidarClave" runat="server" CssClass="form-control" Width="400px" TextMode="Password"></asp:TextBox>
                 </div>
-                <div class="form-group">
-                <label for="exampleInputEmail1">Sexo</label>
-                <asp:DropDownList ID="cboSexo" runat="server" CssClass="form-control" Width="400px">
-                    <asp:ListItem Value="1">Masculino</asp:ListItem>
-                    <asp:ListItem Value="2">Femenino</asp:ListItem>
-                </asp:DropDownList>
-                </div>
-                <uc1:WebControl_Ubigeo runat="server" ID="ControlWeb1" />
+                
             </div>
         </div>    
          <div class="row mb-5">
@@ -145,8 +146,8 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="alert alert-warning" role="alert">
-                      Cliente Registrado con exito !
+                    <div class="alert alert-warning pt-5 pb-5" role="alert">
+                      <h3>Cliente registrado con exito! <span class="badge badge-secondary"></span></h3>
                     </div>
                 </div>
  
@@ -160,7 +161,7 @@
                
                     <div class="col-2">
                        
-                        <asp:Button ID="btnCerrarModal" runat="server" Text="Cerrar" CssClass="btn btn-dark"/>
+                        <asp:LinkButton ID="btnCerrarModal" runat="server" CssClass="btn btn-dark" PostBackUrl="~/Web/InterfazPrincipal/WebLoginCliente.aspx">Cerrar</asp:LinkButton>
                     </div>
 
                 </div>
