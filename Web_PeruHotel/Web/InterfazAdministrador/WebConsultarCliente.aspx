@@ -103,9 +103,9 @@
                             <p class="card-text ml-2">
                                 <asp:Label ID="lblSexo" runat="server" Text="Seleccione un tipo de habitacion"></asp:Label></p>
                           <h6 class="card-subtitle mb-2 text-muted ml-2">
-                                <asp:Label ID="Label11" runat="server" Text="DNI"></asp:Label></h6>
+                                <asp:Label ID="Label11" runat="server" Text="Telefono"></asp:Label></h6>
                             <p class="card-text ml-2">
-                                <asp:Label ID="lblDNI" runat="server" Text="Seleccione un tipo de habitacion"></asp:Label></p>
+                                <asp:Label ID="lblTelefono" runat="server" Text="Seleccione un tipo de "></asp:Label></p>
                          
                                 
                    

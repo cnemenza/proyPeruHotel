@@ -23,8 +23,7 @@
     <Property Name="clie_apePater" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="clie_apeMater" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="clie_correo" Type="varchar" MaxLength="120" />
-    <Property Name="clie_tipoDocumento" Type="char" MaxLength="1" Nullable="false" />
-    <Property Name="clie_documento" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="clie_telefono" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="id_Ubigeo" Type="char" MaxLength="5" Nullable="false" />
     <Property Name="clie_codigo" Type="varchar" MaxLength="20" />
     <Property Name="clie_contra" Type="varchar" MaxLength="50" />
@@ -144,8 +143,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaCliente' no tiene defi
       <PropertyRef Name="clie_nom" />
       <PropertyRef Name="clie_apePater" />
       <PropertyRef Name="clie_apeMater" />
-      <PropertyRef Name="clie_tipoDocumento" />
-      <PropertyRef Name="clie_documento" />
+      <PropertyRef Name="clie_telefono" />
       <PropertyRef Name="clie_sexo" />
       <PropertyRef Name="clie_estado" />
       <PropertyRef Name="id_Ubigeo" />
@@ -161,8 +159,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaCliente' no tiene defi
     <Property Name="clie_apePater" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="clie_apeMater" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="clie_correo" Type="varchar" MaxLength="120" />
-    <Property Name="clie_tipoDocumento" Type="char" MaxLength="1" Nullable="false" />
-    <Property Name="clie_documento" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="clie_telefono" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="clie_codigo" Type="varchar" MaxLength="20" />
     <Property Name="clie_contra" Type="varchar" MaxLength="50" />
     <Property Name="clie_sexo" Type="char" MaxLength="1" Nullable="false" />
@@ -410,8 +407,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
     <Parameter Name="clie_apePater" Type="varchar" Mode="In" />
     <Parameter Name="clie_apeMater" Type="varchar" Mode="In" />
     <Parameter Name="clie_correo" Type="varchar" Mode="In" />
-    <Parameter Name="clie_tipoDocumento" Type="char" Mode="In" />
-    <Parameter Name="clie_documento" Type="varchar" Mode="In" />
+    <Parameter Name="clie_telefono" Type="varchar" Mode="In" />
     <Parameter Name="id_Ubigeo" Type="char" Mode="In" />
     <Parameter Name="clie_codigo" Type="varchar" Mode="In" />
     <Parameter Name="clie_contra" Type="varchar" Mode="In" />
@@ -446,8 +442,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
     <Parameter Name="clie_apePater" Type="varchar" Mode="In" />
     <Parameter Name="clie_apeMater" Type="varchar" Mode="In" />
     <Parameter Name="clie_correo" Type="varchar" Mode="In" />
-    <Parameter Name="clie_tipoDocumento" Type="char" Mode="In" />
-    <Parameter Name="clie_documento" Type="varchar" Mode="In" />
+    <Parameter Name="clie_telefono" Type="varchar" Mode="In" />
     <Parameter Name="id_Ubigeo" Type="char" Mode="In" />
     <Parameter Name="clie_codigo" Type="varchar" Mode="In" />
     <Parameter Name="clie_contra" Type="varchar" Mode="In" />
@@ -484,8 +479,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
     [vw_VistaCliente].[clie_apePater] AS [clie_apePater], 
     [vw_VistaCliente].[clie_apeMater] AS [clie_apeMater], 
     [vw_VistaCliente].[clie_correo] AS [clie_correo], 
-    [vw_VistaCliente].[clie_tipoDocumento] AS [clie_tipoDocumento], 
-    [vw_VistaCliente].[clie_documento] AS [clie_documento], 
+    [vw_VistaCliente].[clie_telefono] AS [clie_telefono], 
     [vw_VistaCliente].[clie_codigo] AS [clie_codigo], 
     [vw_VistaCliente].[clie_contra] AS [clie_contra], 
     [vw_VistaCliente].[clie_sexo] AS [clie_sexo], 

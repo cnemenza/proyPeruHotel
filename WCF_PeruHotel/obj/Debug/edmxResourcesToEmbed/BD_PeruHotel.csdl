@@ -24,8 +24,6 @@
     <Property Name="clie_apePater" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="clie_apeMater" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="clie_correo" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-    <Property Name="clie_tipoDocumento" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="clie_documento" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="clie_codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="clie_contra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="clie_sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
@@ -33,6 +31,7 @@
     <NavigationProperty Name="RESERVA" Relationship="Self.FK__RESERVA__id_clie__3E52440B" FromRole="CLIENTE" ToRole="RESERVA" />
     <Property Name="id_Ubigeo" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="UBIGEO" Relationship="PeruHotelModel.FK__CLIENTE__id_Ubig__45F365D3" FromRole="CLIENTE" ToRole="UBIGEO" />
+    <Property Name="clie_telefono" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="HABITACION">
     <Key>
@@ -228,8 +227,7 @@
       <Parameter Name="clie_apePater" Mode="In" Type="String" />
       <Parameter Name="clie_apeMater" Mode="In" Type="String" />
       <Parameter Name="clie_correo" Mode="In" Type="String" />
-      <Parameter Name="clie_tipoDocumento" Mode="In" Type="String" />
-      <Parameter Name="clie_documento" Mode="In" Type="String" />
+      <Parameter Name="clie_telefono" Mode="In" Type="String" />
       <Parameter Name="id_Ubigeo" Mode="In" Type="String" />
       <Parameter Name="clie_codigo" Mode="In" Type="String" />
       <Parameter Name="clie_contra" Mode="In" Type="String" />
@@ -261,8 +259,7 @@
       <Parameter Name="clie_apePater" Mode="In" Type="String" />
       <Parameter Name="clie_apeMater" Mode="In" Type="String" />
       <Parameter Name="clie_correo" Mode="In" Type="String" />
-      <Parameter Name="clie_tipoDocumento" Mode="In" Type="String" />
-      <Parameter Name="clie_documento" Mode="In" Type="String" />
+      <Parameter Name="clie_telefono" Mode="In" Type="String" />
       <Parameter Name="id_Ubigeo" Mode="In" Type="String" />
       <Parameter Name="clie_codigo" Mode="In" Type="String" />
       <Parameter Name="clie_contra" Mode="In" Type="String" />
@@ -286,7 +283,6 @@
     <EntitySet Name="vw_VistaReservaHabitaciones" EntityType="PeruHotelModel.vw_VistaReservaHabitaciones" />
     <EntitySet Name="vw_VistaReservaServicios" EntityType="PeruHotelModel.vw_VistaReservaServicios" />
     <EntitySet Name="vw_VistaDetalleServicio" EntityType="PeruHotelModel.vw_VistaDetalleServicio" />
-    <EntitySet Name="vw_VistaCliente" EntityType="PeruHotelModel.vw_VistaCliente" />
     <FunctionImport Name="usp_ListarCiudad" ReturnType="Collection(PeruHotelModel.usp_ListarCiudad_Result)">
       <Parameter Name="id_Continente" Mode="In" Type="String" />
       <Parameter Name="id_Pais" Mode="In" Type="String" />
@@ -295,6 +291,7 @@
     <FunctionImport Name="usp_ListarPais" ReturnType="Collection(PeruHotelModel.usp_ListarPais_Result)">
       <Parameter Name="id_Continente" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="vw_VistaCliente" EntityType="PeruHotelModel.vw_VistaCliente" />
   </EntityContainer>
   <ComplexType Name="usp_ConsultarAdministrador_Result">
     <Property Type="String" Name="id_admi" Nullable="false" MaxLength="5" />
@@ -446,14 +443,25 @@
     <Property Name="servi_precio" Type="Decimal" Precision="19" Scale="2" />
     <Property Name="cantidad" Type="Int32" />
   </EntityType>
+  <ComplexType Name="usp_ListarCiudad_Result">
+    <Property Type="String" Name="id_ciudad" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="ubi_ciudad" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="usp_ListarContinente_Result">
+    <Property Type="String" Name="id_Continente" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="ubi_Continente" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="usp_ListarPais_Result">
+    <Property Type="String" Name="id_pais" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="ubi_pais" Nullable="false" MaxLength="100" />
+  </ComplexType>
   <EntityType Name="vw_VistaCliente">
     <Key>
       <PropertyRef Name="id_cliente" />
       <PropertyRef Name="clie_nom" />
       <PropertyRef Name="clie_apePater" />
       <PropertyRef Name="clie_apeMater" />
-      <PropertyRef Name="clie_tipoDocumento" />
-      <PropertyRef Name="clie_documento" />
+      <PropertyRef Name="clie_telefono" />
       <PropertyRef Name="clie_sexo" />
       <PropertyRef Name="clie_estado" />
       <PropertyRef Name="id_Ubigeo" />
@@ -469,8 +477,7 @@
     <Property Name="clie_apePater" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="clie_apeMater" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="clie_correo" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-    <Property Name="clie_tipoDocumento" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-    <Property Name="clie_documento" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="clie_telefono" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
     <Property Name="clie_codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="clie_contra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="clie_sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
@@ -483,16 +490,4 @@
     <Property Name="ubi_Pais" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="ubi_Ciudad" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
-  <ComplexType Name="usp_ListarCiudad_Result">
-    <Property Type="String" Name="id_ciudad" Nullable="false" MaxLength="2" />
-    <Property Type="String" Name="ubi_ciudad" Nullable="false" MaxLength="100" />
-  </ComplexType>
-  <ComplexType Name="usp_ListarContinente_Result">
-    <Property Type="String" Name="id_Continente" Nullable="false" MaxLength="2" />
-    <Property Type="String" Name="ubi_Continente" Nullable="false" MaxLength="100" />
-  </ComplexType>
-  <ComplexType Name="usp_ListarPais_Result">
-    <Property Type="String" Name="id_pais" Nullable="false" MaxLength="2" />
-    <Property Type="String" Name="ubi_pais" Nullable="false" MaxLength="100" />
-  </ComplexType>
 </Schema>

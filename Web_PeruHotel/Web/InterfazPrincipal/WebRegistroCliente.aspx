@@ -23,7 +23,7 @@
                      <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control" Width="400px"></asp:TextBox>               
                             </td>
                             <td>               
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCodigo" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCodigo" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                     </table>
@@ -36,7 +36,7 @@
                      <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" Width="400px"></asp:TextBox>              
                             </td>
                             <td>               
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                     </table>
@@ -49,7 +49,7 @@
                      <asp:TextBox ID="txtApePater" runat="server" CssClass="form-control" Width="400px"></asp:TextBox>          
                             </td>
                             <td>               
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtApePater" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtApePater" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                     </table>
@@ -62,7 +62,7 @@
                      <asp:TextBox ID="txtApeMater" runat="server" CssClass="form-control" Width="400px"></asp:TextBox>        
                             </td>
                             <td>               
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtApeMater" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtApeMater" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                     </table>
@@ -75,21 +75,21 @@
                      <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" Width="400px" TextMode="Email"></asp:TextBox>    
                             </td>
                             <td>               
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtCorreo" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtCorreo" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                     </table>
                    
                 </div>
                 <div class="form-group">
-                <label for="exampleInputEmail1">Documento de Identidad</label>            
+                <label for="exampleInputEmail1">Telefono</label>            
                     <table class="w-25">
                         <tr>
                             <td>
-                     <asp:TextBox ID="txtDni" runat="server" CssClass="form-control" Width="400px" TextMode="Number"></asp:TextBox>
+                     <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" Width="400px" TextMode="Number"></asp:TextBox>
                             </td>
                             <td>               
-                       <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtDni" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                       <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                     </table>                 
@@ -112,7 +112,7 @@
                      <asp:TextBox ID="txtClave" runat="server" CssClass="form-control" Width="400px" TextMode="Password"></asp:TextBox>
                             </td>
                             <td>               
-                       <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtClave" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1"></asp:RequiredFieldValidator>
+                       <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtClave" ErrorMessage="*" ForeColor="Red" ValidationGroup="G1" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                     </table>      
@@ -132,7 +132,7 @@
         </div>  
     
     </form>
-<asp:LinkButton ID="btnPopup" runat="server">asasd</asp:LinkButton>
+<asp:LinkButton ID="btnPopup" runat="server" CssClass="d-none">asasd</asp:LinkButton>
     <cc1:ModalPopupExtender ID="mdDetalle" runat="server" TargetControlID="btnPopup" PopupControlID="Panel1"></cc1:ModalPopupExtender>
     <asp:Panel ID="Panel1" runat="server" CssClass="Modal">
         <!-- Modal -->

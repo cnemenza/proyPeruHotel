@@ -7,11 +7,10 @@
       <xs:element minOccurs="0" name="ClieCodigo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ClieContra" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ClieCorreo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ClieDocumento" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ClieEstado" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ClieNom" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ClieSexo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ClieTipoDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClieTelefono" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdCiudad" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdCliente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdContinente" nillable="true" type="xs:string" />

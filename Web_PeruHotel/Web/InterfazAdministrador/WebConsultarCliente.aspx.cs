@@ -54,7 +54,7 @@ public partial class Web_InterfazAdministrador_WebConsultarCliente : System.Web.
                 {
                     lblSexo.Text = "Femenino";
                 }
-                lblDNI.Text = objClienteBE.ClieDocumento;
+                lblTelefono.Text = objClienteBE.ClieTelefono;
 
                 Image1.ImageUrl = "imagenes/Clientes/" + objClienteBE.IdCliente + ".jpg";
             }

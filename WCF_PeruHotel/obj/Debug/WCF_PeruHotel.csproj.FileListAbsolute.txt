@@ -5,7 +5,6 @@ C:\Christian\proyPeruHotel\WCF_PeruHotel\bin\Debug\EntityFramework.dll
 C:\Christian\proyPeruHotel\WCF_PeruHotel\bin\Debug\EntityFramework.SqlServer.dll
 C:\Christian\proyPeruHotel\WCF_PeruHotel\bin\Debug\EntityFramework.xml
 C:\Christian\proyPeruHotel\WCF_PeruHotel\bin\Debug\EntityFramework.SqlServer.xml
-C:\Christian\proyPeruHotel\WCF_PeruHotel\obj\Debug\WCF_PeruHotel.csprojResolveAssemblyReference.cache
 C:\Christian\proyPeruHotel\WCF_PeruHotel\obj\Debug\WCF_PeruHotel.dll
 C:\Christian\proyPeruHotel\WCF_PeruHotel\obj\Debug\WCF_PeruHotel.pdb
 E:\Christian\Proyecto\proyPeruHotel\WCF_PeruHotel\bin\Debug\WCF_PeruHotel.dll.config

@@ -81,7 +81,7 @@ namespace WCF_PeruHotel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_ActualizarAdministrador", id_admiParameter, admi_nomParameter, admi_apePaterParameter, admi_apeMaterParameter, admi_codigoParameter, admi_contraParameter, admi_dniParameter, admi_direccionParameter);
         }
     
-        public virtual int usp_ActualizarCliente(string id_cliente, string clie_nom, string clie_apePater, string clie_apeMater, string clie_correo, string clie_tipoDocumento, string clie_documento, string id_Ubigeo, string clie_codigo, string clie_contra, string clie_sexo)
+        public virtual int usp_ActualizarCliente(string id_cliente, string clie_nom, string clie_apePater, string clie_apeMater, string clie_correo, string clie_telefono, string id_Ubigeo, string clie_codigo, string clie_contra, string clie_sexo)
         {
             var id_clienteParameter = id_cliente != null ?
                 new ObjectParameter("id_cliente", id_cliente) :
@@ -103,13 +103,9 @@ namespace WCF_PeruHotel
                 new ObjectParameter("clie_correo", clie_correo) :
                 new ObjectParameter("clie_correo", typeof(string));
     
-            var clie_tipoDocumentoParameter = clie_tipoDocumento != null ?
-                new ObjectParameter("clie_tipoDocumento", clie_tipoDocumento) :
-                new ObjectParameter("clie_tipoDocumento", typeof(string));
-    
-            var clie_documentoParameter = clie_documento != null ?
-                new ObjectParameter("clie_documento", clie_documento) :
-                new ObjectParameter("clie_documento", typeof(string));
+            var clie_telefonoParameter = clie_telefono != null ?
+                new ObjectParameter("clie_telefono", clie_telefono) :
+                new ObjectParameter("clie_telefono", typeof(string));
     
             var id_UbigeoParameter = id_Ubigeo != null ?
                 new ObjectParameter("id_Ubigeo", id_Ubigeo) :
@@ -127,7 +123,7 @@ namespace WCF_PeruHotel
                 new ObjectParameter("clie_sexo", clie_sexo) :
                 new ObjectParameter("clie_sexo", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_ActualizarCliente", id_clienteParameter, clie_nomParameter, clie_apePaterParameter, clie_apeMaterParameter, clie_correoParameter, clie_tipoDocumentoParameter, clie_documentoParameter, id_UbigeoParameter, clie_codigoParameter, clie_contraParameter, clie_sexoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_ActualizarCliente", id_clienteParameter, clie_nomParameter, clie_apePaterParameter, clie_apeMaterParameter, clie_correoParameter, clie_telefonoParameter, id_UbigeoParameter, clie_codigoParameter, clie_contraParameter, clie_sexoParameter);
         }
     
         public virtual ObjectResult<usp_ConsultarAdministrador_Result> usp_ConsultarAdministrador(string id_admi)
@@ -199,7 +195,7 @@ namespace WCF_PeruHotel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarAdministrador", admi_nomParameter, admi_apePaterParameter, admi_apeMaterParameter, admi_codigoParameter, admi_contraParameter, admi_dniParameter, admi_direccionParameter);
         }
     
-        public virtual int usp_InsertarCliente(string clie_nom, string clie_apePater, string clie_apeMater, string clie_correo, string clie_tipoDocumento, string clie_documento, string id_Ubigeo, string clie_codigo, string clie_contra, string clie_sexo)
+        public virtual int usp_InsertarCliente(string clie_nom, string clie_apePater, string clie_apeMater, string clie_correo, string clie_telefono, string id_Ubigeo, string clie_codigo, string clie_contra, string clie_sexo)
         {
             var clie_nomParameter = clie_nom != null ?
                 new ObjectParameter("clie_nom", clie_nom) :
@@ -217,13 +213,9 @@ namespace WCF_PeruHotel
                 new ObjectParameter("clie_correo", clie_correo) :
                 new ObjectParameter("clie_correo", typeof(string));
     
-            var clie_tipoDocumentoParameter = clie_tipoDocumento != null ?
-                new ObjectParameter("clie_tipoDocumento", clie_tipoDocumento) :
-                new ObjectParameter("clie_tipoDocumento", typeof(string));
-    
-            var clie_documentoParameter = clie_documento != null ?
-                new ObjectParameter("clie_documento", clie_documento) :
-                new ObjectParameter("clie_documento", typeof(string));
+            var clie_telefonoParameter = clie_telefono != null ?
+                new ObjectParameter("clie_telefono", clie_telefono) :
+                new ObjectParameter("clie_telefono", typeof(string));
     
             var id_UbigeoParameter = id_Ubigeo != null ?
                 new ObjectParameter("id_Ubigeo", id_Ubigeo) :
@@ -241,7 +233,7 @@ namespace WCF_PeruHotel
                 new ObjectParameter("clie_sexo", clie_sexo) :
                 new ObjectParameter("clie_sexo", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarCliente", clie_nomParameter, clie_apePaterParameter, clie_apeMaterParameter, clie_correoParameter, clie_tipoDocumentoParameter, clie_documentoParameter, id_UbigeoParameter, clie_codigoParameter, clie_contraParameter, clie_sexoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarCliente", clie_nomParameter, clie_apePaterParameter, clie_apeMaterParameter, clie_correoParameter, clie_telefonoParameter, id_UbigeoParameter, clie_codigoParameter, clie_contraParameter, clie_sexoParameter);
         }
     
         public virtual ObjectResult<usp_HabitacionDisponiblePorTipo_Result> usp_HabitacionDisponiblePorTipo(string id_tipo_habi)

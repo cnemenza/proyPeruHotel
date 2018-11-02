@@ -40,8 +40,7 @@ namespace WCF_PeruHotel
         private String _clieApePater;
         private String _clieApeMater;
         private String _clieCorreo;
-        private String _clieTipoDocumento;
-        private String _clieDocumento;
+        private String _clieTelefono;
         private String _idUbigeo;
         private String _clieCodigo;
         private String _clieContra;
@@ -85,17 +84,12 @@ namespace WCF_PeruHotel
             get { return this._clieCorreo; }
             set { this._clieCorreo = value; }
         }
+
         [DataMember]
-        public String ClieTipoDocumento
+        public String ClieTelefono
         {
-            get { return this._clieTipoDocumento; }
-            set { this._clieTipoDocumento = value; }
-        }
-        [DataMember]
-        public String ClieDocumento
-        {
-            get { return this._clieDocumento; }
-            set { this._clieDocumento = value; }
+            get { return this._clieTelefono; }
+            set { this._clieTelefono = value; }
         }
         [DataMember]
         public String IdUbigeo

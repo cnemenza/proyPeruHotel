@@ -24,8 +24,7 @@ namespace WCF_PeruHotel
                 objCliente.clie_apePater = objClienteBE.ClieApePater;
                 objCliente.clie_apeMater = objClienteBE.ClieApeMater;
                 objCliente.clie_correo = objClienteBE.ClieCorreo;
-                objCliente.clie_tipoDocumento = objClienteBE.ClieTipoDocumento;
-                objCliente.clie_documento = objClienteBE.ClieDocumento;
+                objCliente.clie_telefono = objClienteBE.ClieTelefono;
                 objCliente.id_Ubigeo = objClienteBE.IdUbigeo;
                 objCliente.clie_codigo = objClienteBE.ClieCodigo;
                 objCliente.clie_contra = objClienteBE.ClieContra;
@@ -65,7 +64,7 @@ namespace WCF_PeruHotel
                 PeruHotelEntities MiHotel = new PeruHotelEntities();
                 MiHotel.usp_ActualizarCliente(
                     objClienteBE.IdCliente,objClienteBE.ClieNom,objClienteBE.ClieApePater,objClienteBE.ClieApeMater,objClienteBE.ClieCorreo,
-                    objClienteBE.ClieTipoDocumento,objClienteBE.ClieDocumento,objClienteBE.IdUbigeo,objClienteBE.ClieCodigo,objClienteBE.ClieContra,
+                    objClienteBE.ClieTelefono,objClienteBE.IdUbigeo,objClienteBE.ClieCodigo,objClienteBE.ClieContra,
                     objClienteBE.ClieSexo
                     );
                 blnexito = true;
@@ -96,8 +95,7 @@ namespace WCF_PeruHotel
                 objClienteBE.ClieApePater = objCliente.clie_apePater;
                 objClienteBE.ClieApeMater = objCliente.clie_apeMater;
                 objClienteBE.ClieCorreo = objCliente.clie_correo;
-                objClienteBE.ClieTipoDocumento = objCliente.clie_tipoDocumento;
-                objClienteBE.ClieDocumento = objCliente.clie_documento;
+                objClienteBE.ClieTelefono = objCliente.clie_telefono;
                 objClienteBE.IdUbigeo = objCliente.id_Ubigeo;
                 objClienteBE.ClieCodigo = objCliente.clie_codigo;
                 objClienteBE.ClieContra = objCliente.clie_contra;
@@ -139,8 +137,7 @@ namespace WCF_PeruHotel
                     objClienteBE.ClieApePater = resultado.clie_apePater;
                     objClienteBE.ClieApeMater = resultado.clie_apeMater;
                     objClienteBE.ClieCorreo = resultado.clie_correo;
-                    objClienteBE.ClieTipoDocumento = resultado.clie_tipoDocumento;
-                    objClienteBE.ClieDocumento = resultado.clie_documento;
+                    objClienteBE.ClieTelefono = resultado.clie_telefono;
                     objClienteBE.IdUbigeo = resultado.id_Ubigeo;
                     objClienteBE.ClieCodigo = resultado.clie_codigo;
                     objClienteBE.ClieContra = resultado.clie_contra;

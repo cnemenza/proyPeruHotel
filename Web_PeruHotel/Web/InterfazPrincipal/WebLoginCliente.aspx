@@ -33,10 +33,13 @@
         </div>
         <div class="col-md-auto">
            <div class="row">
-            <small class="mr-2">¿No estas registrado? </small> <a href="#">Registrate</a>
+            <small class="mr-2">¿No estas registrado? </small> <a href="WebRegistroCliente.aspx">Registrate</a>
         </div>
         <div class="row">
             <small class="mr-2">¿Olvidaste tu contraseña? </small> <a href="#">Recuperar</a>
+        </div>
+            <div class="row">
+                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="mr-2 mt-3" NavigateUrl="~/Web/InterfazAdministrador/WebConsultarCliente.aspx">Ingresar como Administrador</asp:HyperLink>
         </div>
         </div>
         <div class="col col-lg-2">

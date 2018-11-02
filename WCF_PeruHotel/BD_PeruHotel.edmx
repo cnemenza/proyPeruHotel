@@ -28,8 +28,7 @@
           <Property Name="clie_apePater" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="clie_apeMater" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="clie_correo" Type="varchar" MaxLength="120" />
-          <Property Name="clie_tipoDocumento" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="clie_documento" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="clie_telefono" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="id_Ubigeo" Type="char" MaxLength="5" Nullable="false" />
           <Property Name="clie_codigo" Type="varchar" MaxLength="20" />
           <Property Name="clie_contra" Type="varchar" MaxLength="50" />
@@ -149,8 +148,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaCliente' no tiene defi
             <PropertyRef Name="clie_nom" />
             <PropertyRef Name="clie_apePater" />
             <PropertyRef Name="clie_apeMater" />
-            <PropertyRef Name="clie_tipoDocumento" />
-            <PropertyRef Name="clie_documento" />
+            <PropertyRef Name="clie_telefono" />
             <PropertyRef Name="clie_sexo" />
             <PropertyRef Name="clie_estado" />
             <PropertyRef Name="id_Ubigeo" />
@@ -166,8 +164,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaCliente' no tiene defi
           <Property Name="clie_apePater" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="clie_apeMater" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="clie_correo" Type="varchar" MaxLength="120" />
-          <Property Name="clie_tipoDocumento" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="clie_documento" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="clie_telefono" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="clie_codigo" Type="varchar" MaxLength="20" />
           <Property Name="clie_contra" Type="varchar" MaxLength="50" />
           <Property Name="clie_sexo" Type="char" MaxLength="1" Nullable="false" />
@@ -415,8 +412,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <Parameter Name="clie_apePater" Type="varchar" Mode="In" />
           <Parameter Name="clie_apeMater" Type="varchar" Mode="In" />
           <Parameter Name="clie_correo" Type="varchar" Mode="In" />
-          <Parameter Name="clie_tipoDocumento" Type="char" Mode="In" />
-          <Parameter Name="clie_documento" Type="varchar" Mode="In" />
+          <Parameter Name="clie_telefono" Type="varchar" Mode="In" />
           <Parameter Name="id_Ubigeo" Type="char" Mode="In" />
           <Parameter Name="clie_codigo" Type="varchar" Mode="In" />
           <Parameter Name="clie_contra" Type="varchar" Mode="In" />
@@ -451,8 +447,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <Parameter Name="clie_apePater" Type="varchar" Mode="In" />
           <Parameter Name="clie_apeMater" Type="varchar" Mode="In" />
           <Parameter Name="clie_correo" Type="varchar" Mode="In" />
-          <Parameter Name="clie_tipoDocumento" Type="char" Mode="In" />
-          <Parameter Name="clie_documento" Type="varchar" Mode="In" />
+          <Parameter Name="clie_telefono" Type="varchar" Mode="In" />
           <Parameter Name="id_Ubigeo" Type="char" Mode="In" />
           <Parameter Name="clie_codigo" Type="varchar" Mode="In" />
           <Parameter Name="clie_contra" Type="varchar" Mode="In" />
@@ -489,8 +484,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
     [vw_VistaCliente].[clie_apePater] AS [clie_apePater], 
     [vw_VistaCliente].[clie_apeMater] AS [clie_apeMater], 
     [vw_VistaCliente].[clie_correo] AS [clie_correo], 
-    [vw_VistaCliente].[clie_tipoDocumento] AS [clie_tipoDocumento], 
-    [vw_VistaCliente].[clie_documento] AS [clie_documento], 
+    [vw_VistaCliente].[clie_telefono] AS [clie_telefono], 
     [vw_VistaCliente].[clie_codigo] AS [clie_codigo], 
     [vw_VistaCliente].[clie_contra] AS [clie_contra], 
     [vw_VistaCliente].[clie_sexo] AS [clie_sexo], 
@@ -634,8 +628,6 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <Property Name="clie_apePater" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="clie_apeMater" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="clie_correo" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-          <Property Name="clie_tipoDocumento" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="clie_documento" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="clie_codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="clie_contra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="clie_sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
@@ -643,6 +635,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <NavigationProperty Name="RESERVA" Relationship="Self.FK__RESERVA__id_clie__3E52440B" FromRole="CLIENTE" ToRole="RESERVA" />
           <Property Name="id_Ubigeo" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="UBIGEO" Relationship="PeruHotelModel.FK__CLIENTE__id_Ubig__45F365D3" FromRole="CLIENTE" ToRole="UBIGEO" />
+          <Property Name="clie_telefono" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="HABITACION">
           <Key>
@@ -838,8 +831,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
             <Parameter Name="clie_apePater" Mode="In" Type="String" />
             <Parameter Name="clie_apeMater" Mode="In" Type="String" />
             <Parameter Name="clie_correo" Mode="In" Type="String" />
-            <Parameter Name="clie_tipoDocumento" Mode="In" Type="String" />
-            <Parameter Name="clie_documento" Mode="In" Type="String" />
+            <Parameter Name="clie_telefono" Mode="In" Type="String" />
             <Parameter Name="id_Ubigeo" Mode="In" Type="String" />
             <Parameter Name="clie_codigo" Mode="In" Type="String" />
             <Parameter Name="clie_contra" Mode="In" Type="String" />
@@ -871,8 +863,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
             <Parameter Name="clie_apePater" Mode="In" Type="String" />
             <Parameter Name="clie_apeMater" Mode="In" Type="String" />
             <Parameter Name="clie_correo" Mode="In" Type="String" />
-            <Parameter Name="clie_tipoDocumento" Mode="In" Type="String" />
-            <Parameter Name="clie_documento" Mode="In" Type="String" />
+            <Parameter Name="clie_telefono" Mode="In" Type="String" />
             <Parameter Name="id_Ubigeo" Mode="In" Type="String" />
             <Parameter Name="clie_codigo" Mode="In" Type="String" />
             <Parameter Name="clie_contra" Mode="In" Type="String" />
@@ -897,15 +888,15 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <EntitySet Name="vw_VistaReservaHabitaciones" EntityType="PeruHotelModel.vw_VistaReservaHabitaciones" />
           <EntitySet Name="vw_VistaReservaServicios" EntityType="PeruHotelModel.vw_VistaReservaServicios" />
           <EntitySet Name="vw_VistaDetalleServicio" EntityType="PeruHotelModel.vw_VistaDetalleServicio" />
-          <EntitySet Name="vw_VistaCliente" EntityType="PeruHotelModel.vw_VistaCliente" />
           <FunctionImport Name="usp_ListarCiudad" ReturnType="Collection(PeruHotelModel.usp_ListarCiudad_Result)">
             <Parameter Name="id_Continente" Mode="In" Type="String" />
             <Parameter Name="id_Pais" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ListarContinente" ReturnType="Collection(PeruHotelModel.usp_ListarContinente_Result)" />
           <FunctionImport Name="usp_ListarPais" ReturnType="Collection(PeruHotelModel.usp_ListarPais_Result)">
-            <Parameter Name="id_Continente" Mode="In" Type="String" />
+          <Parameter Name="id_Continente" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="vw_VistaCliente" EntityType="PeruHotelModel.vw_VistaCliente" />
         </EntityContainer>
         <ComplexType Name="usp_ConsultarAdministrador_Result">
           <Property Type="String" Name="id_admi" Nullable="false" MaxLength="5" />
@@ -1057,14 +1048,25 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <Property Name="servi_precio" Type="Decimal" Precision="19" Scale="2" />
           <Property Name="cantidad" Type="Int32" />
         </EntityType>
+        <ComplexType Name="usp_ListarCiudad_Result">
+          <Property Type="String" Name="id_ciudad" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="ubi_ciudad" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarContinente_Result">
+          <Property Type="String" Name="id_Continente" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="ubi_Continente" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarPais_Result">
+          <Property Type="String" Name="id_pais" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="ubi_pais" Nullable="false" MaxLength="100" />
+        </ComplexType>
         <EntityType Name="vw_VistaCliente">
           <Key>
             <PropertyRef Name="id_cliente" />
             <PropertyRef Name="clie_nom" />
             <PropertyRef Name="clie_apePater" />
             <PropertyRef Name="clie_apeMater" />
-            <PropertyRef Name="clie_tipoDocumento" />
-            <PropertyRef Name="clie_documento" />
+            <PropertyRef Name="clie_telefono" />
             <PropertyRef Name="clie_sexo" />
             <PropertyRef Name="clie_estado" />
             <PropertyRef Name="id_Ubigeo" />
@@ -1080,8 +1082,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <Property Name="clie_apePater" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="clie_apeMater" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="clie_correo" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-          <Property Name="clie_tipoDocumento" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="clie_documento" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="clie_telefono" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="clie_codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="clie_contra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="clie_sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
@@ -1094,18 +1095,6 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <Property Name="ubi_Pais" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ubi_Ciudad" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
-        <ComplexType Name="usp_ListarCiudad_Result">
-          <Property Type="String" Name="id_ciudad" Nullable="false" MaxLength="2" />
-          <Property Type="String" Name="ubi_ciudad" Nullable="false" MaxLength="100" />
-        </ComplexType>
-        <ComplexType Name="usp_ListarContinente_Result">
-          <Property Type="String" Name="id_Continente" Nullable="false" MaxLength="2" />
-          <Property Type="String" Name="ubi_Continente" Nullable="false" MaxLength="100" />
-        </ComplexType>
-        <ComplexType Name="usp_ListarPais_Result">
-          <Property Type="String" Name="id_pais" Nullable="false" MaxLength="2" />
-          <Property Type="String" Name="ubi_pais" Nullable="false" MaxLength="100" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1156,14 +1145,13 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <EntitySetMapping Name="CLIENTE">
             <EntityTypeMapping TypeName="PeruHotelModel.CLIENTE">
               <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="clie_telefono" ColumnName="clie_telefono" />
                 <ScalarProperty Name="id_Ubigeo" ColumnName="id_Ubigeo" />
                 <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
                 <ScalarProperty Name="clie_nom" ColumnName="clie_nom" />
                 <ScalarProperty Name="clie_apePater" ColumnName="clie_apePater" />
                 <ScalarProperty Name="clie_apeMater" ColumnName="clie_apeMater" />
                 <ScalarProperty Name="clie_correo" ColumnName="clie_correo" />
-                <ScalarProperty Name="clie_tipoDocumento" ColumnName="clie_tipoDocumento" />
-                <ScalarProperty Name="clie_documento" ColumnName="clie_documento" />
                 <ScalarProperty Name="clie_codigo" ColumnName="clie_codigo" />
                 <ScalarProperty Name="clie_contra" ColumnName="clie_contra" />
                 <ScalarProperty Name="clie_sexo" ColumnName="clie_sexo" />
@@ -1173,12 +1161,11 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
             <EntityTypeMapping TypeName="PeruHotelModel.CLIENTE">
               <ModificationFunctionMapping>
                 <UpdateFunction FunctionName="PeruHotelModel.Store.usp_ActualizarCliente">
+                  <ScalarProperty Name="clie_telefono" ParameterName="clie_telefono" Version="Current" />
                   <ScalarProperty Name="id_Ubigeo" ParameterName="id_Ubigeo" Version="Current" />
                   <ScalarProperty Name="clie_sexo" ParameterName="clie_sexo" Version="Current" />
                   <ScalarProperty Name="clie_contra" ParameterName="clie_contra" Version="Current" />
                   <ScalarProperty Name="clie_codigo" ParameterName="clie_codigo" Version="Current" />
-                  <ScalarProperty Name="clie_documento" ParameterName="clie_documento" Version="Current" />
-                  <ScalarProperty Name="clie_tipoDocumento" ParameterName="clie_tipoDocumento" Version="Current" />
                   <ScalarProperty Name="clie_correo" ParameterName="clie_correo" Version="Current" />
                   <ScalarProperty Name="clie_apeMater" ParameterName="clie_apeMater" Version="Current" />
                   <ScalarProperty Name="clie_apePater" ParameterName="clie_apePater" Version="Current" />
@@ -1189,12 +1176,11 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
                   <ScalarProperty Name="id_cliente" ParameterName="id_cliente" />
                 </DeleteFunction>
                 <InsertFunction FunctionName="PeruHotelModel.Store.usp_InsertarCliente">
+                  <ScalarProperty Name="clie_telefono" ParameterName="clie_telefono" />
                   <ScalarProperty Name="clie_sexo" ParameterName="clie_sexo" />
                   <ScalarProperty Name="clie_contra" ParameterName="clie_contra" />
                   <ScalarProperty Name="clie_codigo" ParameterName="clie_codigo" />
                   <ScalarProperty Name="id_Ubigeo" ParameterName="id_Ubigeo" />
-                  <ScalarProperty Name="clie_documento" ParameterName="clie_documento" />
-                  <ScalarProperty Name="clie_tipoDocumento" ParameterName="clie_tipoDocumento" />
                   <ScalarProperty Name="clie_correo" ParameterName="clie_correo" />
                   <ScalarProperty Name="clie_apeMater" ParameterName="clie_apeMater" />
                   <ScalarProperty Name="clie_apePater" ParameterName="clie_apePater" />
@@ -1449,30 +1435,6 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vw_VistaCliente">
-            <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaCliente">
-              <MappingFragment StoreEntitySet="vw_VistaCliente">
-                <ScalarProperty Name="ubi_Ciudad" ColumnName="ubi_Ciudad" />
-                <ScalarProperty Name="ubi_Pais" ColumnName="ubi_Pais" />
-                <ScalarProperty Name="ubi_Continente" ColumnName="ubi_Continente" />
-                <ScalarProperty Name="id_Ciudad" ColumnName="id_Ciudad" />
-                <ScalarProperty Name="id_Pais" ColumnName="id_Pais" />
-                <ScalarProperty Name="id_Continente" ColumnName="id_Continente" />
-                <ScalarProperty Name="id_Ubigeo" ColumnName="id_Ubigeo" />
-                <ScalarProperty Name="clie_estado" ColumnName="clie_estado" />
-                <ScalarProperty Name="clie_sexo" ColumnName="clie_sexo" />
-                <ScalarProperty Name="clie_contra" ColumnName="clie_contra" />
-                <ScalarProperty Name="clie_codigo" ColumnName="clie_codigo" />
-                <ScalarProperty Name="clie_documento" ColumnName="clie_documento" />
-                <ScalarProperty Name="clie_tipoDocumento" ColumnName="clie_tipoDocumento" />
-                <ScalarProperty Name="clie_correo" ColumnName="clie_correo" />
-                <ScalarProperty Name="clie_apeMater" ColumnName="clie_apeMater" />
-                <ScalarProperty Name="clie_apePater" ColumnName="clie_apePater" />
-                <ScalarProperty Name="clie_nom" ColumnName="clie_nom" />
-                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="usp_ListarCiudad" FunctionName="PeruHotelModel.Store.usp_ListarCiudad">
             <ResultMapping>
               <ComplexTypeMapping TypeName="PeruHotelModel.usp_ListarCiudad_Result">
@@ -1497,6 +1459,29 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="vw_VistaCliente">
+            <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaCliente">
+              <MappingFragment StoreEntitySet="vw_VistaCliente">
+                <ScalarProperty Name="ubi_Ciudad" ColumnName="ubi_Ciudad" />
+                <ScalarProperty Name="ubi_Pais" ColumnName="ubi_Pais" />
+                <ScalarProperty Name="ubi_Continente" ColumnName="ubi_Continente" />
+                <ScalarProperty Name="id_Ciudad" ColumnName="id_Ciudad" />
+                <ScalarProperty Name="id_Pais" ColumnName="id_Pais" />
+                <ScalarProperty Name="id_Continente" ColumnName="id_Continente" />
+                <ScalarProperty Name="id_Ubigeo" ColumnName="id_Ubigeo" />
+                <ScalarProperty Name="clie_estado" ColumnName="clie_estado" />
+                <ScalarProperty Name="clie_sexo" ColumnName="clie_sexo" />
+                <ScalarProperty Name="clie_contra" ColumnName="clie_contra" />
+                <ScalarProperty Name="clie_codigo" ColumnName="clie_codigo" />
+                <ScalarProperty Name="clie_telefono" ColumnName="clie_telefono" />
+                <ScalarProperty Name="clie_correo" ColumnName="clie_correo" />
+                <ScalarProperty Name="clie_apeMater" ColumnName="clie_apeMater" />
+                <ScalarProperty Name="clie_apePater" ColumnName="clie_apePater" />
+                <ScalarProperty Name="clie_nom" ColumnName="clie_nom" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

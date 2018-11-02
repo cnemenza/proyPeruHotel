@@ -19,8 +19,7 @@ namespace WCF_PeruHotel
         public string clie_apePater { get; set; }
         public string clie_apeMater { get; set; }
         public string clie_correo { get; set; }
-        public string clie_tipoDocumento { get; set; }
-        public string clie_documento { get; set; }
+        public string clie_telefono { get; set; }
         public string clie_codigo { get; set; }
         public string clie_contra { get; set; }
         public string clie_sexo { get; set; }

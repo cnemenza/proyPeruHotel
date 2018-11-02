@@ -32,8 +32,7 @@ public partial class Web_InterfazPrincipal_WebRegistroCliente : System.Web.UI.Pa
                 objClienteBE.ClieApePater = txtApePater.Text;
                 objClienteBE.ClieApeMater = txtApeMater.Text;
                 objClienteBE.ClieCorreo = txtCorreo.Text;
-                objClienteBE.ClieTipoDocumento = "1";
-                objClienteBE.ClieDocumento = txtDni.Text;
+                objClienteBE.ClieTelefono = txtTelefono.Text;
                 objClienteBE.ClieContra = txtClave.Text;
                 objClienteBE.ClieSexo = cboSexo.SelectedValue.ToString();
                 objClienteBE.IdUbigeo = objServicioUbigeo.GetIdUbigeo(ubigeo.Substring(0, 2), ubigeo.Substring(2, 2), ubigeo.Substring(4, 2));
