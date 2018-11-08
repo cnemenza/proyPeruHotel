@@ -17,3 +17,4 @@ E:\Christian\Proyecto\proyPeruHotel\WCF_PeruHotel\bin\Debug\EntityFramework.SqlS
 E:\Christian\Proyecto\proyPeruHotel\WCF_PeruHotel\obj\Debug\WCF_PeruHotel.csprojResolveAssemblyReference.cache
 E:\Christian\Proyecto\proyPeruHotel\WCF_PeruHotel\obj\Debug\WCF_PeruHotel.dll
 E:\Christian\Proyecto\proyPeruHotel\WCF_PeruHotel\obj\Debug\WCF_PeruHotel.pdb
+C:\Christian\proyPeruHotel\WCF_PeruHotel\obj\Debug\WCF_PeruHotel.csprojResolveAssemblyReference.cache

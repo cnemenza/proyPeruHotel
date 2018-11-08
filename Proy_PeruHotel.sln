@@ -30,6 +30,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Web_PeruHotel", "Web_PeruHo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF_PeruHotel", "WCF_PeruHotel\WCF_PeruHotel.csproj", "{07C210F5-D558-4103-9237-6ECBAD8363A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF_Hotel", "WCF_Hotel\WCF_Hotel.csproj", "{76986E39-DF56-4A1C-8FC5-5CE827D3BFA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{07C210F5-D558-4103-9237-6ECBAD8363A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07C210F5-D558-4103-9237-6ECBAD8363A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07C210F5-D558-4103-9237-6ECBAD8363A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76986E39-DF56-4A1C-8FC5-5CE827D3BFA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76986E39-DF56-4A1C-8FC5-5CE827D3BFA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76986E39-DF56-4A1C-8FC5-5CE827D3BFA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76986E39-DF56-4A1C-8FC5-5CE827D3BFA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

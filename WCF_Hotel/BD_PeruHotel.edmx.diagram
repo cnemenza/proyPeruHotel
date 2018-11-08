@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b3c0f210be4944988abbaa46956923d9" Name="Diagram1">
+        <EntityTypeShape EntityType="PeruHotelModel.ADMINISTRADOR" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.CLIENTE" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.DETALLE_SERVICIO" Width="1.5" PointX="9.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.HABITACION" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.HOTEL" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.PROMOCION" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.RESERVA" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.SERVICIO" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.TIPO_HABITACION" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.UBIGEO" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.vw_VistaCliente" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.vw_VistaDetalleReserva" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.vw_VistaDetalleServicio" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.vw_VistaReserva" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.vw_VistaReservaHabitaciones" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PeruHotelModel.vw_VistaReservaServicios" Width="1.5" PointX="11.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="PeruHotelModel.FK__CLIENTE__id_Ubig__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="PeruHotelModel.FK__RESERVA__id_clie__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="PeruHotelModel.FK__DETALLE_S__id_re__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="PeruHotelModel.FK__DETALLE_S__id_se__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="PeruHotelModel.FK__HABITACIO__id_ho__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="PeruHotelModel.FK__HABITACIO__id_ti__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="PeruHotelModel.FK__RESERVA__id_prom__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="PeruHotelModel.DETALLE_HOTEL" ManuallyRouted="false" />
+        <AssociationConnector Association="PeruHotelModel.DETALLE_RESERVA" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PeruHotelModel.vw_VistaHabitacion" Width="1.5" PointX="0.75" PointY="12.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
