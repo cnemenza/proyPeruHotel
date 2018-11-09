@@ -282,5 +282,47 @@ namespace WCF_Hotel
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarTipoHabitacion_Result>("usp_ListarTipoHabitacion");
         }
+    
+        public virtual int usp_RegistrarReserva(Nullable<System.DateTime> reser_fechaIngreso, Nullable<System.DateTime> reser_fechaSalida, string id_cliente, string id_Habitacion1, string id_Habitacion2, string id_Habitacion3)
+        {
+            var reser_fechaIngresoParameter = reser_fechaIngreso.HasValue ?
+                new ObjectParameter("reser_fechaIngreso", reser_fechaIngreso) :
+                new ObjectParameter("reser_fechaIngreso", typeof(System.DateTime));
+    
+            var reser_fechaSalidaParameter = reser_fechaSalida.HasValue ?
+                new ObjectParameter("reser_fechaSalida", reser_fechaSalida) :
+                new ObjectParameter("reser_fechaSalida", typeof(System.DateTime));
+    
+            var id_clienteParameter = id_cliente != null ?
+                new ObjectParameter("id_cliente", id_cliente) :
+                new ObjectParameter("id_cliente", typeof(string));
+    
+            var id_Habitacion1Parameter = id_Habitacion1 != null ?
+                new ObjectParameter("id_Habitacion1", id_Habitacion1) :
+                new ObjectParameter("id_Habitacion1", typeof(string));
+    
+            var id_Habitacion2Parameter = id_Habitacion2 != null ?
+                new ObjectParameter("id_Habitacion2", id_Habitacion2) :
+                new ObjectParameter("id_Habitacion2", typeof(string));
+    
+            var id_Habitacion3Parameter = id_Habitacion3 != null ?
+                new ObjectParameter("id_Habitacion3", id_Habitacion3) :
+                new ObjectParameter("id_Habitacion3", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_RegistrarReserva", reser_fechaIngresoParameter, reser_fechaSalidaParameter, id_clienteParameter, id_Habitacion1Parameter, id_Habitacion2Parameter, id_Habitacion3Parameter);
+        }
+    
+        public virtual int usp_RegistrarHabitacionesReserva(string id_Habitacion, string id_reserva)
+        {
+            var id_HabitacionParameter = id_Habitacion != null ?
+                new ObjectParameter("id_Habitacion", id_Habitacion) :
+                new ObjectParameter("id_Habitacion", typeof(string));
+    
+            var id_reservaParameter = id_reserva != null ?
+                new ObjectParameter("id_reserva", id_reserva) :
+                new ObjectParameter("id_reserva", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_RegistrarHabitacionesReserva", id_HabitacionParameter, id_reservaParameter);
+        }
     }
 }

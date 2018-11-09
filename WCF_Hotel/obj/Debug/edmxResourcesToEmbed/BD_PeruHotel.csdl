@@ -452,6 +452,18 @@
     </FunctionImport>
     <FunctionImport Name="usp_ListarTipoHabitacion" ReturnType="Collection(PeruHotelModel.usp_ListarTipoHabitacion_Result)" />
     <EntitySet Name="vw_VistaHabitacion" EntityType="PeruHotelModel.vw_VistaHabitacion" />
+    <FunctionImport Name="usp_RegistrarReserva">
+      <Parameter Name="reser_fechaIngreso" Mode="In" Type="DateTime" />
+      <Parameter Name="reser_fechaSalida" Mode="In" Type="DateTime" />
+      <Parameter Name="id_cliente" Mode="In" Type="String" />
+      <Parameter Name="id_Habitacion1" Mode="In" Type="String" />
+      <Parameter Name="id_Habitacion2" Mode="In" Type="String" />
+      <Parameter Name="id_Habitacion3" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_RegistrarHabitacionesReserva">
+      <Parameter Name="id_Habitacion" Mode="In" Type="String" />
+      <Parameter Name="id_reserva" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="usp_ConsultarAdministrador_Result">
     <Property Type="String" Name="id_admi" Nullable="false" MaxLength="5" />

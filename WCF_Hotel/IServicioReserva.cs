@@ -14,6 +14,8 @@ namespace WCF_Hotel
         [OperationContract]
 
         List<dataReserva> ListarReservasEntreFechas(DateTime fecini, DateTime fecfin);
+        [OperationContract]
+        List<dataReserva> ListarReservasDeCliente(String strCod);
     }
     [DataContract]
     [Serializable]
@@ -32,18 +34,6 @@ namespace WCF_Hotel
         private Single _total;
         private String _estado;
 
-        //detalle servicio
-        private String _idServicio;
-        private String _serviNom;
-        private Single _serviPrecio;
-        private Single _cantidadServicio;
-
-        //detalle habitacion
-        private String _idHabitacion;
-        private String _tipoNombre;
-        private Single _tipoPrecio;
-        private String _habiNum;
-
         [DataMember]
         public string IdReserva
         {
@@ -55,20 +45,6 @@ namespace WCF_Hotel
             set
             {
                 _idReserva = value;
-            }
-        }
-
-        [DataMember]
-        public string HabiNum
-        {
-            get
-            {
-                return _habiNum;
-            }
-
-            set
-            {
-                _habiNum = value;
             }
         }
 
@@ -143,7 +119,7 @@ namespace WCF_Hotel
         }
 
         [DataMember]
-        public Single CantHab
+        public float CantHab
         {
             get
             {
@@ -157,7 +133,7 @@ namespace WCF_Hotel
         }
 
         [DataMember]
-        public Single CantDias
+        public float CantDias
         {
             get
             {
@@ -171,7 +147,7 @@ namespace WCF_Hotel
         }
 
         [DataMember]
-        public Single MonHab
+        public float MonHab
         {
             get
             {
@@ -185,7 +161,7 @@ namespace WCF_Hotel
         }
 
         [DataMember]
-        public Single MonServicio
+        public float MonServicio
         {
             get
             {
@@ -199,7 +175,7 @@ namespace WCF_Hotel
         }
 
         [DataMember]
-        public Single Total
+        public float Total
         {
             get
             {
@@ -223,104 +199,6 @@ namespace WCF_Hotel
             set
             {
                 _estado = value;
-            }
-        }
-
-        [DataMember]
-        public string IdServicio
-        {
-            get
-            {
-                return _idServicio;
-            }
-
-            set
-            {
-                _idServicio = value;
-            }
-        }
-
-        [DataMember]
-        public string ServiNom
-        {
-            get
-            {
-                return _serviNom;
-            }
-
-            set
-            {
-                _serviNom = value;
-            }
-        }
-
-        [DataMember]
-        public Single ServiPrecio
-        {
-            get
-            {
-                return _serviPrecio;
-            }
-
-            set
-            {
-                _serviPrecio = value;
-            }
-        }
-
-        [DataMember]
-        public Single CantidadServicio
-        {
-            get
-            {
-                return _cantidadServicio;
-            }
-
-            set
-            {
-                _cantidadServicio = value;
-            }
-        }
-
-        [DataMember]
-        public string IdHabitacion
-        {
-            get
-            {
-                return _idHabitacion;
-            }
-
-            set
-            {
-                _idHabitacion = value;
-            }
-        }
-
-        [DataMember]
-        public string TipoNombre
-        {
-            get
-            {
-                return _tipoNombre;
-            }
-
-            set
-            {
-                _tipoNombre = value;
-            }
-        }
-
-        [DataMember]
-        public Single TipoPrecio
-        {
-            get
-            {
-                return _tipoPrecio;
-            }
-
-            set
-            {
-                _tipoPrecio = value;
             }
         }
     }

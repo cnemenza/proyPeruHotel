@@ -477,6 +477,14 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           <Parameter Name="id_Continente" Type="char" Mode="In" />
         </Function>
         <Function Name="usp_ListarTipoHabitacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_RegistrarReserva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="reser_fechaIngreso" Type="date" Mode="In" />
+          <Parameter Name="reser_fechaSalida" Type="date" Mode="In" />
+          <Parameter Name="id_cliente" Type="char" Mode="In" />
+          <Parameter Name="id_Habitacion1" Type="char" Mode="In" />
+          <Parameter Name="id_Habitacion2" Type="char" Mode="In" />
+          <Parameter Name="id_Habitacion3" Type="char" Mode="In" />
+        </Function>
         <EntityContainer Name="PeruHotelModelStoreContainer">
           <EntitySet Name="ADMINISTRADOR" EntityType="Self.ADMINISTRADOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
@@ -1083,6 +1091,18 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
           </FunctionImport>
           <FunctionImport Name="usp_ListarTipoHabitacion" ReturnType="Collection(PeruHotelModel.usp_ListarTipoHabitacion_Result)" />
           <EntitySet Name="vw_VistaHabitacion" EntityType="PeruHotelModel.vw_VistaHabitacion" />
+          <FunctionImport Name="usp_RegistrarReserva">
+            <Parameter Name="reser_fechaIngreso" Mode="In" Type="DateTime" />
+            <Parameter Name="reser_fechaSalida" Mode="In" Type="DateTime" />
+            <Parameter Name="id_cliente" Mode="In" Type="String" />
+            <Parameter Name="id_Habitacion1" Mode="In" Type="String" />
+            <Parameter Name="id_Habitacion2" Mode="In" Type="String" />
+            <Parameter Name="id_Habitacion3" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RegistrarHabitacionesReserva">
+            <Parameter Name="id_Habitacion" Mode="In" Type="String" />
+            <Parameter Name="id_reserva" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_ConsultarAdministrador_Result">
           <Property Type="String" Name="id_admi" Nullable="false" MaxLength="5" />
@@ -1494,6 +1514,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_RegistrarReserva" FunctionName="PeruHotelModel.Store.usp_RegistrarReserva" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

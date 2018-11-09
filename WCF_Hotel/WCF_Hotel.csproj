@@ -86,6 +86,7 @@
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
     <Compile Include="IServicioHabitacion.cs" />
+    <Compile Include="IServicioRegistroReserva.cs" />
     <Compile Include="IServicioReserva.cs" />
     <Compile Include="PROMOCION.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
@@ -98,6 +99,7 @@
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
     <Compile Include="ServicioHabitacion.cs" />
+    <Compile Include="ServicioRegistroReserva.cs" />
     <Compile Include="ServicioReserva.cs" />
     <Compile Include="TIPO_HABITACION.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>

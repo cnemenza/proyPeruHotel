@@ -331,5 +331,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_RegistrarReserva" FunctionName="PeruHotelModel.Store.usp_RegistrarReserva" />
   </EntityContainerMapping>
 </Mapping>
