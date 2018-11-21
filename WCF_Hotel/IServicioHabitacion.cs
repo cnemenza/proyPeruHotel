@@ -13,7 +13,8 @@ namespace WCF_Hotel
     {
         [OperationContract]
 
-        List<dataHabitacion> ListarHabitacionDisponibles();
+        List<dataHabitacion> ListarHabitacionesDisponibles(DateTime fecIngreso, DateTime fecSalida);
+
     }
     [DataContract]
     [Serializable]
@@ -23,7 +24,6 @@ namespace WCF_Hotel
         private String _idHabitacon;
         private String _habiNum;
         private String _habiPiso;
-        private String _habiEstado;
         private String _idTipoHabi;
         private String _idHotel;
         private String _tipoNombre;
@@ -70,20 +70,6 @@ namespace WCF_Hotel
             set
             {
                 _habiPiso = value;
-            }
-        }
-
-        [DataMember]
-        public string HabiEstado
-        {
-            get
-            {
-                return _habiEstado;
-            }
-
-            set
-            {
-                _habiEstado = value;
             }
         }
 

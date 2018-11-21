@@ -29,6 +29,7 @@
     <Property Name="clie_contra" Type="varchar" MaxLength="50" />
     <Property Name="clie_sexo" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="clie_estado" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="clie_dni" Type="char" MaxLength="8" />
   </EntityType>
   <EntityType Name="DETALLE_HOTEL">
     <Key>
@@ -148,6 +149,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaCliente' no tiene defi
     <Property Name="clie_nom" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="clie_apePater" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="clie_apeMater" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="clie_dni" Type="char" MaxLength="8" />
     <Property Name="clie_correo" Type="varchar" MaxLength="120" />
     <Property Name="clie_telefono" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="clie_codigo" Type="varchar" MaxLength="20" />
@@ -461,6 +463,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
     <Parameter Name="clie_codigo" Type="varchar" Mode="In" />
     <Parameter Name="clie_contra" Type="varchar" Mode="In" />
     <Parameter Name="clie_sexo" Type="char" Mode="In" />
+    <Parameter Name="clie_dni" Type="char" Mode="In" />
   </Function>
   <Function Name="usp_ListaNombresCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="usp_ListarCiudad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -468,6 +471,10 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
     <Parameter Name="id_Pais" Type="char" Mode="In" />
   </Function>
   <Function Name="usp_ListarContinente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_ListarHabitacionesDispoPorFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fec_entrada" Type="date" Mode="In" />
+    <Parameter Name="fec_salida" Type="date" Mode="In" />
+  </Function>
   <Function Name="usp_ListarPais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_Continente" Type="char" Mode="In" />
   </Function>
@@ -499,6 +506,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
     [vw_VistaCliente].[clie_nom] AS [clie_nom], 
     [vw_VistaCliente].[clie_apePater] AS [clie_apePater], 
     [vw_VistaCliente].[clie_apeMater] AS [clie_apeMater], 
+    [vw_VistaCliente].[clie_dni] AS [clie_dni], 
     [vw_VistaCliente].[clie_correo] AS [clie_correo], 
     [vw_VistaCliente].[clie_telefono] AS [clie_telefono], 
     [vw_VistaCliente].[clie_codigo] AS [clie_codigo], 

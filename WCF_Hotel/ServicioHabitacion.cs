@@ -11,17 +11,14 @@ namespace WCF_Hotel
     public class ServicioHabitacion : IServicioHabitacion
     {
 
-        public List<dataHabitacion> ListarHabitacionDisponibles()
+        public List<dataHabitacion> ListarHabitacionesDisponibles(DateTime fecIngreso, DateTime fecSalida)
         {
             PeruHotelEntities MiHotel = new PeruHotelEntities();
             List<dataHabitacion> objListaHabitacion = new List<dataHabitacion>();
 
-            try
+           try
             {
-                var query = (from objHabi in MiHotel.vw_VistaHabitacion
-                             where objHabi.Estado == "Disponible"
-                             orderby objHabi.id_habitacion
-                             select objHabi);
+                var query = MiHotel.usp_ListarHabitacionesDispoPorFechas(fecIngreso,fecSalida);
 
                 foreach (var resultado in query)
                 {
@@ -36,7 +33,6 @@ namespace WCF_Hotel
                     objHabitacionBE.TipoDescripcion = resultado.tipo_descripcion;
                     objHabitacionBE.TipoPrecio = Convert.ToSingle(resultado.tipo_precio);
                     objHabitacionBE.TipoNumCamas = resultado.tipo_num_camas;
-                    objHabitacionBE.HabiEstado = resultado.Estado;
 
                     //Agregamos la instancia a la alista de Data Contractual a la lista de Vendedores
                     objListaHabitacion.Add(objHabitacionBE);

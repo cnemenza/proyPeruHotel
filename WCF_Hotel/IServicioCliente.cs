@@ -12,8 +12,9 @@ namespace WCF_Hotel
     public interface IServicioCliente
     {
         [OperationContract]
-        DataCliente GetCliente(String strCod);
-
+        DataCliente GetCliente(String strDni);
+        [OperationContract]
+        Boolean RegistrarCliente(DataCliente objCliente);
 
     }
     [DataContract]
@@ -35,13 +36,19 @@ namespace WCF_Hotel
         private String _nomContinente;
         private String _nomPais;
         private String _nomCiudad;
-
+        private String _clieDni;
 
         [DataMember]
         public String IdCliente
         {
             get { return this._idCliente; }
             set { this._idCliente = value; }
+        }
+        [DataMember]
+        public String ClieDni
+        {
+            get { return this._clieDni; }
+            set { this._clieDni = value; }
         }
         [DataMember]
         public String ClieNom

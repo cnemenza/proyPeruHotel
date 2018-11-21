@@ -31,5 +31,6 @@ namespace WCF_Hotel
         public string ubi_Continente { get; set; }
         public string ubi_Pais { get; set; }
         public string ubi_Ciudad { get; set; }
+        public string clie_dni { get; set; }
     }
 }

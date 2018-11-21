@@ -205,7 +205,7 @@ namespace WCF_Hotel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarAdministrador", admi_nomParameter, admi_apePaterParameter, admi_apeMaterParameter, admi_codigoParameter, admi_contraParameter, admi_dniParameter, admi_direccionParameter);
         }
     
-        public virtual int usp_InsertarCliente(string clie_nom, string clie_apePater, string clie_apeMater, string clie_correo, string clie_telefono, string id_Ubigeo, string clie_codigo, string clie_contra, string clie_sexo)
+        public virtual int usp_InsertarCliente(string clie_nom, string clie_apePater, string clie_apeMater, string clie_correo, string clie_telefono, string id_Ubigeo, string clie_codigo, string clie_contra, string clie_sexo, string clie_dni)
         {
             var clie_nomParameter = clie_nom != null ?
                 new ObjectParameter("clie_nom", clie_nom) :
@@ -243,7 +243,11 @@ namespace WCF_Hotel
                 new ObjectParameter("clie_sexo", clie_sexo) :
                 new ObjectParameter("clie_sexo", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarCliente", clie_nomParameter, clie_apePaterParameter, clie_apeMaterParameter, clie_correoParameter, clie_telefonoParameter, id_UbigeoParameter, clie_codigoParameter, clie_contraParameter, clie_sexoParameter);
+            var clie_dniParameter = clie_dni != null ?
+                new ObjectParameter("clie_dni", clie_dni) :
+                new ObjectParameter("clie_dni", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarCliente", clie_nomParameter, clie_apePaterParameter, clie_apeMaterParameter, clie_correoParameter, clie_telefonoParameter, id_UbigeoParameter, clie_codigoParameter, clie_contraParameter, clie_sexoParameter, clie_dniParameter);
         }
     
         public virtual ObjectResult<usp_ListaNombresCliente_Result> usp_ListaNombresCliente()
@@ -323,6 +327,32 @@ namespace WCF_Hotel
                 new ObjectParameter("id_reserva", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_RegistrarHabitacionesReserva", id_HabitacionParameter, id_reservaParameter);
+        }
+    
+        public virtual ObjectResult<usp_ConsultarDisponibilidadEntreFechas_Result> usp_ConsultarDisponibilidadEntreFechas(Nullable<System.DateTime> fec_entrada, Nullable<System.DateTime> fec_salida)
+        {
+            var fec_entradaParameter = fec_entrada.HasValue ?
+                new ObjectParameter("fec_entrada", fec_entrada) :
+                new ObjectParameter("fec_entrada", typeof(System.DateTime));
+    
+            var fec_salidaParameter = fec_salida.HasValue ?
+                new ObjectParameter("fec_salida", fec_salida) :
+                new ObjectParameter("fec_salida", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ConsultarDisponibilidadEntreFechas_Result>("usp_ConsultarDisponibilidadEntreFechas", fec_entradaParameter, fec_salidaParameter);
+        }
+    
+        public virtual ObjectResult<usp_ListarHabitacionesDispoPorFechas_Result> usp_ListarHabitacionesDispoPorFechas(Nullable<System.DateTime> fec_entrada, Nullable<System.DateTime> fec_salida)
+        {
+            var fec_entradaParameter = fec_entrada.HasValue ?
+                new ObjectParameter("fec_entrada", fec_entrada) :
+                new ObjectParameter("fec_entrada", typeof(System.DateTime));
+    
+            var fec_salidaParameter = fec_salida.HasValue ?
+                new ObjectParameter("fec_salida", fec_salida) :
+                new ObjectParameter("fec_salida", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarHabitacionesDispoPorFechas_Result>("usp_ListarHabitacionesDispoPorFechas", fec_entradaParameter, fec_salidaParameter);
         }
     }
 }

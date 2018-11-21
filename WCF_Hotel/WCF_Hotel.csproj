@@ -115,6 +115,9 @@
     <Compile Include="usp_ConsultarCliente_Result.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_ConsultarDisponibilidadEntreFechas_Result.cs">
+      <DependentUpon>BD_PeruHotel.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_HabitacionDisponiblePorTipo_Result.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
@@ -125,6 +128,9 @@
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_ListarContinente_Result.cs">
+      <DependentUpon>BD_PeruHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarHabitacionesDispoPorFechas_Result.cs">
       <DependentUpon>BD_PeruHotel.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_ListarPais_Result.cs">

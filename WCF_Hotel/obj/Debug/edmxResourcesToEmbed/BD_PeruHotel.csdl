@@ -32,6 +32,7 @@
     <Property Name="clie_estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="UBIGEO" Relationship="Self.FK__CLIENTE__id_Ubig__44FF419A" FromRole="CLIENTE" ToRole="UBIGEO" />
     <NavigationProperty Name="RESERVA" Relationship="Self.FK__RESERVA__id_clie__4D94879B" FromRole="CLIENTE" ToRole="RESERVA" />
+    <Property Name="clie_dni" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
   </EntityType>
   <EntityType Name="DETALLE_SERVICIO">
     <Key>
@@ -161,6 +162,7 @@
     <Property Name="ubi_Continente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ubi_Pais" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ubi_Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="clie_dni" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
   </EntityType>
   <EntityType Name="vw_VistaDetalleReserva">
     <Key>
@@ -440,6 +442,7 @@
       <Parameter Name="clie_codigo" Mode="In" Type="String" />
       <Parameter Name="clie_contra" Mode="In" Type="String" />
       <Parameter Name="clie_sexo" Mode="In" Type="String" />
+      <Parameter Name="clie_dni" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="usp_ListaNombresCliente" ReturnType="Collection(PeruHotelModel.usp_ListaNombresCliente_Result)" />
     <FunctionImport Name="usp_ListarCiudad" ReturnType="Collection(PeruHotelModel.usp_ListarCiudad_Result)">
@@ -463,6 +466,14 @@
     <FunctionImport Name="usp_RegistrarHabitacionesReserva">
       <Parameter Name="id_Habitacion" Mode="In" Type="String" />
       <Parameter Name="id_reserva" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ConsultarDisponibilidadEntreFechas" ReturnType="Collection(PeruHotelModel.usp_ConsultarDisponibilidadEntreFechas_Result)">
+      <Parameter Name="fec_entrada" Mode="In" Type="DateTime" />
+      <Parameter Name="fec_salida" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ListarHabitacionesDispoPorFechas" ReturnType="Collection(PeruHotelModel.usp_ListarHabitacionesDispoPorFechas_Result)">
+      <Parameter Name="fec_entrada" Mode="In" Type="DateTime" />
+      <Parameter Name="fec_salida" Mode="In" Type="DateTime" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="usp_ConsultarAdministrador_Result">
@@ -539,4 +550,25 @@
     <Property Name="tipo_num_camas" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
     <Property Name="Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
   </EntityType>
+  <ComplexType Name="usp_ConsultarDisponibilidadEntreFechas_Result">
+    <Property Type="String" Name="id_habitacion" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="habi_num" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="habi_piso" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="id_hotel" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="id_tipo_habi" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="tipo_nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="tipo_num_camas" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="tipo_descripcion" Nullable="true" MaxLength="300" />
+  </ComplexType>
+  <ComplexType Name="usp_ListarHabitacionesDispoPorFechas_Result">
+    <Property Type="String" Name="id_habitacion" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="habi_num" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="habi_piso" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="id_hotel" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="id_tipo_habi" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="tipo_nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="tipo_num_camas" Nullable="false" MaxLength="2" />
+    <Property Type="String" Name="tipo_descripcion" Nullable="true" MaxLength="300" />
+    <Property Type="Decimal" Name="tipo_precio" Nullable="false" Precision="19" Scale="2" />
+  </ComplexType>
 </Schema>

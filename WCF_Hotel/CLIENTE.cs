@@ -31,6 +31,7 @@ namespace WCF_Hotel
         public string clie_contra { get; set; }
         public string clie_sexo { get; set; }
         public string clie_estado { get; set; }
+        public string clie_dni { get; set; }
     
         public virtual UBIGEO UBIGEO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

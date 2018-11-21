@@ -19,6 +19,7 @@
     <EntitySetMapping Name="CLIENTE">
       <EntityTypeMapping TypeName="PeruHotelModel.CLIENTE">
         <MappingFragment StoreEntitySet="CLIENTE">
+          <ScalarProperty Name="clie_dni" ColumnName="clie_dni" />
           <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
           <ScalarProperty Name="clie_nom" ColumnName="clie_nom" />
           <ScalarProperty Name="clie_apePater" ColumnName="clie_apePater" />
@@ -31,6 +32,22 @@
           <ScalarProperty Name="clie_sexo" ColumnName="clie_sexo" />
           <ScalarProperty Name="clie_estado" ColumnName="clie_estado" />
         </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="PeruHotelModel.CLIENTE">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="PeruHotelModel.Store.usp_InsertarCliente">
+            <ScalarProperty Name="clie_dni" ParameterName="clie_dni" />
+            <ScalarProperty Name="clie_sexo" ParameterName="clie_sexo" />
+            <ScalarProperty Name="clie_contra" ParameterName="clie_contra" />
+            <ScalarProperty Name="clie_codigo" ParameterName="clie_codigo" />
+            <ScalarProperty Name="id_Ubigeo" ParameterName="id_Ubigeo" />
+            <ScalarProperty Name="clie_telefono" ParameterName="clie_telefono" />
+            <ScalarProperty Name="clie_correo" ParameterName="clie_correo" />
+            <ScalarProperty Name="clie_apeMater" ParameterName="clie_apeMater" />
+            <ScalarProperty Name="clie_apePater" ParameterName="clie_apePater" />
+            <ScalarProperty Name="clie_nom" ParameterName="clie_nom" />
+          </InsertFunction>
+        </ModificationFunctionMapping>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DETALLE_SERVICIO">
@@ -122,6 +139,7 @@
     <EntitySetMapping Name="vw_VistaCliente">
       <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaCliente">
         <MappingFragment StoreEntitySet="vw_VistaCliente">
+          <ScalarProperty Name="clie_dni" ColumnName="clie_dni" />
           <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
           <ScalarProperty Name="clie_nom" ColumnName="clie_nom" />
           <ScalarProperty Name="clie_apePater" ColumnName="clie_apePater" />
@@ -332,5 +350,20 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="usp_RegistrarReserva" FunctionName="PeruHotelModel.Store.usp_RegistrarReserva" />
+    <FunctionImportMapping FunctionImportName="usp_ListarHabitacionesDispoPorFechas" FunctionName="PeruHotelModel.Store.usp_ListarHabitacionesDispoPorFechas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PeruHotelModel.usp_ListarHabitacionesDispoPorFechas_Result">
+          <ScalarProperty Name="id_habitacion" ColumnName="id_habitacion" />
+          <ScalarProperty Name="habi_num" ColumnName="habi_num" />
+          <ScalarProperty Name="habi_piso" ColumnName="habi_piso" />
+          <ScalarProperty Name="id_hotel" ColumnName="id_hotel" />
+          <ScalarProperty Name="id_tipo_habi" ColumnName="id_tipo_habi" />
+          <ScalarProperty Name="tipo_nombre" ColumnName="tipo_nombre" />
+          <ScalarProperty Name="tipo_num_camas" ColumnName="tipo_num_camas" />
+          <ScalarProperty Name="tipo_descripcion" ColumnName="tipo_descripcion" />
+          <ScalarProperty Name="tipo_precio" ColumnName="tipo_precio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>
