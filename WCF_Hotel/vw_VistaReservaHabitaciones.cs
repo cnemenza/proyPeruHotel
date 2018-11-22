@@ -24,5 +24,6 @@ namespace WCF_Hotel
         public Nullable<int> Cant_Dias { get; set; }
         public Nullable<decimal> Monto_hab { get; set; }
         public string Estado { get; set; }
+        public string clie_dni { get; set; }
     }
 }

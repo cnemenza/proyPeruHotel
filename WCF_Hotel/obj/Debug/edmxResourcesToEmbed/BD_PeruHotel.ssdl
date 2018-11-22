@@ -235,6 +235,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReserva' no tiene defi
     <Property Name="reser_fechaSalida" Type="date" />
     <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
     <Property Name="Nombre" Type="varchar" MaxLength="61" Nullable="false" />
+    <Property Name="clie_dni" Type="char" MaxLength="8" />
     <Property Name="Cant_Hab" Type="int" />
     <Property Name="Cant_Dias" Type="int" />
     <Property Name="Monto_hab" Type="decimal" Precision="38" Scale="2" />
@@ -258,6 +259,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaHabitaciones' n
     <Property Name="reser_fechaSalida" Type="date" />
     <Property Name="id_cliente" Type="char" MaxLength="5" Nullable="false" />
     <Property Name="Nombre" Type="varchar" MaxLength="61" Nullable="false" />
+    <Property Name="clie_dni" Type="char" MaxLength="8" />
     <Property Name="Cant_Hab" Type="int" />
     <Property Name="Cant_Dias" Type="int" />
     <Property Name="Monto_hab" Type="decimal" Precision="38" Scale="2" />
@@ -275,7 +277,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
     <Property Name="Cantidad_ser" Type="int" />
     <Property Name="Monto_servicio" Type="decimal" Precision="38" Scale="2" />
   </EntityType>
-  <Association Name="FK__CLIENTE__id_Ubig__44FF419A">
+  <Association Name="FK__CLIENTE__id_Ubig__45F365D3">
     <End Role="UBIGEO" Type="Self.UBIGEO" Multiplicity="1" />
     <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
     <ReferentialConstraint>
@@ -287,7 +289,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DETALLE_H__id_ad__45F365D3">
+  <Association Name="FK__DETALLE_H__id_ad__46E78A0C">
     <End Role="ADMINISTRADOR" Type="Self.ADMINISTRADOR" Multiplicity="1" />
     <End Role="DETALLE_HOTEL" Type="Self.DETALLE_HOTEL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -299,7 +301,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DETALLE_H__id_ho__46E78A0C">
+  <Association Name="FK__DETALLE_H__id_ho__47DBAE45">
     <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="1" />
     <End Role="DETALLE_HOTEL" Type="Self.DETALLE_HOTEL" Multiplicity="*" />
     <ReferentialConstraint>
@@ -311,7 +313,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DETALLE_R__id_ha__47DBAE45">
+  <Association Name="FK__DETALLE_R__id_ha__48CFD27E">
     <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="1" />
     <End Role="DETALLE_RESERVA" Type="Self.DETALLE_RESERVA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -323,7 +325,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DETALLE_R__id_re__48CFD27E">
+  <Association Name="FK__DETALLE_R__id_re__49C3F6B7">
     <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
     <End Role="DETALLE_RESERVA" Type="Self.DETALLE_RESERVA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -335,7 +337,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DETALLE_S__id_re__49C3F6B7">
+  <Association Name="FK__DETALLE_S__id_re__4AB81AF0">
     <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="1" />
     <End Role="DETALLE_SERVICIO" Type="Self.DETALLE_SERVICIO" Multiplicity="*" />
     <ReferentialConstraint>
@@ -347,7 +349,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DETALLE_S__id_se__4AB81AF0">
+  <Association Name="FK__DETALLE_S__id_se__4BAC3F29">
     <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="1" />
     <End Role="DETALLE_SERVICIO" Type="Self.DETALLE_SERVICIO" Multiplicity="*" />
     <ReferentialConstraint>
@@ -359,7 +361,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HABITACIO__id_ho__4BAC3F29">
+  <Association Name="FK__HABITACIO__id_ho__4CA06362">
     <End Role="HOTEL" Type="Self.HOTEL" Multiplicity="1" />
     <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="*" />
     <ReferentialConstraint>
@@ -371,7 +373,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HABITACIO__id_ti__4CA06362">
+  <Association Name="FK__HABITACIO__id_ti__4D94879B">
     <End Role="TIPO_HABITACION" Type="Self.TIPO_HABITACION" Multiplicity="1" />
     <End Role="HABITACION" Type="Self.HABITACION" Multiplicity="*" />
     <ReferentialConstraint>
@@ -383,7 +385,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RESERVA__id_clie__4D94879B">
+  <Association Name="FK__RESERVA__id_clie__4E88ABD4">
     <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
     <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -395,7 +397,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RESERVA__id_prom__4E88ABD4">
+  <Association Name="FK__RESERVA__id_prom__4F7CD00D">
     <End Role="PROMOCION" Type="Self.PROMOCION" Multiplicity="1" />
     <End Role="RESERVA" Type="Self.RESERVA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -563,6 +565,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
     [vw_VistaReserva].[reser_fechaSalida] AS [reser_fechaSalida], 
     [vw_VistaReserva].[id_cliente] AS [id_cliente], 
     [vw_VistaReserva].[Nombre] AS [Nombre], 
+    [vw_VistaReserva].[clie_dni] AS [clie_dni], 
     [vw_VistaReserva].[Cant_Hab] AS [Cant_Hab], 
     [vw_VistaReserva].[Cant_Dias] AS [Cant_Dias], 
     [vw_VistaReserva].[Monto_hab] AS [Monto_hab], 
@@ -579,6 +582,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
     [vw_VistaReservaHabitaciones].[reser_fechaSalida] AS [reser_fechaSalida], 
     [vw_VistaReservaHabitaciones].[id_cliente] AS [id_cliente], 
     [vw_VistaReservaHabitaciones].[Nombre] AS [Nombre], 
+    [vw_VistaReservaHabitaciones].[clie_dni] AS [clie_dni], 
     [vw_VistaReservaHabitaciones].[Cant_Hab] AS [Cant_Hab], 
     [vw_VistaReservaHabitaciones].[Cant_Dias] AS [Cant_Dias], 
     [vw_VistaReservaHabitaciones].[Monto_hab] AS [Monto_hab], 
@@ -593,47 +597,47 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
     [vw_VistaReservaServicios].[Monto_servicio] AS [Monto_servicio]
     FROM [dbo].[vw_VistaReservaServicios] AS [vw_VistaReservaServicios]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK__CLIENTE__id_Ubig__44FF419A" Association="Self.FK__CLIENTE__id_Ubig__44FF419A">
+    <AssociationSet Name="FK__CLIENTE__id_Ubig__45F365D3" Association="Self.FK__CLIENTE__id_Ubig__45F365D3">
       <End Role="UBIGEO" EntitySet="UBIGEO" />
       <End Role="CLIENTE" EntitySet="CLIENTE" />
     </AssociationSet>
-    <AssociationSet Name="FK__DETALLE_H__id_ad__45F365D3" Association="Self.FK__DETALLE_H__id_ad__45F365D3">
+    <AssociationSet Name="FK__DETALLE_H__id_ad__46E78A0C" Association="Self.FK__DETALLE_H__id_ad__46E78A0C">
       <End Role="ADMINISTRADOR" EntitySet="ADMINISTRADOR" />
       <End Role="DETALLE_HOTEL" EntitySet="DETALLE_HOTEL" />
     </AssociationSet>
-    <AssociationSet Name="FK__DETALLE_H__id_ho__46E78A0C" Association="Self.FK__DETALLE_H__id_ho__46E78A0C">
+    <AssociationSet Name="FK__DETALLE_H__id_ho__47DBAE45" Association="Self.FK__DETALLE_H__id_ho__47DBAE45">
       <End Role="HOTEL" EntitySet="HOTEL" />
       <End Role="DETALLE_HOTEL" EntitySet="DETALLE_HOTEL" />
     </AssociationSet>
-    <AssociationSet Name="FK__DETALLE_R__id_ha__47DBAE45" Association="Self.FK__DETALLE_R__id_ha__47DBAE45">
+    <AssociationSet Name="FK__DETALLE_R__id_ha__48CFD27E" Association="Self.FK__DETALLE_R__id_ha__48CFD27E">
       <End Role="HABITACION" EntitySet="HABITACION" />
       <End Role="DETALLE_RESERVA" EntitySet="DETALLE_RESERVA" />
     </AssociationSet>
-    <AssociationSet Name="FK__DETALLE_R__id_re__48CFD27E" Association="Self.FK__DETALLE_R__id_re__48CFD27E">
+    <AssociationSet Name="FK__DETALLE_R__id_re__49C3F6B7" Association="Self.FK__DETALLE_R__id_re__49C3F6B7">
       <End Role="RESERVA" EntitySet="RESERVA" />
       <End Role="DETALLE_RESERVA" EntitySet="DETALLE_RESERVA" />
     </AssociationSet>
-    <AssociationSet Name="FK__DETALLE_S__id_re__49C3F6B7" Association="Self.FK__DETALLE_S__id_re__49C3F6B7">
+    <AssociationSet Name="FK__DETALLE_S__id_re__4AB81AF0" Association="Self.FK__DETALLE_S__id_re__4AB81AF0">
       <End Role="RESERVA" EntitySet="RESERVA" />
       <End Role="DETALLE_SERVICIO" EntitySet="DETALLE_SERVICIO" />
     </AssociationSet>
-    <AssociationSet Name="FK__DETALLE_S__id_se__4AB81AF0" Association="Self.FK__DETALLE_S__id_se__4AB81AF0">
+    <AssociationSet Name="FK__DETALLE_S__id_se__4BAC3F29" Association="Self.FK__DETALLE_S__id_se__4BAC3F29">
       <End Role="SERVICIO" EntitySet="SERVICIO" />
       <End Role="DETALLE_SERVICIO" EntitySet="DETALLE_SERVICIO" />
     </AssociationSet>
-    <AssociationSet Name="FK__HABITACIO__id_ho__4BAC3F29" Association="Self.FK__HABITACIO__id_ho__4BAC3F29">
+    <AssociationSet Name="FK__HABITACIO__id_ho__4CA06362" Association="Self.FK__HABITACIO__id_ho__4CA06362">
       <End Role="HOTEL" EntitySet="HOTEL" />
       <End Role="HABITACION" EntitySet="HABITACION" />
     </AssociationSet>
-    <AssociationSet Name="FK__HABITACIO__id_ti__4CA06362" Association="Self.FK__HABITACIO__id_ti__4CA06362">
+    <AssociationSet Name="FK__HABITACIO__id_ti__4D94879B" Association="Self.FK__HABITACIO__id_ti__4D94879B">
       <End Role="TIPO_HABITACION" EntitySet="TIPO_HABITACION" />
       <End Role="HABITACION" EntitySet="HABITACION" />
     </AssociationSet>
-    <AssociationSet Name="FK__RESERVA__id_clie__4D94879B" Association="Self.FK__RESERVA__id_clie__4D94879B">
+    <AssociationSet Name="FK__RESERVA__id_clie__4E88ABD4" Association="Self.FK__RESERVA__id_clie__4E88ABD4">
       <End Role="CLIENTE" EntitySet="CLIENTE" />
       <End Role="RESERVA" EntitySet="RESERVA" />
     </AssociationSet>
-    <AssociationSet Name="FK__RESERVA__id_prom__4E88ABD4" Association="Self.FK__RESERVA__id_prom__4E88ABD4">
+    <AssociationSet Name="FK__RESERVA__id_prom__4F7CD00D" Association="Self.FK__RESERVA__id_prom__4F7CD00D">
       <End Role="PROMOCION" EntitySet="PROMOCION" />
       <End Role="RESERVA" EntitySet="RESERVA" />
     </AssociationSet>

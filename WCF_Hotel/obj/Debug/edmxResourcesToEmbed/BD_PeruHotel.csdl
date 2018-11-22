@@ -211,6 +211,7 @@
     <Property Name="Monto_servicio" Type="Decimal" Precision="38" Scale="2" />
     <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
     <Property Name="estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="clie_dni" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
   </EntityType>
   <EntityType Name="vw_VistaReservaHabitaciones">
     <Key>
@@ -230,6 +231,7 @@
     <Property Name="Cant_Dias" Type="Int32" />
     <Property Name="Monto_hab" Type="Decimal" Precision="38" Scale="2" />
     <Property Name="Estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="clie_dni" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
   </EntityType>
   <EntityType Name="vw_VistaReservaServicios">
     <Key>

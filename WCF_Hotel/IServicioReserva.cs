@@ -13,9 +13,8 @@ namespace WCF_Hotel
     {
         [OperationContract]
 
-        List<dataReserva> ListarReservasEntreFechas(DateTime fecini, DateTime fecfin);
-        [OperationContract]
-        List<dataReserva> ListarReservasDeCliente(String strCod);
+        List<dataReserva> ListarReservas(String strDNI,DateTime fecini, DateTime fecfin);
+
     }
     [DataContract]
     [Serializable]
@@ -27,6 +26,7 @@ namespace WCF_Hotel
         private System.DateTime _reserFechaSalida;
         private String _idCliente;
         private String _nombre;
+        private String _clieDni;
         private Single _cantHab;
         private Single _cantDias;
         private Single _monHab;
@@ -45,6 +45,21 @@ namespace WCF_Hotel
             set
             {
                 _idReserva = value;
+            }
+        }
+
+
+        [DataMember]
+        public string ClieDni
+        {
+            get
+            {
+                return _clieDni;
+            }
+
+            set
+            {
+                _clieDni = value;
             }
         }
 

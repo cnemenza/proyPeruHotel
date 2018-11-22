@@ -186,6 +186,7 @@
     <EntitySetMapping Name="vw_VistaReserva">
       <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaReserva">
         <MappingFragment StoreEntitySet="vw_VistaReserva">
+          <ScalarProperty Name="clie_dni" ColumnName="clie_dni" />
           <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
           <ScalarProperty Name="reser_fechaReser" ColumnName="reser_fechaReser" />
           <ScalarProperty Name="reser_fechaIngreso" ColumnName="reser_fechaIngreso" />
@@ -204,6 +205,7 @@
     <EntitySetMapping Name="vw_VistaReservaHabitaciones">
       <EntityTypeMapping TypeName="PeruHotelModel.vw_VistaReservaHabitaciones">
         <MappingFragment StoreEntitySet="vw_VistaReservaHabitaciones">
+          <ScalarProperty Name="clie_dni" ColumnName="clie_dni" />
           <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
           <ScalarProperty Name="reser_fechaReser" ColumnName="reser_fechaReser" />
           <ScalarProperty Name="reser_fechaIngreso" ColumnName="reser_fechaIngreso" />
