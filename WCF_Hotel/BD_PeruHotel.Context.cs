@@ -287,7 +287,7 @@ namespace WCF_Hotel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarTipoHabitacion_Result>("usp_ListarTipoHabitacion");
         }
     
-        public virtual int usp_RegistrarReserva(Nullable<System.DateTime> reser_fechaIngreso, Nullable<System.DateTime> reser_fechaSalida, string id_cliente, string id_Habitacion1, string id_Habitacion2, string id_Habitacion3)
+        public virtual int usp_RegistrarReserva(Nullable<System.DateTime> reser_fechaIngreso, Nullable<System.DateTime> reser_fechaSalida, string clie_dni, string id_Habitacion1, string id_Habitacion2, string id_Habitacion3)
         {
             var reser_fechaIngresoParameter = reser_fechaIngreso.HasValue ?
                 new ObjectParameter("reser_fechaIngreso", reser_fechaIngreso) :
@@ -297,9 +297,9 @@ namespace WCF_Hotel
                 new ObjectParameter("reser_fechaSalida", reser_fechaSalida) :
                 new ObjectParameter("reser_fechaSalida", typeof(System.DateTime));
     
-            var id_clienteParameter = id_cliente != null ?
-                new ObjectParameter("id_cliente", id_cliente) :
-                new ObjectParameter("id_cliente", typeof(string));
+            var clie_dniParameter = clie_dni != null ?
+                new ObjectParameter("clie_dni", clie_dni) :
+                new ObjectParameter("clie_dni", typeof(string));
     
             var id_Habitacion1Parameter = id_Habitacion1 != null ?
                 new ObjectParameter("id_Habitacion1", id_Habitacion1) :
@@ -313,7 +313,7 @@ namespace WCF_Hotel
                 new ObjectParameter("id_Habitacion3", id_Habitacion3) :
                 new ObjectParameter("id_Habitacion3", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_RegistrarReserva", reser_fechaIngresoParameter, reser_fechaSalidaParameter, id_clienteParameter, id_Habitacion1Parameter, id_Habitacion2Parameter, id_Habitacion3Parameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_RegistrarReserva", reser_fechaIngresoParameter, reser_fechaSalidaParameter, clie_dniParameter, id_Habitacion1Parameter, id_Habitacion2Parameter, id_Habitacion3Parameter);
         }
     
         public virtual int usp_RegistrarHabitacionesReserva(string id_Habitacion, string id_reserva)

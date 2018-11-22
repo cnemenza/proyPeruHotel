@@ -1,0 +1,35 @@
+﻿#cabezera{
+    background-color:black;
+    color: white;
+}
+
+#nav{
+    background-color:white;
+}
+
+.separador{
+    height:5px;
+    background-color:#FC9D03;
+}
+
+.hoveractive:hover{
+    border-bottom:3px solid #FC9D03;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+
+#footer{
+    background-color:black;
+    color:white;
+}
+
+.borde{
+    border-bottom:5px solid #FC9D03;
+}
+
+.separador-footer{
+    height:3px;
+    background-color:dimgray;
+}

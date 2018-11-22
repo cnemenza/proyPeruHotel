@@ -484,7 +484,7 @@ advertencia 6002: La tabla o vista 'PeruHotel.dbo.vw_VistaReservaServicios' no t
   <Function Name="usp_RegistrarReserva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="reser_fechaIngreso" Type="date" Mode="In" />
     <Parameter Name="reser_fechaSalida" Type="date" Mode="In" />
-    <Parameter Name="id_cliente" Type="char" Mode="In" />
+    <Parameter Name="clie_dni" Type="char" Mode="In" />
     <Parameter Name="id_Habitacion1" Type="char" Mode="In" />
     <Parameter Name="id_Habitacion2" Type="char" Mode="In" />
     <Parameter Name="id_Habitacion3" Type="char" Mode="In" />

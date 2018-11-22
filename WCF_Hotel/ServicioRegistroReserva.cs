@@ -32,7 +32,7 @@ namespace WCF_Hotel
 
 
                 
-                    MiHotel.usp_RegistrarReserva(objReserva.ReserFechaIngreso, objReserva.ReserFechaSalida, objReserva.IdCliente, objReserva.IdHabi1
+                    MiHotel.usp_RegistrarReserva(objReserva.ReserFechaIngreso, objReserva.ReserFechaSalida, objReserva.ClieDni, objReserva.IdHabi1
                     , objReserva.IdHabi2, objReserva.IdHabi3);
               
 

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCF_Hotel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCF_Hotel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="DataCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClieApeMater" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClieApePater" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClieCodigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClieContra" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClieCorreo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClieDni" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClieEstado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClieNom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClieSexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClieTelefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCliente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdUbigeo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomCiudad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomContinente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomPais" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataCliente" nillable="true" type="tns:DataCliente" />
+</xs:schema>

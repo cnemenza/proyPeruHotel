@@ -21,7 +21,7 @@ namespace WCF_Hotel
     {
         private System.DateTime _reserFechaIngreso;
         private System.DateTime _reserFechaSalida;
-        private String _idCliente;
+        private String _ClieDNI;
         private String _idHabi1;
         private String _idHabi2;
         private String _idHabi3;
@@ -55,16 +55,16 @@ namespace WCF_Hotel
         }
 
         [DataMember]
-        public string IdCliente
+        public string ClieDni
         {
             get
             {
-                return _idCliente;
+                return _ClieDNI;
             }
 
             set
             {
-                _idCliente = value;
+                _ClieDNI = value;
             }
         }
 

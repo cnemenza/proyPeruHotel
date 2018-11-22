@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d81f5910-8fd2-4b06-a9b3-6a37a645df3e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioUbigeo/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="c34f5408-be6d-4451-9b71-7f1931fb69f5" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioUbigeo/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="54b7a3bc-9fa0-46ca-bf75-e789c14931a8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioUbigeo/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="72292da5-48ba-4652-8950-98c48b55f434" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioUbigeo/mex" />
+    <MetadataFile FileName="WCF_Hotel.xsd" MetadataType="Schema" ID="9c4e4053-4f88-4601-a33a-6e1b90438235" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioUbigeo/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

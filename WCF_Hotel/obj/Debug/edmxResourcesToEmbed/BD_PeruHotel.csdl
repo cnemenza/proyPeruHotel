@@ -460,7 +460,7 @@
     <FunctionImport Name="usp_RegistrarReserva">
       <Parameter Name="reser_fechaIngreso" Mode="In" Type="DateTime" />
       <Parameter Name="reser_fechaSalida" Mode="In" Type="DateTime" />
-      <Parameter Name="id_cliente" Mode="In" Type="String" />
+      <Parameter Name="clie_dni" Mode="In" Type="String" />
       <Parameter Name="id_Habitacion1" Mode="In" Type="String" />
       <Parameter Name="id_Habitacion2" Mode="In" Type="String" />
       <Parameter Name="id_Habitacion3" Mode="In" Type="String" />
