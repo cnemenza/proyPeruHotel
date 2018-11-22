@@ -17,4 +17,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetDetalleReservaHabitaciones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCod" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDetalleReservaHabitacionesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCF_Hotel" minOccurs="0" name="GetDetalleReservaHabitacionesResult" nillable="true" type="q2:ArrayOfdataReserva" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDetalleReservaServicio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCod" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDetalleReservaServicioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCF_Hotel" minOccurs="0" name="GetDetalleReservaServicioResult" nillable="true" type="q3:ArrayOfdataReserva" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

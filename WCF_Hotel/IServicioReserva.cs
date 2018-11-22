@@ -15,6 +15,11 @@ namespace WCF_Hotel
 
         List<dataReserva> ListarReservas(String strDNI,DateTime fecini, DateTime fecfin);
 
+        [OperationContract]
+        List<dataReserva> GetDetalleReservaHabitaciones(String strCod);
+        [OperationContract]
+        List<dataReserva> GetDetalleReservaServicio(String strCod);
+
     }
     [DataContract]
     [Serializable]
@@ -33,6 +38,18 @@ namespace WCF_Hotel
         private Single _monServicio;
         private Single _total;
         private String _estado;
+
+        //detalle servicio
+        private String _idServicio;
+        private String _serviNom;
+        private Single _serviPrecio;
+        private Single _cantidadServicio;
+
+        //detalle habitacion
+        private String _idHabitacion;
+        private String _tipoNombre;
+        private Single _tipoPrecio;
+        private String _habiNum;
 
         [DataMember]
         public string IdReserva
@@ -214,6 +231,110 @@ namespace WCF_Hotel
             set
             {
                 _estado = value;
+            }
+        }
+        [DataMember]
+        public string IdServicio
+        {
+            get
+            {
+                return _idServicio;
+            }
+
+            set
+            {
+                _idServicio = value;
+            }
+        }
+        [DataMember]
+        public string ServiNom
+        {
+            get
+            {
+                return _serviNom;
+            }
+
+            set
+            {
+                _serviNom = value;
+            }
+        }
+        [DataMember]
+        public float ServiPrecio
+        {
+            get
+            {
+                return _serviPrecio;
+            }
+
+            set
+            {
+                _serviPrecio = value;
+            }
+        }
+        [DataMember]
+        public float CantidadServicio
+        {
+            get
+            {
+                return _cantidadServicio;
+            }
+
+            set
+            {
+                _cantidadServicio = value;
+            }
+        }
+        [DataMember]
+        public string IdHabitacion
+        {
+            get
+            {
+                return _idHabitacion;
+            }
+
+            set
+            {
+                _idHabitacion = value;
+            }
+        }
+        [DataMember]
+        public string TipoNombre
+        {
+            get
+            {
+                return _tipoNombre;
+            }
+
+            set
+            {
+                _tipoNombre = value;
+            }
+        }
+        [DataMember]
+        public float TipoPrecio
+        {
+            get
+            {
+                return _tipoPrecio;
+            }
+
+            set
+            {
+                _tipoPrecio = value;
+            }
+        }
+        [DataMember]
+        public string HabiNum
+        {
+            get
+            {
+                return _habiNum;
+            }
+
+            set
+            {
+                _habiNum = value;
             }
         }
     }

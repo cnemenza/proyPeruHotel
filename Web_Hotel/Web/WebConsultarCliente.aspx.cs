@@ -38,6 +38,7 @@ public partial class Web_WebConsultarCliente : System.Web.UI.Page
                 lblCiudad.Text = objClienteBE.NomCiudad;
                 lblSexo.Text = objClienteBE.ClieSexo;
                 lblTelefono.Text = objClienteBE.ClieTelefono;
+                lbldni.Text = objClienteBE.ClieDni;
                 Image1.ImageUrl = "imagenes/Clientes/" + objClienteBE.IdCliente + ".jpg";
                 
             }

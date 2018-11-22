@@ -53,7 +53,7 @@
 
     <div class ="container mb-3">
         <div class="row">
-            <label for="IdTipo" class="col-sm-3 col-form-label ml-3">Ingrese DNI del Cliente</label>
+            <label for="IdTipo" class="col-sm-3 col-form-label ml-3">Ingrese Documento</label>
             <div class="col-sm-5">
                 <asp:TextBox ID="txtDni" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
@@ -102,6 +102,10 @@
                                 <asp:Label ID="Label11" runat="server" Text="Telefono"></asp:Label></h6>
                             <p class="card-text ml-2">
                                 <asp:Label ID="lblTelefono" runat="server" Text="Seleccione un tipo de "></asp:Label></p>
+                          <h6 class="card-subtitle mb-2 text-muted ml-2">
+                                <asp:Label ID="Label4" runat="server" Text="Documento"></asp:Label></h6>
+                            <p class="card-text ml-2">
+                                <asp:Label ID="lbldni" runat="server" Text="Seleccione un tipo de "></asp:Label></p>
                          
                                 
                    

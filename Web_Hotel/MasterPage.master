@@ -49,9 +49,9 @@
                           <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="
                                             margin-left: 200px;">
                             <div class="navbar-nav">
-                              <a class="nav-item nav-link hoveractive" href="WebConsultarHabitaciones.aspx">Habitaciones Disponibles</a>
-                              <a class="nav-item nav-link hoveractive" href="WebConsultarReservas.aspx">Reservas por cliente</a>
-                               <a class="nav-item nav-link hoveractive" href="WebConsultarCliente.aspx">Consultar Cliente</a>
+                              <a class="nav-item nav-link hoveractive" href="WebRegistrarCliente.aspx">Registrar Cliente</a>
+                              <a class="nav-item nav-link hoveractive" href="WebConsultarCliente.aspx">Consultar Cliente</a>
+                               <a class="nav-item nav-link hoveractive" href="WebConsultarReservas.aspx">Consultar Reservas</a>
     
                             </div>
                           </div>
