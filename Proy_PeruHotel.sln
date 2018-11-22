@@ -57,6 +57,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Web_Hotel", "Web_Hotel\", "
 		{76986E39-DF56-4A1C-8FC5-5CE827D3BFA2} = {76986E39-DF56-4A1C-8FC5-5CE827D3BFA2}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows_Hotel", "Windows_Hotel\Windows_Hotel.csproj", "{EB5CB46E-F95F-42B5-A047-17340F38AFDD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{76986E39-DF56-4A1C-8FC5-5CE827D3BFA2} = {76986E39-DF56-4A1C-8FC5-5CE827D3BFA2}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +84,10 @@ Global
 		{E2BB922F-8BFF-4EBF-9FED-62495799CDAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2BB922F-8BFF-4EBF-9FED-62495799CDAE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2BB922F-8BFF-4EBF-9FED-62495799CDAE}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{EB5CB46E-F95F-42B5-A047-17340F38AFDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB5CB46E-F95F-42B5-A047-17340F38AFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB5CB46E-F95F-42B5-A047-17340F38AFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB5CB46E-F95F-42B5-A047-17340F38AFDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

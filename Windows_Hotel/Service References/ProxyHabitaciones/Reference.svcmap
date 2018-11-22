@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="10340bf9-39c0-429a-8056-289296a43cfe" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioHabitacion/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e8fa33d7-4ba7-40dd-87d6-79882e5cafe3" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioHabitacion/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="3ee57fb5-451f-4c6e-a422-14dd43c43526" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioHabitacion/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="51845ba3-f2f8-4031-863c-5ae97d0569fa" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioHabitacion/mex" />
+    <MetadataFile FileName="WCF_Hotel.xsd" MetadataType="Schema" ID="90b3b285-8f6f-49a0-8cff-c6cd448ae92d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioHabitacion/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

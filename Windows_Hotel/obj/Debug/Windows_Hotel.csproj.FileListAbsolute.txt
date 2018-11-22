@@ -1,0 +1,10 @@
+C:\Christian\proyPeruHotel\Windows_Hotel\bin\Debug\Windows_Hotel.exe.config
+C:\Christian\proyPeruHotel\Windows_Hotel\bin\Debug\Windows_Hotel.exe
+C:\Christian\proyPeruHotel\Windows_Hotel\bin\Debug\Windows_Hotel.pdb
+C:\Christian\proyPeruHotel\Windows_Hotel\obj\Debug\Windows_Hotel.csprojResolveAssemblyReference.cache
+C:\Christian\proyPeruHotel\Windows_Hotel\obj\Debug\Windows_Hotel.Form1.resources
+C:\Christian\proyPeruHotel\Windows_Hotel\obj\Debug\Windows_Hotel.Properties.Resources.resources
+C:\Christian\proyPeruHotel\Windows_Hotel\obj\Debug\Windows_Hotel.csproj.GenerateResource.Cache
+C:\Christian\proyPeruHotel\Windows_Hotel\obj\Debug\Windows_Hotel.exe
+C:\Christian\proyPeruHotel\Windows_Hotel\obj\Debug\Windows_Hotel.pdb
+C:\Christian\proyPeruHotel\Windows_Hotel\obj\Debug\Windows_Hotel.FrmIncio.resources
