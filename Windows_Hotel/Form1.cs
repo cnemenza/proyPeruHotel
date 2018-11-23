@@ -89,11 +89,13 @@ namespace Windows_Hotel
             try
             {
                 objRegistro.ClieDni = documento;
-                objRegistro.IdHabi1 = lblHabi1.Text;
-                objRegistro.IdHabi2 = lblHabi2.Text;
-                objRegistro.IdHabi3 = lblHabi3.Text;
+
+                objRegistro.IdHabi1 = (lblHabi3.Text.Equals("habi"))? null : lblHabi3.Text;
+                objRegistro.IdHabi2 = (lblHabi2.Text.Equals("habi")) ? null : lblHabi2.Text;
+                objRegistro.IdHabi3 = (lblHabi1.Text.Equals("habi")) ? null : lblHabi1.Text;
                 objRegistro.ReserFechaIngreso = fecini;
                 objRegistro.ReserFechaSalida = fecfin;
+                
                 if (objServiRegistro.RegistroReserva(objRegistro))
                 {
                     MessageBox.Show("Reserva Exitosa");

@@ -28,9 +28,6 @@ namespace WCF_Hotel
                 String statusHabi3 = (from objHabi in MiHotel.HABITACION
                                       where objHabi.id_habitacion == objReserva.IdHabi1
                                       select objHabi.habi_estado).FirstOrDefault();*/
-
-
-
                 
                     MiHotel.usp_RegistrarReserva(objReserva.ReserFechaIngreso, objReserva.ReserFechaSalida, objReserva.ClieDni, objReserva.IdHabi1
                     , objReserva.IdHabi2, objReserva.IdHabi3);

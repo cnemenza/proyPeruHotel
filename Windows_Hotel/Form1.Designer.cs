@@ -167,9 +167,9 @@
             this.lblHabi1.AutoSize = true;
             this.lblHabi1.Location = new System.Drawing.Point(1038, 182);
             this.lblHabi1.Name = "lblHabi1";
-            this.lblHabi1.Size = new System.Drawing.Size(13, 13);
+            this.lblHabi1.Size = new System.Drawing.Size(27, 13);
             this.lblHabi1.TabIndex = 1;
-            this.lblHabi1.Text = "0";
+            this.lblHabi1.Text = "habi";
             this.lblHabi1.Visible = false;
             // 
             // lblPrecio1
@@ -187,9 +187,9 @@
             this.lblHabi2.AutoSize = true;
             this.lblHabi2.Location = new System.Drawing.Point(1038, 150);
             this.lblHabi2.Name = "lblHabi2";
-            this.lblHabi2.Size = new System.Drawing.Size(35, 13);
+            this.lblHabi2.Size = new System.Drawing.Size(27, 13);
             this.lblHabi2.TabIndex = 3;
-            this.lblHabi2.Text = "label3";
+            this.lblHabi2.Text = "habi";
             this.lblHabi2.Visible = false;
             // 
             // lblPrecio2
@@ -207,9 +207,9 @@
             this.lblHabi3.AutoSize = true;
             this.lblHabi3.Location = new System.Drawing.Point(1038, 122);
             this.lblHabi3.Name = "lblHabi3";
-            this.lblHabi3.Size = new System.Drawing.Size(24, 13);
+            this.lblHabi3.Size = new System.Drawing.Size(27, 13);
             this.lblHabi3.TabIndex = 5;
-            this.lblHabi3.Text = "asd";
+            this.lblHabi3.Text = "habi";
             this.lblHabi3.Visible = false;
             // 
             // lblPrecio3
