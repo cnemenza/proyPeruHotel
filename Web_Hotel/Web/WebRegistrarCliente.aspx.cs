@@ -71,4 +71,5 @@ public partial class Web_WebRegistrarCliente : System.Web.UI.Page
     {
         DivRespuesta.Attributes["class"] = "d-none";
     }
+
 }

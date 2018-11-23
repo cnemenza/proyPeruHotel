@@ -3,33 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Web_PeruHotel", "Web_PeruHotel\", "{341B3AE1-2B8E-47CE-96CC-DF8EA4ABA34C}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_50229"
-		Debug.AspNetCompiler.PhysicalPath = "Web_PeruHotel\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50229\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_50229"
-		Release.AspNetCompiler.PhysicalPath = "Web_PeruHotel\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50229\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "50229"
-		SlnRelativePath = "Web_PeruHotel\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
-	ProjectSection(ProjectDependencies) = postProject
-		{07C210F5-D558-4103-9237-6ECBAD8363A8} = {07C210F5-D558-4103-9237-6ECBAD8363A8}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF_PeruHotel", "WCF_PeruHotel\WCF_PeruHotel.csproj", "{07C210F5-D558-4103-9237-6ECBAD8363A8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF_Hotel", "WCF_Hotel\WCF_Hotel.csproj", "{76986E39-DF56-4A1C-8FC5-5CE827D3BFA2}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Web_Hotel", "Web_Hotel\", "{E2BB922F-8BFF-4EBF-9FED-62495799CDAE}"
@@ -68,14 +41,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{341B3AE1-2B8E-47CE-96CC-DF8EA4ABA34C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{341B3AE1-2B8E-47CE-96CC-DF8EA4ABA34C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{341B3AE1-2B8E-47CE-96CC-DF8EA4ABA34C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{341B3AE1-2B8E-47CE-96CC-DF8EA4ABA34C}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{07C210F5-D558-4103-9237-6ECBAD8363A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07C210F5-D558-4103-9237-6ECBAD8363A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07C210F5-D558-4103-9237-6ECBAD8363A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07C210F5-D558-4103-9237-6ECBAD8363A8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{76986E39-DF56-4A1C-8FC5-5CE827D3BFA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{76986E39-DF56-4A1C-8FC5-5CE827D3BFA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76986E39-DF56-4A1C-8FC5-5CE827D3BFA2}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <h2 class="mt-4 mb-4">Registro de Clientes</h2>
-      
+        
 
          <div class="alert alert-danger" role="alert" runat="server" id="DivRespuesta">
          <asp:Label ID="txtRespuesta" runat="server" Text=""></asp:Label>
@@ -172,8 +172,7 @@
                     </div>
                
                     <div class="col-2">
-                       
-                        <asp:LinkButton ID="btnCerrarModal" runat="server" CssClass="btn btn-dark" PostBackUrl="~/Web/WebConsultarCliente.aspx">Cerrar</asp:LinkButton>
+                        <a class="btn btn-dark" href="WebConsultarCliente.aspx">Cerrar</a>     
                     </div>
 
                 </div>
