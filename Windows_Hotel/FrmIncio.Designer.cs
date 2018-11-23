@@ -32,17 +32,19 @@
             this.lbl2 = new System.Windows.Forms.Label();
             this.txtFecini = new System.Windows.Forms.TextBox();
             this.txtFecFin = new System.Windows.Forms.TextBox();
-            this.txtNumero = new System.Windows.Forms.TextBox();
             this.lbl3 = new System.Windows.Forms.Label();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDocumento = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNumero = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumero)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl1
             // 
             this.lbl1.AutoSize = true;
-            this.lbl1.Location = new System.Drawing.Point(64, 51);
+            this.lbl1.Location = new System.Drawing.Point(65, 97);
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(92, 13);
             this.lbl1.TabIndex = 1;
@@ -51,7 +53,7 @@
             // lbl2
             // 
             this.lbl2.AutoSize = true;
-            this.lbl2.Location = new System.Drawing.Point(64, 78);
+            this.lbl2.Location = new System.Drawing.Point(65, 126);
             this.lbl2.Name = "lbl2";
             this.lbl2.Size = new System.Drawing.Size(69, 13);
             this.lbl2.TabIndex = 2;
@@ -59,29 +61,22 @@
             // 
             // txtFecini
             // 
-            this.txtFecini.Location = new System.Drawing.Point(185, 44);
+            this.txtFecini.Location = new System.Drawing.Point(194, 97);
             this.txtFecini.Name = "txtFecini";
             this.txtFecini.Size = new System.Drawing.Size(100, 20);
-            this.txtFecini.TabIndex = 3;
+            this.txtFecini.TabIndex = 2;
             // 
             // txtFecFin
             // 
-            this.txtFecFin.Location = new System.Drawing.Point(185, 74);
+            this.txtFecFin.Location = new System.Drawing.Point(194, 123);
             this.txtFecFin.Name = "txtFecFin";
             this.txtFecFin.Size = new System.Drawing.Size(100, 20);
-            this.txtFecFin.TabIndex = 4;
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.Location = new System.Drawing.Point(185, 107);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(100, 20);
-            this.txtNumero.TabIndex = 5;
+            this.txtFecFin.TabIndex = 3;
             // 
             // lbl3
             // 
             this.lbl3.AutoSize = true;
-            this.lbl3.Location = new System.Drawing.Point(64, 107);
+            this.lbl3.Location = new System.Drawing.Point(65, 153);
             this.lbl3.Name = "lbl3";
             this.lbl3.Size = new System.Drawing.Size(90, 13);
             this.lbl3.TabIndex = 6;
@@ -89,7 +84,7 @@
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(130, 187);
+            this.btnSiguiente.Location = new System.Drawing.Point(141, 194);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
             this.btnSiguiente.TabIndex = 7;
@@ -100,7 +95,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 18);
+            this.label1.Location = new System.Drawing.Point(65, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 8;
@@ -108,21 +103,55 @@
             // 
             // txtDocumento
             // 
-            this.txtDocumento.Location = new System.Drawing.Point(185, 18);
+            this.txtDocumento.Location = new System.Drawing.Point(194, 71);
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(100, 20);
-            this.txtDocumento.TabIndex = 9;
+            this.txtDocumento.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(76, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(206, 25);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Registro de Reserva";
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.Location = new System.Drawing.Point(194, 153);
+            this.txtNumero.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.txtNumero.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(100, 20);
+            this.txtNumero.TabIndex = 10;
+            this.txtNumero.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // FrmIncio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(369, 245);
+            this.Controls.Add(this.txtNumero);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.lbl3);
-            this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.txtFecFin);
             this.Controls.Add(this.txtFecini);
             this.Controls.Add(this.lbl2);
@@ -130,6 +159,7 @@
             this.Name = "FrmIncio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmIncio";
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumero)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,10 +171,11 @@
         private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.TextBox txtFecini;
         private System.Windows.Forms.TextBox txtFecFin;
-        private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.Label lbl3;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDocumento;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown txtNumero;
     }
 }

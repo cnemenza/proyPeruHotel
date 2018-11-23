@@ -35,23 +35,28 @@ namespace Windows_Hotel
                         case 3:
                             lblHabi1.Text = grvDatos.Rows[e.RowIndex].Cells[0].Value.ToString();
                             lblPrecio1.Text = grvDatos.Rows[e.RowIndex].Cells[8].Value.ToString();
+                            groupDetalle.Visible = true;
                             lblHabi1.Visible = true;
                             lblPrecio1.Visible = true; 
                             break;
                         case 2:
                             lblHabi2.Text = grvDatos.Rows[e.RowIndex].Cells[0].Value.ToString();
                             lblPrecio2.Text = grvDatos.Rows[e.RowIndex].Cells[8].Value.ToString();
+                            groupDetalle.Visible = true;
                             lblHabi2.Visible = true;
                             lblPrecio2.Visible = true;
                             break;
                         case 1:
                             lblHabi3.Text = grvDatos.Rows[e.RowIndex].Cells[0].Value.ToString();
                             lblPrecio3.Text = grvDatos.Rows[e.RowIndex].Cells[8].Value.ToString();
+                            groupDetalle.Visible = true;
                             lblHabi3.Visible = true;
                             lblPrecio3.Visible = true;
                             Single total = Convert.ToSingle(lblPrecio1.Text) + Convert.ToSingle(lblPrecio2.Text) +
                                 Convert.ToSingle(lblPrecio3.Text);
                             lblTotal.Text = total.ToString();
+                            lblTot1.Visible = true;
+                            lblTot2.Visible = true;
                             lblTotal.Visible = true;
                             break;    
                     }
@@ -98,7 +103,8 @@ namespace Windows_Hotel
                 
                 if (objServiRegistro.RegistroReserva(objRegistro))
                 {
-                    MessageBox.Show("Reserva Exitosa");
+                    MessageBox.Show("Se registro la reserva exitosamente");
+                    this.Close();
                 }
                 else
                 {
@@ -114,6 +120,16 @@ namespace Windows_Hotel
                 MessageBox.Show(ex.Message);
             }
            
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
