@@ -1,0 +1,6 @@
+C:\Christian\proyPeruHotel\CapaAccesoServicios\bin\Debug\CapaAccesoServicios.dll.config
+C:\Christian\proyPeruHotel\CapaAccesoServicios\bin\Debug\CapaAccesoServicios.dll
+C:\Christian\proyPeruHotel\CapaAccesoServicios\bin\Debug\CapaAccesoServicios.pdb
+C:\Christian\proyPeruHotel\CapaAccesoServicios\obj\Debug\CapaAccesoServicios.csprojResolveAssemblyReference.cache
+C:\Christian\proyPeruHotel\CapaAccesoServicios\obj\Debug\CapaAccesoServicios.dll
+C:\Christian\proyPeruHotel\CapaAccesoServicios\obj\Debug\CapaAccesoServicios.pdb

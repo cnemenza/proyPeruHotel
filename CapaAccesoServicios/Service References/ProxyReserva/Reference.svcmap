@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b9b2bc99-9df1-4102-8016-09f62b9734a9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioReserva/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="30d35c5f-1749-4f1f-a6cb-bd7da184fed8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioReserva/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="03fea097-99be-4e19-a455-4a0cb5360ddb" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioReserva/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="b30c44fc-a56f-4d75-a418-6822d2b4920d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioReserva/mex" />
+    <MetadataFile FileName="WCF_Hotel.xsd" MetadataType="Schema" ID="59d51907-25f1-4276-96ab-1abe39b0e1a5" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioReserva/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -8,3 +8,7 @@ C:\Christian\proyPeruHotel\Windows_Hotel\obj\Debug\Windows_Hotel.csproj.Generate
 C:\Christian\proyPeruHotel\Windows_Hotel\obj\Debug\Windows_Hotel.exe
 C:\Christian\proyPeruHotel\Windows_Hotel\obj\Debug\Windows_Hotel.pdb
 C:\Christian\proyPeruHotel\Windows_Hotel\obj\Debug\Windows_Hotel.FrmIncio.resources
+C:\Christian\proyPeruHotel\Windows_Hotel\bin\Debug\CapaAccesoServicios.dll
+C:\Christian\proyPeruHotel\Windows_Hotel\bin\Debug\CapaEntidad.dll
+C:\Christian\proyPeruHotel\Windows_Hotel\bin\Debug\CapaAccesoServicios.pdb
+C:\Christian\proyPeruHotel\Windows_Hotel\bin\Debug\CapaEntidad.pdb

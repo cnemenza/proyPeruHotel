@@ -4,14 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CapaAccesoServicios;
+using CapaEntidad;
 
 public partial class Web_WebRegistrarCliente : System.Web.UI.Page
 {
-    ProxyCliente.ServicioClienteClient objServicioCliente = new ProxyCliente.ServicioClienteClient();
-    ProxyCliente.DataCliente objClienteBE = new ProxyCliente.DataCliente();
 
-    ProxyUbigeo.ServicioUbigeoClient objServicioUbigeo = new ProxyUbigeo.ServicioUbigeoClient();
-    ProxyUbigeo.dataUbigeo objUbigeoBE = new ProxyUbigeo.dataUbigeo();
+    ServicioCliente objServicioCliente = new ServicioCliente();
+    ServicioUbigeo objServicioUbigeo = new ServicioUbigeo();
+  
     protected void Page_Load(object sender, EventArgs e)
     {
         ocultarDiv();
@@ -24,7 +25,7 @@ public partial class Web_WebRegistrarCliente : System.Web.UI.Page
             if (txtClave.Text.Equals(txtValidarClave.Text))
             {
                 String ubigeo = ControlWeb1.TotalUbigeo.ToString();
-
+                CapaAccesoServicios.ProxyCliente.DataCliente objClienteBE = new CapaAccesoServicios.ProxyCliente.DataCliente();
                 objClienteBE.ClieCodigo = txtCodigo.Text;
                 objClienteBE.ClieNom = txtNombre.Text;
                 objClienteBE.ClieApePater = txtApePater.Text;

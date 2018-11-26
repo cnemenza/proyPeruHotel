@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaAccesoServicios;
 
 namespace Windows_Hotel
 {
     public partial class FrmIncio : Form
     {
+        ServicioCliente objServicioCliente = new ServicioCliente();
         public FrmIncio()
         {
             InitializeComponent();
@@ -23,25 +25,35 @@ namespace Windows_Hotel
             DateTime fecfin = Convert.ToDateTime(txtFecFin.Text);
             try
             {
-                if (Convert.ToInt16(txtNumero.Text) <= 3)
+                var objClienteBE = objServicioCliente.GetCliente(txtDocumento.Text);
+                if (objClienteBE.ClieDni != null)
                 {
-                    if (fecfin < fecini | fecini<DateTime.Today)
+                    if (Convert.ToInt16(txtNumero.Text) <= 3)
                     {
-                        MessageBox.Show("Debe eligir un parametro de fechas adecuado", "Error");
-                    }else
+                        if (fecfin < fecini | fecini < DateTime.Today)
+                        {
+                            MessageBox.Show("Debe eligir un parametro de fechas adecuado", "Error");
+                        }
+                        else
+                        {
+                            Form1 form = new Form1();
+                            form.contadorHabitaciones = Convert.ToInt16(txtNumero.Text);
+                            form.fecini = fecini;
+                            form.fecfin = fecfin;
+                            form.documento = txtDocumento.Text;
+                            form.Show();
+                        }
+                    }
+                    else
                     {
-                        Form1 form = new Form1();
-                        form.contadorHabitaciones = Convert.ToInt16(txtNumero.Text);
-                        form.fecini = fecini;
-                        form.fecfin = fecfin;
-                        form.documento = txtDocumento.Text;
-                        form.Show();
-                    }  
+                        MessageBox.Show("El numero maximo de habitaciones es 3");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("El numero maximo de habitaciones es 3");
+                    MessageBox.Show("No se encuentra el documento");
                 }
+               
                 
             }
             catch (Exception ex)

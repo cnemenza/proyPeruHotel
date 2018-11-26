@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d1a56536-eadb-408a-b0fb-0cc1244d89ee" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioUbigeo/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="ebd2e69d-d524-45ad-9308-ca509feab253" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioUbigeo/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="cc4e8f1b-260f-422b-b0e4-d07b91915e31" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioUbigeo/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="96a7ae15-fe17-4515-b131-556a9739e732" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioUbigeo/mex" />
+    <MetadataFile FileName="WCF_Hotel1.xsd" MetadataType="Schema" ID="6ce4c88c-844b-49ac-839e-4468a80d963a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Hotel/ServicioUbigeo/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

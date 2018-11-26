@@ -62,16 +62,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ProxyHabitaciones\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\ProxyRegistroReserva\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -96,63 +86,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\ProxyHabitaciones\service.wsdl" />
-    <None Include="Service References\ProxyHabitaciones\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProxyHabitaciones\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProxyHabitaciones\WCF_Hotel.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProxyHabitaciones\Windows_Hotel.ProxyHabitaciones.dataHabitacion.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ProxyRegistroReserva\service.wsdl" />
-    <None Include="Service References\ProxyRegistroReserva\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProxyRegistroReserva\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProxyRegistroReserva\WCF_Hotel.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ProxyHabitaciones\" />
-    <WCFMetadataStorage Include="Service References\ProxyRegistroReserva\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ProxyHabitaciones\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ProxyHabitaciones\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ProxyHabitaciones\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ProxyRegistroReserva\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ProxyRegistroReserva\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ProxyRegistroReserva\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\CapaAccesoServicios\CapaAccesoServicios.csproj">
+      <Project>{f81cd152-f877-4ef5-8b0b-3d977a8ef774}</Project>
+      <Name>CapaAccesoServicios</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
+      <Project>{439db73c-c071-45af-b6b8-a10795c4d6f3}</Project>
+      <Name>CapaEntidad</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

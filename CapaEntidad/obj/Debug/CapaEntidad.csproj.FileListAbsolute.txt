@@ -1,0 +1,4 @@
+C:\Christian\proyPeruHotel\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Christian\proyPeruHotel\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Christian\proyPeruHotel\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Christian\proyPeruHotel\CapaEntidad\obj\Debug\CapaEntidad.pdb

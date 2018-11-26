@@ -175,7 +175,7 @@
             // 
             // dataHabitacionBindingSource
             // 
-            this.dataHabitacionBindingSource.DataSource = typeof(Windows_Hotel.ProxyHabitaciones.dataHabitacion);
+            this.dataHabitacionBindingSource.DataSource = typeof(CapaAccesoServicios.ProxyHabitacion.dataHabitacion);
             // 
             // lblHabi1
             // 

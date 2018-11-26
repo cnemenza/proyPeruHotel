@@ -8,6 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Web_Hotel", "Web_Hotel\", "{E2BB922F-8BFF-4EBF-9FED-62495799CDAE}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{f81cd152-f877-4ef5-8b0b-3d977a8ef774}|CapaAccesoServicios.dll;{439db73c-c071-45af-b6b8-a10795c4d6f3}|CapaEntidad.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_54037"
 		Debug.AspNetCompiler.PhysicalPath = "Web_Hotel\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54037\"
@@ -35,6 +36,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows_Hotel", "Windows_Ho
 		{76986E39-DF56-4A1C-8FC5-5CE827D3BFA2} = {76986E39-DF56-4A1C-8FC5-5CE827D3BFA2}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaAccesoServicios", "CapaAccesoServicios\CapaAccesoServicios.csproj", "{F81CD152-F877-4EF5-8B0B-3D977A8EF774}"
+	ProjectSection(ProjectDependencies) = postProject
+		{76986E39-DF56-4A1C-8FC5-5CE827D3BFA2} = {76986E39-DF56-4A1C-8FC5-5CE827D3BFA2}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaEntidad", "CapaEntidad\CapaEntidad.csproj", "{439DB73C-C071-45AF-B6B8-A10795C4D6F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +61,14 @@ Global
 		{EB5CB46E-F95F-42B5-A047-17340F38AFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB5CB46E-F95F-42B5-A047-17340F38AFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB5CB46E-F95F-42B5-A047-17340F38AFDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F81CD152-F877-4EF5-8B0B-3D977A8EF774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F81CD152-F877-4EF5-8B0B-3D977A8EF774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F81CD152-F877-4EF5-8B0B-3D977A8EF774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F81CD152-F877-4EF5-8B0B-3D977A8EF774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{439DB73C-C071-45AF-B6B8-A10795C4D6F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{439DB73C-C071-45AF-B6B8-A10795C4D6F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{439DB73C-C071-45AF-B6B8-A10795C4D6F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{439DB73C-C071-45AF-B6B8-A10795C4D6F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

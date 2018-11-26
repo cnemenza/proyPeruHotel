@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CapaAccesoServicios;
 
 public partial class Web_WebConsultarReservas : System.Web.UI.Page
 {
-    ProxyReserva.ServicioReservaClient objServicioReserva = new ProxyReserva.ServicioReservaClient();
-    ProxyCliente.ServicioClienteClient objServicioCliente = new ProxyCliente.ServicioClienteClient();
+    ServicioReserva objServicioReserva = new ServicioReserva();
+    ServicioCliente objServicioCliente = new ServicioCliente();
 
-    ProxyReserva.dataReserva objReser = new ProxyReserva.dataReserva();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)

@@ -4,11 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CapaAccesoServicios;
 
 public partial class Controles_web_WebControl_Ubigeo : System.Web.UI.UserControl
 {
-    ProxyUbigeo.ServicioUbigeoClient objServicioUbigeo = new ProxyUbigeo.ServicioUbigeoClient();
-    ProxyUbigeo.dataUbigeo objUbi = new ProxyUbigeo.dataUbigeo();
+    ServicioUbigeo objServicioUbigeo = new ServicioUbigeo();
+    CapaAccesoServicios.ProxyUbigeo.dataUbigeo objUbi = new CapaAccesoServicios.ProxyUbigeo.dataUbigeo();
 
     private String mvarIdUbigeo;
     public String TotalUbigeo

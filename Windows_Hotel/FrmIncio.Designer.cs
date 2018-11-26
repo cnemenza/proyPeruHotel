@@ -30,14 +30,14 @@
         {
             this.lbl1 = new System.Windows.Forms.Label();
             this.lbl2 = new System.Windows.Forms.Label();
-            this.txtFecini = new System.Windows.Forms.TextBox();
-            this.txtFecFin = new System.Windows.Forms.TextBox();
             this.lbl3 = new System.Windows.Forms.Label();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDocumento = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNumero = new System.Windows.Forms.NumericUpDown();
+            this.txtFecini = new System.Windows.Forms.DateTimePicker();
+            this.txtFecFin = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumero)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,20 +58,6 @@
             this.lbl2.Size = new System.Drawing.Size(69, 13);
             this.lbl2.TabIndex = 2;
             this.lbl2.Text = "Fecha Salida";
-            // 
-            // txtFecini
-            // 
-            this.txtFecini.Location = new System.Drawing.Point(194, 97);
-            this.txtFecini.Name = "txtFecini";
-            this.txtFecini.Size = new System.Drawing.Size(100, 20);
-            this.txtFecini.TabIndex = 2;
-            // 
-            // txtFecFin
-            // 
-            this.txtFecFin.Location = new System.Drawing.Point(194, 123);
-            this.txtFecFin.Name = "txtFecFin";
-            this.txtFecFin.Size = new System.Drawing.Size(100, 20);
-            this.txtFecFin.TabIndex = 3;
             // 
             // lbl3
             // 
@@ -141,19 +127,35 @@
             0,
             0});
             // 
+            // txtFecini
+            // 
+            this.txtFecini.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFecini.Location = new System.Drawing.Point(194, 97);
+            this.txtFecini.Name = "txtFecini";
+            this.txtFecini.Size = new System.Drawing.Size(100, 20);
+            this.txtFecini.TabIndex = 11;
+            // 
+            // txtFecFin
+            // 
+            this.txtFecFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFecFin.Location = new System.Drawing.Point(194, 125);
+            this.txtFecFin.Name = "txtFecFin";
+            this.txtFecFin.Size = new System.Drawing.Size(100, 20);
+            this.txtFecFin.TabIndex = 12;
+            // 
             // FrmIncio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(369, 245);
+            this.Controls.Add(this.txtFecFin);
+            this.Controls.Add(this.txtFecini);
             this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.lbl3);
-            this.Controls.Add(this.txtFecFin);
-            this.Controls.Add(this.txtFecini);
             this.Controls.Add(this.lbl2);
             this.Controls.Add(this.lbl1);
             this.Name = "FrmIncio";
@@ -169,13 +171,13 @@
 
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label lbl2;
-        private System.Windows.Forms.TextBox txtFecini;
-        private System.Windows.Forms.TextBox txtFecFin;
         private System.Windows.Forms.Label lbl3;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDocumento;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown txtNumero;
+        private System.Windows.Forms.DateTimePicker txtFecini;
+        private System.Windows.Forms.DateTimePicker txtFecFin;
     }
 }

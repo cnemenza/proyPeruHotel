@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaAccesoServicios;
 
 namespace Windows_Hotel
 {
     public partial class Form1 : Form
     {
-        ProxyHabitaciones.ServicioHabitacionClient objServiHabitaciones = new ProxyHabitaciones.ServicioHabitacionClient();
-        ProxyRegistroReserva.ServicioRegistroReservaClient objServiRegistro = new ProxyRegistroReserva.ServicioRegistroReservaClient();
-        ProxyRegistroReserva.DataRegistro objRegistro = new ProxyRegistroReserva.DataRegistro();
+
+        ServicioHabitacion objServiHabitaciones = new ServicioHabitacion();
+        ServicioRegistroReserva objServiRegistro = new ServicioRegistroReserva();
+        CapaAccesoServicios.ProxyRegistroReserva.DataRegistro objRegistro = new CapaAccesoServicios.ProxyRegistroReserva.DataRegistro();
+
         public int contadorHabitaciones;
         public DateTime fecini;
         public DateTime fecfin;

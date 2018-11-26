@@ -17,6 +17,7 @@ namespace WCF_Hotel
 
             try
             {
+
                 //Obtenemos con LINQ el registro a consultar
                 vw_VistaCliente objCliente = (from obj in MiHotel.vw_VistaCliente
                                               where obj.clie_dni == strDni
@@ -42,7 +43,7 @@ namespace WCF_Hotel
             }
             catch (Exception ex)
             {
-                throw new Exception (ex.Message);
+                objClienteBE.IdCliente = null;
             }
             return objClienteBE;
         }
