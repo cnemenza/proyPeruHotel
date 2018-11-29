@@ -15,6 +15,7 @@
         <asp:ImageButton ID="btnFecIni" runat="server" ImageUrl="~/Web/imagenes/calendar.png" Height="40" Width="40" />
     <div class="col-sm-3">
          <asp:TextBox ID="txtFecIni" CssClass="form-control" runat="server"></asp:TextBox>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFecFin" ErrorMessage="Obligatorio" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtFecIni" PopupButtonID="btnFecIni"/>
 
     </div>
@@ -24,6 +25,7 @@
         <asp:ImageButton ID="btnFecFin" runat="server" ImageUrl="~/Web/imagenes/calendar.png" Height="40" Width="40" />
     <div class="col-sm-3">
          <asp:TextBox ID="txtFecFin" CssClass="form-control" runat="server"></asp:TextBox>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFecFin" ErrorMessage="Obligatorio" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
         <cc1:CalendarExtender ID="CalendarExtender3" runat="server" TargetControlID="txtFecFin" PopupButtonID="btnFecFin"/>
         
     </div>
@@ -34,6 +36,7 @@
         <label for="IdTipo" class="col-sm-3 col-form-label ml-3">Numero Dni</label>
     <div class="col-sm-3">
         <asp:TextBox ID="txtDni" CssClass="form-control" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtDni" ErrorMessage="Obligatorio" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
     </div>
     <div class="col-sm-2">
         <asp:Button ID="btnConsultar" CssClass="btn btn-warning" runat="server" Text="Consultar" OnClick="btnConsultar_Click" />

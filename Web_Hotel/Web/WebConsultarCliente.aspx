@@ -54,11 +54,21 @@
         <div class="row">
             <label for="IdTipo" class="col-sm-3 col-form-label ml-3">Ingrese Documento</label>
             <div class="col-sm-5">
-                <asp:TextBox ID="txtDni" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtDni" CssClass="form-control" runat="server" ControlToValidate="txtDni"></asp:TextBox>
             </div>
             <div class="col-sm-2">
                  <asp:Button ID="Button2" runat="server" OnClick="Button1_Click" Text="Consultar" CssClass=" btn btn-warning" />
             </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+            
+            </div>
+            <div class="col-sm-5 ml-4">
+                <small>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo se permite numeros" ControlToValidate="txtDni" ForeColor="Red" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator></small>
+            </div>
+
         </div>
         
     </div>
